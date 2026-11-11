@@ -1,0 +1,32 @@
+# Runs on every pull request to main (and on pushes to main).
+# Required to pass before a PR can be merged (see branch protection on main).
+name: Build
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Same build Netlify runs: reads netlify.toml (publish folder, headers,
+      # redirects) and fails if the config is broken or the publish folder is missing.
+      - name: Netlify build
+        run: npx -y netlify-cli@27.15.0 build --offline
+
+      # Every page, image, and #jump link inside the site must exist.
+      # (Outside websites aren't checked here; they can be flaky. Use the
+      # check-links skill for those.)
+      - name: Check internal links
+        run: python3 .claude/skills/check-links/check_links.py --internal-only

@@ -61,10 +61,11 @@ Never commit straight to `main`. Always:
 2. **Make the changes** and check them locally if useful (open the HTML in a browser, or run a local preview).
 3. **Commit** with a short, clear message describing the change.
 4. **Push and open a pull request** to `main` with `gh pr create`. Write the PR description in plain language.
-5. **Wait for Netlify's checks.** Use `gh pr checks <number> --watch` to see when the Netlify build and Deploy Preview finish. Share the preview link with Brie.
-6. **Tell Brie when it's ready.** It's ready to merge when: the Netlify build passed, Brie has looked at the preview and is happy, and nothing else is pending.
-7. **Merge when she says yes**: `gh pr merge <number> --squash --delete-branch`, then switch back to `main` and `git pull`.
-8. Confirm the live site updated.
+5. **Check links** if the change added or edited any links or images: use the `check-links` skill (`python3 .claude/skills/check-links/check_links.py`). Fix anything broken before calling it ready.
+6. **Wait for Netlify's checks.** Use `gh pr checks <number> --watch` to see when the Netlify build and Deploy Preview finish. Share the preview link with Brie.
+7. **Tell Brie when it's ready.** It's ready to merge when: the Netlify build passed, Brie has looked at the preview and is happy, and nothing else is pending.
+8. **Merge when she says yes**: `gh pr merge <number> --squash --delete-branch`, then switch back to `main` and `git pull`.
+9. Confirm the live site updated.
 
 Explaining this to Brie: a *branch* is a separate draft copy of the site; a *pull request* is asking to add that draft into the real site; *merging* makes it live.
 
