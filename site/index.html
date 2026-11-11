@@ -819,6 +819,23 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero .act-card.primary:hover{background:#F06A2A}
 .hero .act-card:not(.primary):not(.third) .act-n{background:var(--yellow);color:#0B0B0B}
 @media(max-width:760px){.hero .actions{grid-template-columns:1fr}}
+/* ===== Hero pass 3: one dominant action, pressable cards, bigger number hooks ===== */
+.hero h1 .num{font-size:1.3em;line-height:1;vertical-align:-.06em;box-shadow:4px 4px 0 #0B0B0B}
+.hero .hero-sub{font-weight:600;margin-top:8px}
+.hero .actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.hero .act-card{transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease;background:rgba(255,255,255,.05)}
+.hero .act-card:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #0B0B0B}
+.hero .act-card:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.hero .act-card.primary{grid-column:1/-1;padding:22px 26px;box-shadow:6px 6px 0 #0B0B0B}
+.hero .act-card.primary:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 #0B0B0B}
+.hero .act-card.primary:active,.hero .act-card:active{transform:translate(3px,3px);box-shadow:2px 2px 0 #0B0B0B}
+.hero .act-card.primary .act-t b{font-family:var(--serif);font-size:clamp(1.6rem,3.6vw,2.4rem);text-transform:uppercase;letter-spacing:.01em;line-height:1.05}
+.hero .act-card.primary .act-t small{font-size:.95rem}
+.hero .act-card.primary .act-n{width:52px;height:52px;font-size:1.9rem}
+.hero .act-card.primary .act-a{font-size:2.2rem;transition:transform .15s ease}
+.hero .act-card.primary:hover .act-a{transform:translateX(6px)}
+@media(max-width:760px){.hero .actions{grid-template-columns:1fr}.hero .act-card.primary{padding:18px 18px}}
+@media(prefers-reduced-motion:reduce){.hero .act-card,.hero .act-card .act-a{transition:none}}
 </style>
 
 </head>
