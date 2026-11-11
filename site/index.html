@@ -820,6 +820,13 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 @media(max-width:600px){.hero-btns{width:100%}.hb{flex:1 1 100%;text-align:center}}
 @media(prefers-reduced-motion:reduce){.hb{transition:none}}
 .hero-note{margin:4px 0 0;font-family:var(--body);font-size:.8rem;color:#5d5852}
+/* hero: fill the first screen, text centered top to bottom, new headline sizes */
+.hero.hero-light{border-bottom:1px solid #e6dfd2}
+@media(min-width:700px){.hero-light .wrap{min-height:clamp(520px,calc(100svh - 84px),860px);align-content:center;padding-block:56px}}
+.hero-light h1{font-size:clamp(2rem,4.6vw,3.5rem);max-width:none}
+.hero-light h1 span{display:block}
+.hero-light h1 span+span{margin-top:.12em}
+.hero-tag{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(1.45rem,3.2vw,2.4rem);line-height:1.08;color:#DF5416;letter-spacing:.005em}
 </style>
 
 </head>
@@ -831,7 +838,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 </div></nav>
 <header class="hero hero-light" id="top">
   <div class="wrap">
-    <h1>16M Americans work for themselves.<em>It's time our healthcare system caught up.</em></h1>
+    <h1><span>16M Americans are self-employed.</span> <span>76M are polyworking by choice or by force.</span></h1>
+    <p class="hero-tag">It's time our healthcare system reflected that.</p>
     <p class="hero-steps"><a href="#petition">Sign the petition</a> · <a href="#pick">Call Congress</a> · <a href="#share">Tell 5 friends</a></p>
     <div class="hero-btns">
       <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition <span aria-hidden="true">→</span></a>
@@ -898,8 +906,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 <section id="steps">
   <div class="wrap">
     <p class="eyebrow">Take action</p>
-    <h2>Easy as 1, 2, 3.</h2>
-    <p class="takeaway">Every signature, call and share shows Congress that Polyworkers are paying attention.</p>
+    <h2>Act now!</h2>
+    <p class="takeaway"><b>Easy as 1, 2, 3.</b> Every signature, call and share shows Congress that Polyworkers are paying attention.</p>
     <ol class="stepflow">
       <li class="sf sf1"><a href="#petition"><span class="sf-n">1</span><b>Sign the petition</b><span class="sf-time">30 seconds</span><span class="sf-d">Add your name to the Change.org petition.</span></a></li>
       <li class="sf-arrow" aria-hidden="true">→</li>
