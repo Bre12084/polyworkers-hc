@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Healthcare, Demystified · Polyworkers for Healthcare Reform</title>
+<meta name="description" content="Healthcare in America, explained in plain English for people who work for themselves: key terms, what changed in 2026, the subsidy cliff and the reform debate.">
+<meta property="og:title" content="Healthcare, Demystified · Polyworkers for Healthcare Reform">
+<meta property="og:description" content="Healthcare in America, explained in plain English for people who work for themselves.">
+<meta name="twitter:title" content="Healthcare, Demystified">
+<meta name="theme-color" content="#FBF8F1">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta property="og:site_name" content="Polyworkers for Healthcare Reform">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Polyworkers for Healthcare Reform: 74.9 million Americans work for themselves. It's time our healthcare system caught up.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="og-image.png">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:ital,wght@0,400;0,600;0,700;1,700&family=Permanent+Marker&display=swap">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+/* Layout: matches buildwithbrie.com. Dark navy-to-plum hero with an orange condensed serif headline, warm off-white page, square monospace buttons, dark tiles for coverage types. */
+:root{
+  --hero:#181320;
+  --bg:#F6F4F0; --surface:#FFFFFF; --ink:#16161D; --muted:#5b5660; --line:#e2ddd5;
+  --night:#11121F; --plum:#3A1D2E; --on-night:#F4F1EC; --on-night-muted:#c9c1c8;
+  --orange:#C8532E; --orange-hi:#E0683F; --on-orange:#FFFFFF;
+  --serif:"Instrument Serif","Playfair Display",Georgia,serif;
+  --body:"Inter",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E0E17; --surface:#181723; --ink:#F2EEE8; --muted:#b5adb6; --line:#2c2936;
+  --night:#07070d; --plum:#2c1522; --orange:#E0683F; --orange-hi:#F07A50; --on-orange:#0E0E17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E0E17; --surface:#181723; --ink:#F2EEE8; --muted:#b5adb6; --line:#2c2936;
+  --night:#07070d; --plum:#2c1522; --orange:#E0683F; --orange-hi:#F07A50; --on-orange:#0E0E17; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.7}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.prose{max-width:64ch}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.025em;line-height:.92;text-wrap:balance;margin:0;color:var(--orange)}
+h1{font-size:clamp(2.9rem,7.5vw,5.6rem);max-width:15ch}
+h2{font-size:clamp(2.6rem,6.5vw,4.4rem)}
+h3{font-size:2rem;line-height:1}
+p{margin:0}
+a{color:inherit;text-decoration-color:var(--orange);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a:focus-visible,button:focus-visible,input:focus-visible,label:focus-within{outline:2px solid var(--orange);outline-offset:3px}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+section{padding-block:clamp(52px,8vw,92px)}
+.stack{display:flex;flex-direction:column;gap:18px}
+
+/* buttons, site style */
+.btn,.btn-ghost{font-family:var(--mono);font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;padding:16px 26px;text-align:center;text-decoration:none;display:inline-block;cursor:pointer;border:0}
+.btn{background:var(--orange);color:var(--on-orange)}
+.btn:hover{background:var(--orange-hi)}
+.btn-ghost{background:transparent;color:var(--on-night);border:1.5px solid var(--on-night);text-transform:none;letter-spacing:.04em}
+.btn-ghost:hover{background:var(--on-night);color:var(--night)}
+
+/* hero */
+.hero{background:var(--hero);color:var(--on-night)}
+.hero .wrap{padding-block:clamp(32px,6vw,72px) clamp(48px,7vw,80px);display:grid;gap:40px}
+.hero .eyebrow{color:var(--on-night-muted)}
+.hero .lede{font-size:clamp(1.15rem,2.6vw,1.45rem);line-height:1.35;max-width:34ch}
+.hero .lede b{font-weight:700}
+.hero .ctas{display:grid;gap:12px;max-width:420px}
+nav.jump{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:.82rem}
+nav.jump a{color:var(--on-night-muted);text-decoration:none;border-bottom:1px solid transparent}
+nav.jump a:hover{color:var(--on-night);border-bottom-color:var(--orange)}
+
+/* enrollment band */
+.band-alert{background:var(--orange);color:var(--on-orange)}
+.band-alert .wrap{padding-block:28px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.band-alert .big{font-family:var(--serif);font-size:clamp(2.4rem,6vw,3.6rem);line-height:.9;letter-spacing:-.02em}
+@media(max-width:620px){.band-alert .wrap{grid-template-columns:1fr}}
+
+/* coverage tiles */
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:32px}
+@media(max-width:820px){.board{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.board{grid-template-columns:1fr}}
+.tile{background:var(--night);color:var(--on-night);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tile:nth-child(3n+2){background:linear-gradient(180deg,var(--night),var(--plum))}
+.tile h3{font-size:2.4rem}
+.tile p{font-size:.95rem;color:var(--on-night-muted)}
+.pill{align-self:flex-start;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border:1px solid currentColor}
+.pill.bad{color:#ff9a8a}.pill.warn{color:#f3c27a}.pill.ok{color:#8fd9ae}
+
+/* cliff */
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:start;margin-top:32px}
+@media(max-width:820px){.split{grid-template-columns:1fr}}
+.chart{background:var(--surface);border:1px solid var(--line);padding:20px}
+.chart svg{width:100%;height:auto;display:block}
+.moves{display:grid;gap:14px;margin-top:8px}
+.move{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
+.move b.n{font-family:var(--serif);font-size:2.6rem;line-height:.9;color:var(--orange)}
+
+/* breaks */
+.breaks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 52px;margin-top:32px}
+@media(max-width:720px){.breaks{grid-template-columns:1fr}}
+.breaks h3{font-size:1.8rem;color:var(--ink)}
+.stat{font-family:var(--serif);font-size:3.4rem;line-height:.9;color:var(--orange);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+
+/* reform menu */
+.band-dark{background:linear-gradient(180deg,var(--night) 0%,var(--night) 70%,var(--plum) 100%);color:var(--on-night)}
+.band-dark .eyebrow{color:var(--on-night-muted)}
+.reforms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:32px}
+@media(max-width:820px){.reforms{grid-template-columns:1fr}}
+.reform{background:var(--surface);color:var(--ink);padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.reform .status{font-size:.88rem;background:var(--bg);border-left:3px solid var(--orange);padding:8px 12px}
+.reform dl{margin:0;display:grid;gap:8px}
+.reform dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.reform dd{margin:0;font-size:.95rem}
+.adds{display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:10px;border-top:1px dashed var(--line)}
+.adds label{display:flex;gap:10px;align-items:flex-start;font-family:var(--mono);font-size:.82rem;cursor:pointer}
+.adds input{margin-top:3px;accent-color:var(--orange);width:18px;height:18px;flex:none}
+
+/* script builder */
+.builder{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:32px;margin-top:32px;align-items:start}
+@media(max-width:820px){.builder{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.field input{font:inherit;padding:12px 14px;border:1px solid var(--ink);border-radius:0;background:var(--surface);color:var(--ink)}
+.script{background:var(--night);color:var(--on-night);padding:24px;white-space:pre-wrap;font-size:.98rem;min-height:220px}
+.contact{display:grid;gap:8px;font-size:.95rem}
+.mono{font-family:var(--mono);font-weight:500;user-select:all}
+
+/* watch */
+.watch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 52px;margin-top:32px}
+@media(max-width:720px){.watch{grid-template-columns:1fr}}
+.watch h3{font-size:1.9rem;padding-bottom:8px;border-bottom:1px solid var(--ink);margin-bottom:14px}
+.watch ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.watch li b{display:block;font-weight:600}
+.watch li span{font-size:.93rem;color:var(--muted)}
+
+/* states */
+.statecols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:32px}
+@media(max-width:720px){.statecols{grid-template-columns:1fr}}
+.statebox{background:var(--surface);padding:24px;border:1px solid var(--line)}
+.statebox h3{font-size:1.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-family:var(--mono);font-size:.9rem;padding:6px 10px;background:var(--night);color:var(--on-night)}
+.chip small{font-size:.7rem;opacity:.75;margin-left:6px}
+
+/* readability + visuals */
+.prose p{font-size:1.06rem}
+.prose .eyebrow{font-size:.78rem}
+.ico{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.secnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--hero)}
+.secnav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:8px}
+.secnav a{font-family:var(--mono);font-size:.8rem;white-space:nowrap;text-decoration:none;padding:8px 12px;color:var(--muted)}
+.secnav a:hover,.secnav a:focus-visible{color:var(--ink);background:var(--surface)}
+.secnav a.cta{background:var(--orange);color:var(--on-orange);margin-left:auto}
+section{scroll-margin-top:90px}
+.pay{margin:36px 0 0;background:var(--surface);border:1px solid var(--line);padding:clamp(18px,4vw,30px);display:grid;gap:20px;max-width:760px}
+.pay figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,4vw,2.2rem);line-height:1;color:var(--ink)}
+.pay figcaption span{font-size:.95rem;color:var(--muted)}
+.payrow{display:grid;gap:6px}
+.payrow .lbl{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.bar{display:flex;height:34px;background:var(--bg);overflow:hidden}
+.seg.emp{background:repeating-linear-gradient(135deg,var(--line) 0 6px,transparent 6px 12px);border:1.5px solid var(--muted)}
+.seg.you{background:var(--orange)}
+.payrow .val{font-size:.95rem}
+.payrow .val b{color:var(--orange)}
+.key{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.key i{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px}
+.loss.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:760px}
+@media(max-width:560px){.loss.two{grid-template-columns:1fr}}
+.tile .ico{color:var(--orange);width:34px;height:34px}
+.tile p{font-size:1rem}
+.charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+@media(max-width:860px){.charts{grid-template-columns:1fr}}
+.mini{margin:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);padding:22px;display:grid;gap:14px;min-width:0}
+.mini h3{font-size:1.7rem;color:var(--on-night)}
+.mini .r{display:grid;grid-template-columns:44px 1fr;gap:10px;align-items:center}
+.mini .yr{font-family:var(--mono);font-size:.8rem;color:var(--on-night-muted)}
+.mini .track{position:relative;height:30px}
+.mini .fill{height:100%;background:rgba(255,255,255,.18);display:flex;align-items:center}
+.mini .fill.hot{background:var(--orange)}
+.mini .fill span{font-family:var(--mono);font-size:.8rem;padding-left:8px;color:var(--night);white-space:nowrap;font-weight:500}
+.mini .fill:not(.hot) span{color:var(--on-night)}
+.mini p{font-size:.9rem;color:var(--on-night-muted)}
+.statrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:40px}
+@media(max-width:860px){.statrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:440px){.statrow{grid-template-columns:1fr}}
+.statrow > div{display:flex;flex-direction:column;gap:6px;border-top:1px solid rgba(255,255,255,.2);padding-top:14px;min-width:0}
+.statrow .big-num{font-size:clamp(2.4rem,5vw,3.2rem)}
+.statrow p{font-size:.95rem}
+.asks li .ico{color:var(--orange);width:36px;height:36px}
+.asks li::before{display:none}
+.reform dd{font-size:1rem}
+.reform dt{display:flex;align-items:center;gap:8px}
+.reform dt::before{content:"";width:10px;height:10px;flex:none}
+.reform dt:nth-of-type(1)::before{background:var(--orange)}
+.reform dt:nth-of-type(2)::before{border:2px solid var(--ink)}
+.reform .status{display:flex;flex-direction:column;gap:6px}
+.chip-s{align-self:flex-start;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;background:var(--night);color:var(--on-night)}
+.stepcards{list-style:none;padding:0;margin:8px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media(max-width:720px){.stepcards{grid-template-columns:1fr}}
+.stepcards li{background:var(--surface);border:1px solid var(--line);padding:20px;display:grid;gap:8px;align-content:start}
+.stepcards .ico{color:var(--orange)}
+.stepcards b{font-size:1.05rem}
+.stepcards span{font-size:.95rem;color:var(--muted)}
+/* skim layer */
+section > .wrap > .eyebrow{margin:0 0 12px}
+.takeaway{font-size:clamp(1.2rem,2.6vw,1.45rem);line-height:1.4;font-weight:600;max-width:46ch;margin-top:16px;padding-left:16px;border-left:4px solid var(--orange)}
+.takeaway.dark{color:var(--on-night)}
+.tldr{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:20px 22px;max-width:640px}
+.tldr-h{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:10px}
+.tldr ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.tldr li{font-size:1rem;line-height:1.5;color:var(--on-night-muted)}
+.tldr li b{color:var(--on-night)}
+.board.three-up{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:720px){.board.three-up{grid-template-columns:1fr}}
+.board.three-up .tile{flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.board.three-up .tile h3{font-size:1.8rem}
+.board.three-up .tile p{flex-basis:100%}
+.statrow.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:720px){.statrow.three{grid-template-columns:1fr}}
+.asks.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:820px){.asks.three{grid-template-columns:1fr}}
+.split2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:start;margin-top:28px}
+@media(max-width:820px){.split2{grid-template-columns:1fr}}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.facts li{padding-left:18px;position:relative;font-size:1.02rem}
+.facts li::before{content:"";position:absolute;left:0;top:.65em;width:8px;height:8px;background:var(--orange)}
+.reform h3{font-size:1.8rem}
+.reform dl{grid-template-columns:auto 1fr;column-gap:12px;row-gap:10px;align-items:baseline}
+.stepcards{margin-top:28px}
+.enroll{margin-top:44px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--orange);padding:clamp(18px,4vw,28px);max-width:760px;display:grid;gap:12px}
+.enroll-h{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.3rem);line-height:1;color:var(--ink)}
+.enroll-d{font-size:1rem}
+.checks{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.checks li{padding-left:30px;position:relative;font-size:1rem}
+.checks li::before{content:"";position:absolute;left:0;top:.3em;width:18px;height:18px;border:2px solid var(--orange)}
+footer details summary{cursor:pointer}
+/* editorial revision */
+p{text-wrap:pretty}
+.lede-stack{display:grid;gap:10px;max-width:44ch;font-size:clamp(1.08rem,2.4vw,1.3rem);line-height:1.45}
+.micro{font-family:var(--mono);font-size:.8rem;color:var(--on-night-muted);margin-top:4px}
+.punch{font-family:var(--serif);font-size:clamp(1.9rem,4.5vw,2.6rem);line-height:1;color:var(--orange)}
+.define{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--orange);padding:16px 18px;display:grid;gap:6px}
+.define-h{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.note{font-size:.82rem;color:var(--muted);margin-top:10px;line-height:1.5}
+.asof{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-night-muted);margin-top:18px}
+.reform .desc{font-weight:600;font-size:1rem}
+.reform .status{font-size:.9rem}
+.dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:520px){.dates{grid-template-columns:1fr}}
+.dates > div{display:grid;gap:4px;font-size:.95rem}
+.date{font-family:var(--serif);font-size:2.4rem;line-height:1;color:var(--orange)}
+.field select{font:inherit;padding:12px 14px;border:1px solid var(--ink);border-radius:0;background:var(--surface);color:var(--ink)}
+.foot-h{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.2rem);line-height:1;color:var(--orange);max-width:20ch;text-wrap:balance}
+footer .prose{color:var(--on-night-muted)}
+.foot-link{font-family:var(--mono);font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:var(--on-night)}
+.script-hint{font-size:.85rem;color:var(--muted)}
+.hero-stat{display:grid;gap:4px;border-left:4px solid var(--orange);padding-left:16px}
+.hero-num{font-family:var(--serif);font-size:clamp(3.4rem,11vw,6.5rem);line-height:.9;color:var(--on-night);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.hero-num-label{font-size:clamp(1.1rem,2.6vw,1.35rem);font-weight:600;color:var(--on-night)}
+.hero-src{font-family:var(--mono);font-size:.72rem;color:var(--on-night-muted)}
+/* hero v2 */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--hero);border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar .wrap{display:flex;align-items:center;gap:24px;padding-block:12px}
+.pw-logo.sm{gap:2px}
+.pw-logo.sm .pw-row i{width:24px;font-size:.95rem}
+.pw-logo.sm .pw-work{gap:2px;margin-top:1px}
+.toplinks{display:flex;gap:22px;margin-left:auto}
+.toplinks a{font-size:.88rem;font-weight:500;color:var(--on-night);text-decoration:none;white-space:nowrap}
+.toplinks a:hover{color:var(--orange)}
+.topcta{background:var(--orange);color:#fff;text-decoration:none;font-size:.88rem;font-weight:600;padding:10px 16px;white-space:nowrap}
+.topcta:hover{background:var(--orange-hi)}
+@media(max-width:880px){.toplinks{display:none}.topcta{margin-left:auto}}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:24px;align-items:center}
+@media(max-width:820px){.hero-grid{grid-template-columns:1fr}}
+.hero-copy{display:grid;gap:22px;align-content:center}
+.hero-eyebrow{font-family:var(--mono);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.hero h1{color:var(--on-night);font-size:clamp(2.9rem,6.6vw,5.4rem);line-height:.95;max-width:none}
+.hero h1 em{display:block;font-style:italic;color:var(--orange);margin-top:.12em}
+.hero .hero-src{font-family:var(--body);font-size:.9rem;color:var(--on-night-muted);max-width:44ch}
+.btn-arrow{display:inline-flex;align-items:center;justify-content:center;gap:12px}
+.hero .micro{font-family:var(--body);font-size:.92rem}
+.hero-art{margin:0;justify-self:end;width:100%;max-width:520px}
+.hero-art img{display:block;width:100%;height:auto}
+@media(max-width:820px){.hero-art{justify-self:center;max-width:420px;order:2}}
+/* infographic + white paper */
+.flow{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr) 28px minmax(0,1fr);align-items:stretch;margin-top:36px}
+.flow .arrow{display:grid;place-items:center;color:var(--orange);font-size:1.6rem}
+@media(max-width:820px){.flow{grid-template-columns:1fr}.flow .arrow{transform:rotate(90deg);height:36px}}
+.fcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.fcard .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.fcard .big-num{color:var(--on-night)}
+.fcard.hot{background:var(--orange);border-color:var(--orange)}
+.fcard.hot .k,.fcard.hot .big-num,.fcard.hot p,.fcard.hot .src{color:#fff}
+.fcard p{font-size:.98rem;color:var(--on-night-muted)}
+.cliffstrip{margin-top:28px;display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);gap:0;border:1px solid rgba(255,255,255,.14)}
+@media(max-width:720px){.cliffstrip{grid-template-columns:1fr}}
+.cliffstrip .lab{padding:20px 22px;font-family:var(--serif);font-size:1.9rem;line-height:1;color:var(--on-night);display:flex;align-items:center}
+.cliffstrip .side{padding:20px 22px;display:grid;gap:4px;border-left:1px solid rgba(255,255,255,.14)}
+@media(max-width:720px){.cliffstrip .side{border-left:0;border-top:1px solid rgba(255,255,255,.14)}}
+.cliffstrip .amt{font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--on-night);font-variant-numeric:tabular-nums}
+.cliffstrip .res{font-weight:600}
+.cliffstrip .yes .res{color:#8fd9ae}.cliffstrip .no .res{color:#ff9a8a}
+.cliffstrip .no{background:rgba(255,154,138,.08)}
+.nextrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;align-items:center}
+.paper-card{margin-top:36px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:center;background:var(--on-night);color:var(--night);padding:22px}
+@media(max-width:560px){.paper-card{grid-template-columns:1fr}}
+.paper-card .cover{width:84px;aspect-ratio:3/4;background:var(--orange);display:grid;place-items:end start;padding:8px;font-family:var(--serif);font-size:1.05rem;line-height:.95;color:#fff}
+.paper-card b{font-family:var(--serif);font-weight:400;font-size:1.9rem;line-height:1;display:block;color:var(--night)}
+.paper-card p{font-size:.95rem;color:#3b3640;margin-top:6px}
+.paper-card a{color:var(--orange);font-weight:600}
+.callout{margin-top:36px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--orange);padding:18px 20px;font-size:1rem;max-width:760px}
+/* white paper */
+.toc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;max-width:820px}
+@media(max-width:720px){.toc{grid-template-columns:1fr}}
+.toc a{display:flex;gap:10px;align-items:baseline;text-decoration:none;color:var(--on-night);padding:10px 12px;border:1px solid rgba(255,255,255,.14);font-size:.95rem}
+.toc a b{font-family:var(--mono);font-size:.75rem;color:var(--orange)}
+.toc a:hover{border-color:var(--orange)}
+.tl{list-style:none;padding:0;margin:32px 0 0;position:relative;display:grid;gap:0}
+.tl::before{content:"";position:absolute;left:94px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:80px 28px minmax(0,1fr);gap:0 0;align-items:start;padding-bottom:22px}
+.tl .y{font-family:var(--mono);font-size:.85rem;font-weight:500;padding-top:2px}
+.tl .dot{width:14px;height:14px;background:var(--bg);border:3px solid var(--ink);margin:4px 0 0 7px;position:relative;z-index:1}
+.tl li.key .dot{background:var(--orange);border-color:var(--orange)}
+.tl b{display:block;font-size:1.05rem}
+.tl p{font-size:.95rem;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:32px}
+@media(max-width:900px){.gloss{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.gloss{grid-template-columns:1fr}}
+.gloss div{background:var(--surface);border:1px solid var(--line);padding:18px;display:grid;gap:6px;align-content:start}
+.gloss dt{font-family:var(--serif);font-size:1.6rem;line-height:1;color:var(--orange)}
+.gloss dd{margin:0;font-size:.95rem}
+.gloss .eg{font-size:.85rem;color:var(--muted)}
+.split-bill{margin:32px 0 0;background:var(--surface);border:1px solid var(--line);padding:clamp(18px,4vw,28px);display:grid;gap:16px;max-width:820px}
+.split-bill figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1}
+.split-bill figcaption span{font-size:.92rem;color:var(--muted)}
+.sb-bar{display:flex;height:44px}
+.sb-bar span{display:flex;align-items:center;padding-left:8px;font-family:var(--mono);font-size:.75rem;white-space:nowrap;overflow:hidden}
+.sb-ded{background:var(--orange);color:#fff}
+.sb-coin{background:repeating-linear-gradient(135deg,var(--orange) 0 5px,transparent 5px 10px);border:1.5px solid var(--orange)}
+.sb-ins{background:var(--night);color:var(--on-night)}
+.sb-legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;font-size:.92rem}
+@media(max-width:600px){.sb-legend{grid-template-columns:1fr}}
+.sb-legend b{font-family:var(--serif);font-weight:400;font-size:1.7rem;display:block;line-height:1}
+.chap{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.endcta{background:var(--orange);color:#fff}
+.endcta .wrap{padding-block:clamp(48px,8vw,80px);display:grid;gap:18px}
+.endcta h2{color:#fff}
+.endcta .btn{background:var(--night);color:#fff;justify-self:start}
+/* one-job + mobile */
+.stepno{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin:0 0 12px}
+.textlink{font-weight:600;color:var(--on-night);text-decoration-color:var(--orange)}
+#pick .reforms{margin-top:24px}
+#pick .reform{border:1px solid var(--line)}
+#pick .asof{color:var(--muted)}
+.sides{border-top:1px solid var(--line);padding-top:10px}
+.sides summary{cursor:pointer;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--orange);padding:6px 0;list-style:none}
+.sides summary::-webkit-details-marker{display:none}
+.sides summary::before{content:"+ "}
+.sides[open] summary::before{content:"– "}
+.sides[open]{display:grid;gap:12px}
+.adds label{min-height:44px;align-items:center;padding:8px 10px;border:1px solid var(--line);background:var(--bg)}
+.adds label:has(input:checked){border-color:var(--orange)}
+.adds input{margin-top:0}
+.copyrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#copied{font-size:.9rem;color:var(--muted)}
+.callgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+@media(max-width:820px){.callgrid{grid-template-columns:1fr}}
+.bigbtn{display:grid;gap:6px;padding:20px;background:var(--orange);color:#fff;text-decoration:none;min-height:96px;align-content:center}
+.bigbtn b{font-size:1.15rem}
+.bigbtn span{font-size:.92rem}
+.bigbtn.plain{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:var(--on-night)}
+.bigbtn .num{font-size:1.5rem;letter-spacing:.02em}
+.bigbtn a,.linkbtn{color:var(--on-night);font:inherit;text-decoration:underline;text-decoration-color:var(--orange);background:none;border:0;padding:0;cursor:pointer}
+.tips{margin:28px 0 0;padding-left:20px;display:grid;gap:8px;color:var(--on-night-muted);max-width:60ch}
+.pickbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--night);color:var(--on-night);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));box-shadow:0 -4px 16px rgba(0,0,0,.25)}
+.pickbar span{font-family:var(--mono);font-size:.82rem}
+.pickbar .btn{padding:12px 16px;font-size:.82rem;width:auto}
+@media(max-width:600px){
+  body{font-size:17px}
+  section{padding-block:44px}
+  h2{font-size:clamp(2.1rem,9vw,2.6rem)}
+  .hero .wrap{padding-block:24px 40px;gap:24px}
+  .hero h1{font-size:clamp(2.4rem,11vw,3rem)}
+  .hero-art{max-width:300px}
+  .topbar .wrap{padding-block:8px;gap:12px}
+  .pw-logo.sm .pw-row i{width:20px;font-size:.82rem}
+  .topcta{padding:9px 12px;font-size:.82rem}
+  .takeaway{font-size:1.12rem;padding-left:12px}
+  .btn,.btn-ghost{width:100%;text-align:center}
+  .nextrow{flex-direction:column;align-items:stretch}
+  .fcard,.reform,.mini{padding:18px}
+  .flow .arrow{height:28px;font-size:1.3rem}
+  .cliffstrip .lab,.cliffstrip .side{padding:16px}
+  .cliffstrip .amt{font-size:2.2rem}
+  .builder{gap:20px}
+  .script{padding:18px;font-size:.95rem}
+  .reform h3{font-size:1.6rem}
+  .big-num{font-size:2.8rem}
+  .toc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .toc a{font-size:.85rem;padding:8px 10px}
+  .tl li{grid-template-columns:64px 28px minmax(0,1fr)}
+  .tl::before{left:78px}
+  .gloss dt{font-size:1.4rem}
+  .split-bill figcaption b{font-size:1.6rem}
+}
+*,*::before,*::after{box-sizing:border-box}
+.sides-open{display:grid;gap:12px;border-top:1px solid var(--line);padding-top:12px}
+#debate .reform{color:var(--ink)}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--on-night);min-width:0}
+.brand-mark{position:relative;display:grid;grid-template-columns:repeat(2,15px);grid-template-rows:repeat(2,15px);gap:2px;flex:none}
+.brand-mark i{display:block}
+.brand-mark b{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-family:var(--body);font-weight:700;font-size:22px;line-height:1;text-shadow:0 0 2px rgba(0,0,0,.35)}
+.brand-text{display:grid;line-height:1}
+.brand .b1{font-family:var(--serif);font-size:1.45rem;letter-spacing:-.01em}
+.brand .b2{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-top:3px;white-space:nowrap}
+@media(max-width:600px){.brand .b1{font-size:1.25rem}.brand .b2{font-size:.56rem}.brand-mark{grid-template-columns:repeat(2,13px);grid-template-rows:repeat(2,13px)}.brand-mark b{font-size:19px}}
+.disclaimer{display:grid;gap:8px;max-width:72ch;font-size:.82rem;line-height:1.55;color:var(--on-night-muted);border-top:1px solid rgba(255,255,255,.14);padding-top:16px;margin-top:8px}
+.disclaimer b{color:var(--on-night)}
+.h2-long{font-size:clamp(1.9rem,4.4vw,3rem);line-height:1.05;max-width:26ch}
+.ch3-h{font-size:clamp(2.3rem,5.6vw,4rem);line-height:.98;max-width:30ch}
+.ch3-lede{font-size:clamp(1.05rem,2.2vw,1.2rem);max-width:62ch;margin-top:18px}
+.ch3-sub{font-family:var(--serif);font-weight:400;color:var(--ink);font-size:clamp(1.9rem,4.4vw,2.6rem);margin-top:44px}
+.otherloss{list-style:none;padding:0;margin:20px 0 0;max-width:900px}
+.otherloss li{display:grid;grid-template-columns:84px minmax(0,1fr);gap:22px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.otherloss li:last-child{border-bottom:0}
+.ol-ico{width:84px;height:84px;border-radius:50%;background:color-mix(in srgb,var(--orange) 14%,var(--bg));display:grid;place-items:center}
+.ol-ico svg{width:40px;height:40px;fill:none;stroke:var(--orange);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.otherloss li > div{border-left:1px solid var(--line);padding-left:22px}
+.otherloss b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,3.6vw,2.1rem);line-height:1.05;color:var(--orange)}
+.otherloss p{font-size:1rem;margin-top:6px}
+@media(max-width:600px){
+  .otherloss li{grid-template-columns:56px minmax(0,1fr);gap:14px}
+  .ol-ico{width:56px;height:56px}.ol-ico svg{width:28px;height:28px}
+  .otherloss li > div{padding-left:14px}
+}
+.whopays{margin:28px 0 0;background:var(--surface);border:1px solid var(--line);padding:clamp(18px,3.5vw,28px);display:grid;gap:22px;max-width:900px}
+.wp-cap b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,4vw,2.3rem);line-height:1;color:var(--ink)}
+.wp-cap span{display:block;margin-top:8px;font-size:1rem;color:var(--muted)}
+.wp-cap strong{color:var(--ink)}
+.wp-row{display:grid;gap:8px}
+.wp-label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.wp-k{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.wp-you-amt{font-size:1rem;color:var(--ink)}
+.wp-you-amt b{font-family:var(--serif);font-weight:400;font-size:1.6rem;color:var(--orange)}
+.wp-bar{display:flex;height:48px}
+.wp-seg{display:flex;align-items:center;padding:0 12px;overflow:hidden;white-space:nowrap}
+.wp-seg em{font-style:normal;font-family:var(--mono);font-size:.82rem;letter-spacing:.04em}
+.wp-seg.emp{background:repeating-linear-gradient(135deg,var(--line) 0 6px,transparent 6px 12px);border:1.5px solid var(--muted);color:var(--ink)}
+.wp-seg.you{background:var(--orange);color:#fff;justify-content:center}
+.wp-point{font-size:clamp(1.05rem,2.2vw,1.2rem);font-weight:600;color:var(--ink);padding-left:14px;border-left:4px solid var(--orange)}
+.wp-key{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.wp-sw{display:inline-block;width:14px;height:14px;vertical-align:-2px;margin-right:6px}
+.wp-sw.emp{background:repeating-linear-gradient(135deg,var(--line) 0 3px,transparent 3px 6px);border:1.5px solid var(--muted)}
+.wp-sw.you{background:var(--orange)}
+@media(max-width:600px){.wp-seg em{font-size:.72rem}.wp-seg{padding:0 8px}}
+/* slider */
+.slider{margin-top:24px}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.track::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;max-width:none}
+
+.slide.reform{background:var(--surface);color:var(--ink);padding:clamp(20px,4vw,32px);display:flex;flex-direction:column;gap:14px;border-top:6px solid var(--orange)}
+.slide-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.slide-n{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.slide h3{font-size:clamp(2rem,5vw,2.8rem);line-height:1;color:var(--orange)}
+.slide .desc{font-size:clamp(1.05rem,2.3vw,1.25rem);font-weight:600}
+.sides2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.sides2{grid-template-columns:1fr}}
+.sides2 > div{padding:14px 16px;border:1px solid var(--line);background:var(--bg)}
+.sides2 .lbl{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.sides2 .for{border-left:4px solid var(--orange)}
+.sides2 .against{border-left:4px solid var(--ink)}
+.sides2 p{font-size:1rem}
+.slide-fine{font-size:.85rem;color:var(--muted)}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px}
+.arr{width:48px;height:48px;border:1.5px solid var(--on-night);background:transparent;color:var(--on-night);font-size:1.3rem;cursor:pointer}
+.arr:disabled{opacity:.3;cursor:default}
+.arr:not(:disabled):hover{background:var(--orange);border-color:var(--orange)}
+.dots{display:flex;gap:8px}
+.dot{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--on-night);background:transparent;padding:0;cursor:pointer}
+.dot.on{background:var(--orange);border-color:var(--orange)}
+/* footer: wide and short */
+footer{padding-block:36px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:20px 40px;align-items:start}
+@media(max-width:820px){.foot-grid{grid-template-columns:1fr}}
+.foot-a{display:grid;gap:10px}
+.foot-grid .foot-h{font-size:clamp(1.7rem,3.4vw,2.2rem);max-width:none}
+.foot-p{color:var(--on-night-muted);font-size:.95rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.foot-links .movement{font-size:.72rem;margin:0;padding-top:6px}
+.foot-grid .disclaimer{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:none;margin:0;border-top:0;border-left:1px solid rgba(255,255,255,.14);padding:0 0 0 24px;font-size:.76rem}
+@media(max-width:1100px){.foot-grid .disclaimer{grid-template-columns:1fr}}
+@media(max-width:820px){.foot-grid .disclaimer{border-left:0;padding:16px 0 0;border-top:1px solid rgba(255,255,255,.14)}}
+.foot-grid details{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.14);padding-top:12px}
+.chap{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;background:var(--ink);color:var(--bg);font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;margin:0 0 18px}
+.band-dark .chap{background:var(--on-night);color:var(--night)}
+.endcta .chap{background:#fff;color:var(--orange)!important}
+.endlink{color:#fff;font-weight:600;text-decoration-color:#fff}
+.brand-img{display:block;height:44px;width:auto;max-width:100%}
+@media(max-width:600px){.brand-img{height:34px}}
+.foot-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.foot-btn{font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--on-night);border:1.5px solid var(--on-night);padding:10px 14px}
+.foot-btn:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+/* hero brand */
+.pw-logo{display:inline-flex;flex-direction:column;gap:4px;text-decoration:none;max-width:100%}
+.pw-row{display:flex;gap:0}
+.pw-row i{font-style:normal;font-family:"Oswald","Anton",Impact,sans-serif;font-weight:600;font-size:clamp(1.6rem,5vw,2.2rem);line-height:1;width:clamp(36px,10vw,48px);aspect-ratio:1;display:grid;place-items:center;background:var(--bg);color:var(--fg)}
+.pw-work{gap:3px;margin-top:2px}
+.pw-work i{--bg:#6EC1D4;--fg:#F1ECE0;transform:translateY(var(--y,0)) rotate(var(--r,0deg));box-shadow:0 1px 2px rgba(0,0,0,.25)}
+
+.movement{font-family:var(--mono);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);border-top:1.5px solid var(--orange);padding-top:10px;max-width:max-content}
+/* loss strip, why-now, asks */
+.board.four{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:560px){.board.four{grid-template-columns:1fr}}
+.watch.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:820px){.watch.three{grid-template-columns:1fr}}
+.loss{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:32px}
+@media(max-width:720px){.loss{grid-template-columns:1fr}}
+.loss div{border-top:2px solid var(--orange);padding-top:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.big-num{font-family:var(--serif);font-size:clamp(3rem,7vw,4.4rem);line-height:.9;color:var(--orange);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.loss p,.whygrid p{font-size:.95rem}
+.src{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.sub{font-family:var(--serif);font-size:2.2rem;line-height:1;color:var(--ink);margin-top:40px}
+.whygrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:20px}
+@media(max-width:820px){.whygrid{grid-template-columns:1fr}}
+.whygrid > div{display:flex;flex-direction:column;gap:6px;min-width:0}
+.compare{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.compare .big-num{font-size:clamp(2.6rem,6vw,3.6rem)}
+.compare .then{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.asks{list-style:none;padding:0;margin:32px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;counter-reset:ask}
+@media(max-width:720px){.asks{grid-template-columns:1fr}}
+.asks li{background:var(--surface);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:8px;counter-increment:ask}
+.asks li::before{content:counter(ask);font-family:var(--serif);font-size:3rem;line-height:.8;color:var(--orange)}
+.asks h3{font-size:1.9rem;color:var(--ink)}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:.95rem}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:8px}
+.steps b.n{font-family:var(--serif);font-size:1.8rem;line-height:.9;color:var(--orange)}
+.badge{display:inline-block;font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;border:1.5px solid var(--orange);color:var(--orange);padding:6px 10px}
+footer{background:var(--night);color:var(--on-night);padding-block:52px;font-size:.9rem}
+footer ol{padding-left:20px;margin:12px 0 0;display:grid;gap:4px;overflow-wrap:anywhere;color:var(--on-night-muted)}
+@media (prefers-reduced-motion:no-preference){.btn,.btn-ghost{transition:background .15s,color .15s}}
+/* ===== Rebrand: Polyworkers for Healthcare Reform logo ===== */
+/* Layout: cream sticky top bar carries the tile logo; near-black bands; color-tile chips echo the logo's letter blocks. */
+:root{
+  --cream:#FBF8F1; --cream-ink:#141414;
+  --bg:#FBF8F1; --surface:#FFFFFF; --ink:#141414; --muted:#5d5852; --line:#e6dfd2;
+  --hero:#181320; --night:#181320; --plum:#181320;
+  --orange:#DF5416; --orange-hi:#F06A2A;
+  --teal:#028E8B; --teal-tile:#03B1AE; --blue:#004CA6; --pink:#E25F99; --yellow:#FEEE90; --tile-ink:#FFEFD6;
+  --serif:"Oswald","Arial Narrow",Impact,sans-serif;
+  --mono:"Oswald","Arial Narrow",sans-serif;
+  --marker:"Permanent Marker","Comic Sans MS",cursive;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--orange:#FF7A3D;--orange-hi:#FF8F5A;--teal:#2CC9C5;--bg:#121014;--surface:#1b181f;--line:#2e2a33}}
+:root[data-theme="dark"]{--orange:#FF7A3D;--orange-hi:#FF8F5A;--teal:#2CC9C5;--bg:#121014;--surface:#1b181f;--line:#2e2a33}
+
+h1,h2,h3{font-weight:600;letter-spacing:.005em;line-height:1.02}
+.big-num,.u-num,.line-amt,.istat,.date,.punch,.hero-num,.foot-h,.enroll-h,.cliff-h,.ch3-sub,.otherloss b,.wp-cap b,.wp-you-amt b,.act-n,.ln,.slide h3,.sb-legend b,.gloss dt,.split-bill figcaption b,.pay figcaption b,.mini h3,.cliffstrip .amt,.cliffstrip .lab,.cb-mark span,.sp-on,.paper-card b,.losslist .ln{font-weight:600;letter-spacing:.01em}
+
+/* top bar: cream so the logo sits on its own background */
+body::before{background:var(--cream)}
+.topbar{background:var(--cream);border-bottom:1px solid #e6dfd2}
+.topbar .wrap{padding-block:10px}
+.brand-img{height:58px}
+@media(max-width:600px){.brand-img{height:44px}}
+.toplinks a{color:var(--cream-ink);font-family:var(--body);font-weight:600}
+.toplinks a:hover{color:#DF5416}
+.topcta{background:#DF5416;color:#fff;font-family:var(--mono);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.topcta:hover{background:#F06A2A}
+
+/* marker accent, like the logo's "-for-" */
+.actions-h{font-family:var(--marker);font-size:1.15rem;letter-spacing:.02em;text-transform:uppercase;color:var(--on-night)}
+.actions-h::before,.actions-h::after{content:" – "}
+
+/* color tiles, like the logo's letter blocks */
+.stepno,.chap,.actlabel span{display:inline-block;transform:rotate(-1.5deg);font-weight:600}
+.stepno{background:var(--teal-tile);color:var(--tile-ink);padding:6px 10px;letter-spacing:.1em}
+.band-dark .stepno{background:var(--teal-tile);color:var(--tile-ink)}
+#history .chap{background:#0B0B0B;color:var(--yellow)}
+#words .chap{background:var(--blue);color:var(--tile-ink)}
+#lose .chap{background:var(--pink);color:#141414}
+#why .chap{background:#FD6E1A;color:#141414}
+#cliff .chap{background:var(--teal-tile);color:var(--tile-ink)}
+#debate .chap{background:var(--yellow);color:#141414}
+.eyebrow{color:var(--teal);font-weight:600;letter-spacing:.14em}
+.band-dark .eyebrow{color:var(--teal-tile)}
+.takeaway{border-left-color:var(--teal-tile)}
+.hero-sub{color:var(--on-night)}
+.btn,.btn-ghost{font-weight:600;letter-spacing:.08em}
+@media(max-width:600px){.actions-h{font-size:.95rem}.brand-img{height:48px}}
+/* ===== Rebrand pass 2: carry the logo's tiles and colors through every section ===== */
+:root{
+  --night:#121212; --plum:#121212; --on-night:#FBF3E6; --on-night-muted:#CFC6B8;
+  --stripe:linear-gradient(90deg,#0B0B0B 0 20%,#004CA6 20% 40%,#E25F99 40% 60%,#FD6E1A 60% 80%,#03B1AE 80% 100%);
+}
+/* signature tile stripe */
+.topbar{border-bottom:0;box-shadow:none}
+.topbar::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:5px;background:var(--stripe)}
+footer{position:relative;background:#121212}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:var(--stripe)}
+.pet,.slide.reform,.enroll{border-top:0;position:relative}
+.pet::before,.slide.reform::before,.enroll::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:8px;background:var(--stripe)}
+.slide.reform{padding-top:clamp(28px,4.5vw,40px)}
+
+/* blue color-block band (like the "O" tile) */
+.band-blue{background:#004CA6!important;color:#FBF3E6}
+.band-blue h2,.band-blue .cliff-h{color:#FEEE90}
+.band-blue .takeaway.dark,.band-blue .takeaway{color:#FBF3E6;border-left-color:#FEEE90}
+.band-blue .tips,.band-blue .note,.band-blue .finder-msg{color:#DCE6F5!important}
+.band-blue .bigbtn.plain,.band-blue .mini{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
+.band-blue .finder-row input{border-color:#FBF3E6}
+.band-blue .mini .fill{background:rgba(255,255,255,.28)}
+.band-blue .mini .fill.hot{background:#FD6E1A}
+.band-blue .stat-src,.band-blue .src{color:#DCE6F5!important}
+.band-blue .big-num{color:#FEEE90}
+.band-blue .chap{background:#FEEE90!important;color:#0B0B0B!important}
+
+/* cliff bar: teal = help, orange = no help */
+.cb-yes{background:#03B1AE;color:#0B0B0B;border:0}
+.cb-no{background:#FD6E1A;color:#0B0B0B;border:0}
+.cb-mark{border-left-color:#FEEE90}
+.cb-mark span{color:#FEEE90}
+
+/* impact cards: colored tile tops */
+.icard{position:relative;border-top:0}
+.icard::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:6px}
+.impact .icard:nth-child(1)::before{background:#004CA6}
+.impact .icard:nth-child(2)::before{background:#E25F99}
+.impact .icard:nth-child(3)::before{background:#03B1AE}
+.waffle i.on{background:#E25F99}
+.istat{color:#E25F99}
+.sp-on{background:#03B1AE;color:#0B0B0B}
+
+/* deadline strip: yellow tile */
+.urgent{background:#FEEE90;color:#0B0B0B;transform:rotate(-.6deg)}
+.u-num{color:#0B0B0B}
+
+/* numbered losses as letter tiles */
+.losslist .ln{display:grid;place-items:center;width:46px;height:52px;font-size:1.6rem;color:#FFEFD6;transform:rotate(-2deg)}
+.losslist li:nth-child(1) .ln{background:#0B0B0B;color:#FEEE90}
+.losslist li:nth-child(2) .ln{background:#004CA6}
+.losslist li:nth-child(3) .ln{background:#E25F99;color:#0B0B0B}
+.losslist li:nth-child(4) .ln{background:#FD6E1A;color:#0B0B0B;transform:rotate(1.5deg)}
+.losslist li:nth-child(5) .ln{background:#03B1AE}
+.losslist li{align-items:center}
+
+/* hero action numbers as tiles */
+.act-n{border-radius:0;border:0;background:#0B0B0B;color:#FEEE90;transform:rotate(-3deg)}
+.act-card:not(.primary) .act-n{background:#03B1AE;color:#FFEFD6}
+
+/* white paper table of contents: tile numbers */
+.toc a b{display:inline-grid;place-items:center;min-width:26px;height:26px;padding:0 4px;color:#FFEFD6;font-size:.8rem}
+.toc a:nth-child(1) b{background:#0B0B0B;color:#FEEE90}
+.toc a:nth-child(2) b{background:#004CA6}
+.toc a:nth-child(3) b{background:#E25F99;color:#0B0B0B}
+.toc a:nth-child(4) b{background:#FD6E1A;color:#0B0B0B}
+.toc a:nth-child(5) b{background:#03B1AE}
+.toc a:nth-child(6) b{background:#FEEE90;color:#0B0B0B}
+.toc a{align-items:center}
+
+/* key-term cards: alternating tile stripe on the left */
+.gloss div{border-left:5px solid #03B1AE}
+.gloss div:nth-child(5n+1){border-left-color:#0B0B0B}
+.gloss div:nth-child(5n+2){border-left-color:#004CA6}
+.gloss div:nth-child(5n+3){border-left-color:#E25F99}
+.gloss div:nth-child(5n+4){border-left-color:#FD6E1A}
+
+/* timeline key dots in orange tiles */
+.tl .dot{border-radius:0;transform:rotate(-8deg)}
+.tl li.key .dot{background:#FD6E1A;border-color:#FD6E1A}
+
+/* debate slider dots */
+.dot.on{background:#FEEE90;border-color:#FEEE90}
+.sides2 .for{border-left-color:#03B1AE}
+.sides2 .against{border-left-color:#FD6E1A}
+
+/* footer headline in yellow, like the logo letters */
+.foot-grid .foot-h{color:#FEEE90}
+.foot-links .movement{color:#FD6E1A;border-top-color:#FD6E1A}
+</style>
+</head><body>
+<nav class="topbar" aria-label="Main"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Polyworkers for Healthcare Reform, campaign page"><img class="brand-img" src="polyworkers-logo.png" alt="Polyworkers for Healthcare Reform" width="640" height="263"></a>
+  <div class="toplinks"><a href="index.html">Back to the campaign</a><a href="#words">Key Terms</a><a href="#cliff">The Cliff Explained</a><a href="#debate">The Debate</a></div>
+  <a class="topcta" href="index.html#petition">Take action</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="hero-eyebrow">A Polyworker white paper · November 2026</p>
+    <h1 style="max-width:14ch">Healthcare, demystified.</h1>
+    <p class="lede-stack" style="color:var(--on-night-muted)">If you've ever tried to shop for health insurance as a Polyworker and wondered why you need a law degree to understand what you're buying, you're in the right place. We've broken the nuts and bolts of healthcare in America down into short chapters to make this all way less confusing.</p>
+    <nav class="toc" aria-label="Chapters">
+      <a href="#history"><b>01</b>How We Got Here</a>
+      <a href="#words"><b>02</b>Key Terms</a>
+      <a href="#lose"><b>03</b>Losing Your Employer Benefits</a>
+      <a href="#why"><b>04</b>What Changed in 2026</a>
+      <a href="#cliff"><b>05</b>The Cliff Explained</a>
+      <a href="#debate"><b>06</b>The Debate</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="history">
+  <div class="wrap">
+    <p class="chap">Chapter 1 · How We Got Here</p>
+    <h2>America tied health insurance to the 9-to-5.</h2>
+    <p class="takeaway">Then the way we work changed.</p>
+    <ol class="tl">
+      <li><span class="y">1940s</span><span class="dot"></span><div><b>Wartime wage limits</b><p>With pay frozen during World War II, employers competed for workers by offering health insurance instead.</p></div></li>
+      <li><span class="y">1954</span><span class="dot"></span><div><b>The tax break</b><p>Federal tax law made job-based health benefits tax-free for workers. Buying your own plan got no such break.</p></div></li>
+      <li class="key"><span class="y">2010</span><span class="dot"></span><div><b>The Affordable Care Act</b><p>Created the Marketplace, so people without job-based coverage could buy a plan and get help paying for it.</p></div></li>
+      <li><span class="y">2014</span><span class="dot"></span><div><b>Marketplaces open</b><p>Tax credits help people earning up to 400% of the federal poverty level. Above that line, no help.</p></div></li>
+      <li class="key"><span class="y">2021</span><span class="dot"></span><div><b>Extra help arrives</b><p>The American Rescue Plan boosted the tax credits and removed the 400% cutoff. In 2022 Congress extended them through 2025.</p></div></li>
+      <li class="key"><span class="y">Dec 2025</span><span class="dot"></span><div><b>Extra help expires</b><p>Congress didn't renew it. The cutoff came back on Jan 1, 2026.</p></div></li>
+      <li><span class="y">Jan 2026</span><span class="dot"></span><div><b>House votes to restore it</b><p>The House passed a three-year extension. The Senate has not.</p></div></li>
+      <li><span class="y">2027</span><span class="dot"></span><div><b>Prices rise again</b><p>Benchmark Marketplace premiums are up another 13% on average.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="words" style="padding-top:0">
+  <div class="wrap">
+    <p class="chap">Chapter 2 · Key Terms</p>
+    <h2>Healthcare is confusing.</h2>
+    <p class="takeaway">Here are a handful of key terms to understand the basics.</p>
+    <dl class="gloss">
+      <div><dt>Premium</dt><dd>What you pay every month to have insurance, whether you see a doctor or not.</dd></div>
+      <div><dt>Deductible</dt><dd>What you pay for care each year before your plan starts sharing the cost.</dd></div>
+      <div><dt>Coinsurance</dt><dd>Your share of the bill after the deductible, often 20%.</dd></div>
+      <div><dt>Out-of-pocket max</dt><dd>The most you'll pay for covered care in a year. After that, the plan pays 100%.</dd></div>
+      <div><dt>Marketplace</dt><dd>The government-run site where you buy your own plan: HealthCare.gov or your state's version.</dd></div>
+      <div><dt>Premium tax credit</dt><dd>Federal help that lowers your monthly premium, based on your expected income.</dd></div>
+      <div><dt>Open enrollment</dt><dd>The yearly window to buy or change a Marketplace plan, usually Nov 1 to Jan 15.</dd></div>
+      <div><dt>HSA</dt><dd>Health Savings Account. Money you set aside before taxes for medical bills. Requires an eligible plan.</dd></div>
+    </dl>
+    <figure class="split-bill" role="img" aria-label="Made-up example: on a $20,000 hospital bill with a $3,000 deductible and 20% coinsurance, you pay $6,400 and the insurer pays $13,600.">
+      <figcaption><b>How a $20,000 hospital bill gets split</b><span>A made-up example plan: $3,000 deductible, 20% coinsurance, $8,000 out-of-pocket max.</span></figcaption>
+      <div class="sb-bar"><span class="sb-ded" style="width:15%">$3,000</span><span class="sb-coin" style="width:17%"></span><span class="sb-ins" style="width:68%">$13,600</span></div>
+      <div class="sb-legend">
+        <div><b>$3,000</b>You pay the deductible first.</div>
+        <div><b>$3,400</b>Then 20% of the remaining $17,000.</div>
+        <div><b>$13,600</b>Your insurer pays the rest. You've paid $6,400 total, under the $8,000 max.</div>
+      </div>
+    </figure>
+    <p class="takeaway" style="margin-top:28px">A cheap premium can hide a big deductible. Always compare what you'd pay in a bad year, not just each month.</p>
+  </div>
+</section>
+
+<section id="lose">
+  <div class="wrap">
+    <p class="chap">Chapter 3 · Losing Your Employer Benefits</p>
+    <h2 class="ch3-h">When you become your own boss, you are responsible for all of your benefits.</h2>
+    <p class="takeaway">At a traditional job, your employer pays for a significant portion of your health insurance. When you work for yourself, that contribution disappears.</p>
+
+    <figure class="whopays" role="img" aria-label="Who pays for health insurance. At a job, your employer pays $8,132 a year, 83%, and you pay $1,672, 17%, of a $9,804 plan. On your own, you pay 100%, unless you qualify for a government subsidy.">
+      <figcaption class="wp-cap"><b>Who pays for your health insurance?</b><span>Average yearly cost of a plan for one person through a job in 2026: <strong>$9,804</strong>.</span></figcaption>
+
+      <div class="wp-row">
+        <div class="wp-label"><span class="wp-k">At a job</span><span class="wp-you-amt">You pay <b>$1,672</b> a year</span></div>
+        <div class="wp-bar"><span class="wp-seg emp" style="width:83%"><em>Employer pays $8,132</em></span><span class="wp-seg you" style="width:17%"><em>17%</em></span></div>
+      </div>
+
+      <div class="wp-row">
+        <div class="wp-label"><span class="wp-k">On your own</span><span class="wp-you-amt">You pay <b>all of it</b></span></div>
+        <div class="wp-bar"><span class="wp-seg you" style="width:100%"><em>You pay 100%</em></span></div>
+      </div>
+
+      <p class="wp-point">Unless you qualify for a government subsidy, there's no one splitting the bill with you.</p>
+      <div class="wp-key"><span><i class="wp-sw emp"></i>Employer</span><span><i class="wp-sw you"></i>You</span><span>Source: KFF 2026 Employer Health Benefits Survey</span></div>
+    </figure>
+
+    <h3 class="ch3-sub">And there are other benefits you lose, too.</h3>
+    <ul class="otherloss">
+      <li><span class="ol-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16 M11 13v2h2v-2"/></svg></span><div><b>Unemployment insurance</b><p>Lose a client? Unlike traditional employees, independent workers generally can't collect unemployment benefits.</p></div></li>
+      <li><span class="ol-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span><div><b>Paid leave and disability</b><p>If you can't work because you're sick or need time off, you may lose income unless you've arranged your own coverage.</p></div></li>
+      <li><span class="ol-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="15" cy="6" rx="5" ry="2"/><path d="M10 6v4c0 1.1 2.2 2 5 2s5-.9 5-2V6 M10 10v4c0 1.1 2.2 2 5 2s5-.9 5-2v-4"/><ellipse cx="8" cy="14" rx="5" ry="2"/><path d="M3 14v4c0 1.1 2.2 2 5 2s5-.9 5-2v-4"/></svg></span><div><b>Employer 401(k) contributions</b><p>You can still save for retirement, but there's no employer matching your contributions. That money has to come from you.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="why" class="band-dark band-blue">
+  <div class="wrap">
+    <p class="chap">Chapter 4 · What Changed in 2026</p>
+    <h2>Updates to the ACA.</h2>
+    <p class="takeaway dark">The Affordable Care Act is still here. But at the end of 2025, Congress allowed additional federal subsidies that helped millions of Americans afford health insurance to expire.</p>
+    <div class="prose stack" style="margin-top:20px">
+      <p>The result? Many people faced higher monthly premiums in 2026. Some switched to plans with bigger deductibles. Others dropped their coverage. With insurers raising prices again for 2027, the squeeze isn't over.</p>
+    </div>
+    <div class="charts">
+      <figure class="mini" role="img" aria-label="The benchmark Marketplace premium, before tax credits, rose 26% from 2025 to 2026, and finalized 2027 rates put it 42% above 2025.">
+        <h3>The price of staying insured keeps climbing.</h3>
+        <div class="r"><span class="yr">2025</span><div class="track"><div class="fill" style="width:70%"><span>2025 price</span></div></div></div>
+        <div class="r"><span class="yr">2026</span><div class="track"><div class="fill hot" style="width:89%"><span>+26%</span></div></div></div>
+        <div class="r"><span class="yr">2027</span><div class="track"><div class="fill hot" style="width:100%"><span>+42%</span></div></div></div>
+        <p>Average benchmark silver premium, before tax credits, compared with 2025. 2027 reflects finalized rates. Source: KFF, Oct 30, 2026</p>
+      </figure>
+      <figure class="mini" role="img" aria-label="Marketplace enrollment fell from 22.1 million in 2025 to 19.2 million as of February 2026.">
+        <h3>When coverage costs more, people make difficult tradeoffs.</h3>
+        <div class="r"><span class="yr">2025</span><div class="track"><div class="fill" style="width:100%"><span>22.1M</span></div></div></div>
+        <div class="r"><span class="yr">2026</span><div class="track"><div class="fill hot" style="width:87%"><span>19.2M</span></div></div></div>
+        <p>People enrolled in Marketplace plans: 2025 peak vs. February 2026, a drop of 2.9 million. Actual enrollment, not a projection. Source: KFF, June 2026</p>
+      </figure>
+      <figure class="mini" role="img" aria-label="According to a survey by MBO Partners, the number of full-time independent workers grew 114% from 2020 to 2026.">
+        <h3>Independent work is growing. The benefits system is falling behind.</h3>
+        <div class="r"><span class="yr">2020</span><div class="track"><div class="fill" style="width:47%"><span>2020</span></div></div></div>
+        <div class="r"><span class="yr">2026</span><div class="track"><div class="fill hot" style="width:100%"><span>+114%</span></div></div></div>
+        <p>Full-time independent workers, as defined in a national survey. Counting part-time and occasional work too, 74.9 million Americans do some independent work. Source: MBO Partners, Sept 2026</p>
+      </figure>
+    </div>
+    <div class="statrow three">
+      <div><span class="big-num">+114%</span><p>Average increase in what subsidized enrollees would pay in 2026 to keep the same plan, after the extra help ended.</p><span class="src" style="color:var(--on-night-muted)">KFF, June 2026</span></div>
+      <div><span class="big-num">+58%</span><p>Average increase in what people actually paid, once many switched to cheaper plans.</p><span class="src" style="color:var(--on-night-muted)">KFF, June 2026</span></div>
+      <div><span class="big-num">+37%</span><p>Average rise in deductibles, more than $1,000 per person, as people moved to plans that cost less each month.</p><span class="src" style="color:var(--on-night-muted)">KFF, June 2026</span></div>
+    </div>
+    <p class="takeaway dark" style="margin-top:40px">For independent workers, healthcare is becoming another cost of doing business. Except this one isn't optional.</p>
+  </div>
+</section>
+
+<section id="cliff">
+  <div class="wrap">
+    <p class="chap">Chapter 5 · The Cliff Explained</p>
+    <h2>One good month shouldn't cost you your health insurance.</h2>
+    <p class="takeaway">Here's the deal. If you buy your own insurance, the government gives you a discount on your monthly bill. It's called a premium tax credit, but think of it as a coupon that gets smaller as you earn more.</p>
+    <div class="split2">
+      <div class="stack">
+        <p>For a few years, that coupon shrank gradually. Make a little more, get a little less help. Reasonable!</p>
+        <p>Not anymore. In 2026, if you're single and earn more than $62,600, the coupon doesn't shrink. It disappears.</p>
+        <p class="punch">One dollar over the line and you pay full price.</p>
+        <p>Now picture being a freelancer. Your income doesn't show up in neat paychecks. You have a slow spring, then land a big client in December. Great news, right? Except that invoice can push you over the line and cost you thousands in lost help.</p>
+      </div>
+      <figure class="chart" style="margin:0">
+        <svg viewBox="0 0 520 300" role="img" aria-labelledby="cliffTitle">
+          <title id="cliffTitle">Before 2026 the tax credit shrank gradually as income rose. In 2026 it shrinks, then falls to zero at about $62,600 a year for one person.</title>
+          <line x1="60" y1="240" x2="500" y2="240" stroke="var(--ink)" stroke-width="2"/>
+          <line x1="60" y1="30" x2="60" y2="240" stroke="var(--ink)" stroke-width="2"/>
+          <path d="M60 60 L180 100 L300 150 L380 180 L500 225" fill="none" stroke="var(--muted)" stroke-width="4" stroke-dasharray="8 6"/>
+          <path d="M60 70 L180 120 L300 175 L380 200 L380 240 L500 240" fill="none" stroke="var(--orange)" stroke-width="5"/>
+          <line x1="380" y1="30" x2="380" y2="240" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 4"/>
+          <text x="380" y="262" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="var(--ink)">$62,600 (single)</text>
+          <text x="280" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="var(--muted)">Annual household income →</text>
+          <text x="22" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="var(--muted)" transform="rotate(-90 22 140)">Tax credit</text>
+          <text x="392" y="225" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="var(--orange)">$0</text>
+          <text x="196" y="88" font-family="Inter,sans-serif" font-size="13" fill="var(--muted)">2021–2025</text>
+          <text x="120" y="140" font-family="Inter,sans-serif" font-size="13" fill="var(--orange)">2026</text>
+        </svg>
+        <figcaption class="note">Illustration of the shape, not exact amounts. $62,600 is 400% of the federal poverty level, the approximate 2026 cutoff for a one-person household in the 48 contiguous states and DC. Thresholds are higher for larger households and in Alaska and Hawaii. For 2027 coverage, the one-person cutoff rises to about $63,840.</figcaption>
+      </figure>
+    </div>
+    <p class="takeaway" style="margin-top:36px">It's not that freelancers earn too much. It's that the rules were written for people with steady paychecks.</p>
+  </div>
+</section>
+
+<section id="debate" class="band-dark">
+  <div class="wrap">
+    <p class="chap">Chapter 6 · The Debate</p>
+    <h2>Everyone agrees there's a problem. Nobody agrees on the fix.</h2>
+    <p class="takeaway dark">The fights come down to three questions: who gets help, who pays for it, and how big the change should be. Here's each idea in plain English, with the best argument on each side.</p>
+    <p class="asof">Status checked Nov 2, 2026 · Swipe or use the arrows</p>
+    <div class="slider" aria-roledescription="carousel" aria-label="Five reform ideas">
+      <div class="track" id="track">
+        <article class="slide reform" id="idea-1" aria-roledescription="slide" aria-label="Idea 1 of 5">
+          <div class="slide-top"><span class="chip-s">Passed the House, stuck in the Senate</span><span class="slide-n">1 / 5</span></div>
+          <h3>Bring back the extra help</h3>
+          <p class="desc">Put the bigger discounts back and get rid of the cliff.</p>
+          <div class="sides2">
+            <div class="for"><span class="lbl">The case for</span><p>Insurance gets cheaper overnight, and nobody gets punished for one good month.</p></div>
+            <div class="against"><span class="lbl">The concern</span><p>It's expensive, and some say people with higher incomes don't need the help.</p></div>
+          </div>
+          <p class="slide-fine">House passed a 3-year extension 230–196 on Jan 8, 2026. The Senate rejected a similar bill in Dec 2025.</p>
+        </article>
+        <article class="slide reform" id="idea-2" aria-roledescription="slide" aria-label="Idea 2 of 5">
+          <div class="slide-top"><span class="chip-s">Senate bill in committee · Some state laws</span><span class="slide-n">2 / 5</span></div>
+          <h3>Let benefits follow the worker</h3>
+          <p class="desc">Your clients chip into an account that's yours, and it goes with you from gig to gig.</p>
+          <div class="sides2">
+            <div class="for"><span class="lbl">The case for</span><p>You build benefits even when you work for five clients instead of one boss.</p></div>
+            <div class="against"><span class="lbl">The concern</span><p>Companies could use it to call real employees "contractors" and give them less.</p></div>
+          </div>
+          <p class="slide-fine">S.2210, introduced July 2025. Utah, Alabama, Tennessee and Georgia have their own laws.</p>
+        </article>
+        <article class="slide reform" id="idea-3" aria-roledescription="slide" aria-label="Idea 3 of 5">
+          <div class="slide-top"><span class="chip-s">Passed the House, waiting on the Senate</span><span class="slide-n">3 / 5</span></div>
+          <h3>Buy insurance as a group</h3>
+          <p class="desc">Freelancers team up and shop for insurance like a big company does.</p>
+          <div class="sides2">
+            <div class="for"><span class="lbl">The case for</span><p>More buying power could mean better prices.</p></div>
+            <div class="against"><span class="lbl">The concern</span><p>Some of these plans skip the Obamacare rules, so you could end up with less coverage than you think.</p></div>
+          </div>
+          <p class="slide-fine">Part of H.R. 6703, passed the House Dec 18, 2025.</p>
+        </article>
+        <article class="slide reform" id="idea-4" aria-roledescription="slide" aria-label="Idea 4 of 5">
+          <div class="slide-top"><span class="chip-s">Bills introduced, no votes</span><span class="slide-n">4 / 5</span></div>
+          <h3>A public option</h3>
+          <p class="desc">A government-run plan anyone can buy, no employer needed.</p>
+          <div class="sides2">
+            <div class="for"><span class="lbl">The case for</span><p>A dependable choice no matter who you work for.</p></div>
+            <div class="against"><span class="lbl">The concern</span><p>Critics worry about the cost to taxpayers and what it means for hospitals and private insurers.</p></div>
+          </div>
+          <p class="slide-fine">For example, H.R. 3995, introduced June 2025.</p>
+        </article>
+        <article class="slide reform" id="idea-5" aria-roledescription="slide" aria-label="Idea 5 of 5">
+          <div class="slide-top"><span class="chip-s">Mostly up to the states</span><span class="slide-n">5 / 5</span></div>
+          <h3>Paid leave for the self-employed</h3>
+          <p class="desc">Let freelancers get paid time off when they're sick, having a baby or caring for family.</p>
+          <div class="sides2">
+            <div class="for"><span class="lbl">The case for</span><p>You shouldn't lose your income because you got the flu.</p></div>
+            <div class="against"><span class="lbl">The concern</span><p>Someone has to pay in, and many freelancers don't want a new required cost.</p></div>
+          </div>
+          <p class="slide-fine">California, Washington, New York and others let self-employed people opt in. None enroll them automatically.</p>
+        </article>
+      </div>
+      <div class="ctrl">
+        <button type="button" class="arr" id="prev" aria-label="Previous idea">←</button>
+        <div class="dots" id="dots"><button type="button" class="dot" data-i="0" aria-label="Show idea 1"></button><button type="button" class="dot" data-i="1" aria-label="Show idea 2"></button><button type="button" class="dot" data-i="2" aria-label="Show idea 3"></button><button type="button" class="dot" data-i="3" aria-label="Show idea 4"></button><button type="button" class="dot" data-i="4" aria-label="Show idea 5"></button></div>
+        <button type="button" class="arr" id="next" aria-label="Next idea">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="endcta">
+  <div class="wrap">
+    <p class="chap" style="color:#fff">Now make it count</p>
+    <h2>Understanding the system is step one. Changing it takes a phone call.</h2>
+    <p class="prose" style="color:#fff">Pick the proposals you care about, and we'll write a call script for your representatives.</p>
+    <a class="btn btn-arrow" href="index.html#pick">Choose my issues and make the call <span aria-hidden="true">→</span></a>
+    <a class="endlink" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Or sign the petition on Change.org →</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-a">
+      <p class="foot-h">The future of work deserves a better safety net.</p>
+      <p class="foot-p">This website is intended to demystify healthcare in America and help you advocate for change as a Polyworker.</p>
+      <p class="foot-links"><span class="movement">Polyworkers for Healthcare Reform</span></p>
+      <div class="foot-ctas">
+        <a class="foot-btn" id="pod-link" href="https://podcasts.apple.com/us/podcast/the-portfolio-career-lab/id1778959092" target="_blank" rel="noopener">Follow the Podcast →</a>
+        <a class="foot-btn" id="book-link" href="https://www.amazon.com/dp/B0GG7LXFK1" target="_blank" rel="noopener">Buy the Book →</a>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <p><b>Disclaimer.</b> I am not a lawyer, tax professional, financial advisor, or licensed insurance agent. Everything on this website is for general educational and informational purposes only and is not legal, tax, financial, insurance, or medical advice. Using this website does not create an attorney-client, advisor-client, or any other professional relationship.</p>
+      <p>Health insurance rules, prices, deadlines, and legislation change often and vary by state and personal situation. While I try to keep this information accurate and cite my sources, I make no guarantee that it is complete, current, or correct for you. Before making decisions about your coverage, taxes, or finances, consult HealthCare.gov, your state's insurance marketplace, or a qualified professional.</p>
+      <p>This website is an independent project. It is not affiliated with, endorsed by, or speaking for any government agency, political party, candidate, or the organizations it cites. Links to outside websites are provided for convenience; I am not responsible for their content. Any call script is a suggestion. You are responsible for what you choose to say or send.</p>
+    </div>
+    <details><summary><b>Sources</b></summary>
+    <ol>
+      <li><a href="https://www.kff.org/health-costs/2026-employer-health-benefits-survey/" target="_blank" rel="noopener">KFF: 2026 Employer Health Benefits Survey</a></li>
+      <li><a href="https://www.kff.org/affordable-care-act/9-things-to-watch-for-the-2027-aca-open-enrollment-period/" target="_blank" rel="noopener">KFF: 9 Things to Watch for 2027 Open Enrollment (Oct 30, 2026)</a></li>
+      <li><a href="https://www.kff.org/quick-insights/aca-marketplace-enrollment-is-down-by-3-million-after-big-jump-in-premium-payments/" target="_blank" rel="noopener">KFF: Marketplace enrollment down after premium payments jump (June 29, 2026)</a></li>
+      <li><a href="https://www.selfemployed.com/news/mbo-partners-state-of-independence-2026/" target="_blank" rel="noopener">MBO Partners 2026 State of Independence (summary, Sept 2026)</a></li>
+      <li><a href="https://www.kff.org/affordable-care-act/" target="_blank" rel="noopener">KFF: Affordable Care Act resources</a></li>
+      <li><a href="https://www.talktomira.com/post/federal-poverty-level-chart" target="_blank" rel="noopener">Federal poverty guidelines and 400% thresholds, 2025 and 2026</a></li>
+      <li><a href="https://www.aha.org/news/headline/2026-01-09-house-passes-bill-extending-enhanced-premium-tax-credits" target="_blank" rel="noopener">AHA: House passes enhanced tax credit extension (Jan 9, 2026)</a></li>
+      <li><a href="https://www.healio.com/news/primary-care/20251211/senate-rejects-legislation-to-extend-affordable-care-act-subsidies-in-2026" target="_blank" rel="noopener">Healio: Senate rejects subsidy extension (Dec 11, 2025)</a></li>
+      <li><a href="https://taxpayers.net/guides/aca-subsidy-status-2027" target="_blank" rel="noopener">2027 premium tax credit legislative status tracker</a></li>
+      <li><a href="https://www.congress.gov/bill/119th-congress/senate-bill/2210/text" target="_blank" rel="noopener">Congress.gov: S.2210</a></li>
+      <li><a href="https://www.deel.com/blog/portable-benefits-for-contractors-2026/" target="_blank" rel="noopener">Deel: state portable benefits laws, 2026</a></li>
+      <li><a href="https://www.epi.org/blog/workers-need-real-security-and-flexibility-not-pro-employer-portable-benefits-proposals/" target="_blank" rel="noopener">EPI on portable benefits proposals</a></li>
+      <li><a href="https://narfocus.com/publication-issue/view/2026-05-28-insurance-health-insurance-reform" target="_blank" rel="noopener">NAR: Association Health Plans Act and H.R. 6703 status (May 2026)</a></li>
+      <li><a href="https://thelobbynews.com/congress/bills/119/house-bill/3995" target="_blank" rel="noopener">H.R. 3995, State Public Option Act</a></li>
+      <li><a href="https://www.americanprogress.org/?p=157570" target="_blank" rel="noopener">CAP: Self-employed access to state paid leave, 2026</a></li>
+      <li><a href="https://www.kiplinger.com/personal-finance/health-savings-accounts/hsas-health-insurance-bronze-catastrophic-plans" target="_blank" rel="noopener">Kiplinger: Bronze and Catastrophic plans now HSA-eligible</a></li>
+      <li><a href="https://abcnews.com/Health/premiums-rise-aca-coverage-open-enrollment-begins/story?id=137765948" target="_blank" rel="noopener">ABC News: 2027 open enrollment dates (Nov 2, 2026)</a></li>
+    </ol></details>
+  </div>
+</footer>
+<script>
+(function(){
+  const t=document.getElementById('track'); if(!t) return;
+  const slides=[...t.children], dots=[...document.querySelectorAll('#dots .dot')];
+  const prev=document.getElementById('prev'), next=document.getElementById('next');
+  let i=0;
+  function go(n){ i=Math.max(0,Math.min(slides.length-1,n)); t.scrollTo({left:slides[i].offsetLeft-t.offsetLeft,behavior:'smooth'}); paint(); }
+  function paint(){ dots.forEach((d,k)=>{d.classList.toggle('on',k===i);d.setAttribute('aria-current',k===i?'true':'false')}); prev.disabled=i===0; next.disabled=i===slides.length-1; }
+  prev.addEventListener('click',()=>go(i-1)); next.addEventListener('click',()=>go(i+1));
+  dots.forEach(d=>d.addEventListener('click',()=>go(+d.dataset.i)));
+  let tm; t.addEventListener('scroll',()=>{clearTimeout(tm);tm=setTimeout(()=>{const x=t.scrollLeft;let best=0,bd=1e9;slides.forEach((s,k)=>{const dd=Math.abs(s.offsetLeft-t.offsetLeft-x);if(dd<bd){bd=dd;best=k}});i=best;paint();},80)});
+  t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(i+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(i-1)}});
+  t.tabIndex=0; paint();
+})();
+</script>
+</body></html>

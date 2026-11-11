@@ -16,12 +16,31 @@ How to work with her:
 
 ## What this project is
 
-A static website (plain HTML and CSS) for Polyworker. It is hosted on **Netlify**, which is connected to the GitHub repo `Bre12084/polyworkers-hc`.
+**Polyworkers for Healthcare Reform**: a campaign website (plain HTML and CSS, a little inline JavaScript). It is hosted on **Netlify**, which is connected to the GitHub repo `Bre12084/polyworkers-hc`.
 
 - Every push to `main` deploys the live site.
 - Every pull request gets its own **Deploy Preview** link from Netlify, so changes can be checked before they go live.
 
-Build and deploy settings live in `netlify.toml`. (To be filled in once the site files are added.)
+### Where things are
+
+- `site/` holds **everything that gets published**. Only this folder goes on the web.
+  - `index.html`: main campaign page (sign the petition, call Congress, share, signature goal counter)
+  - `demystified.html`: the "Healthcare, Demystified" white paper
+  - `404.html`: branded "page not found" page
+  - `og-image.png`: preview image shown when the link is shared (1200x630)
+  - `polyworkers-share.png`: the "I signed" graphic people can download
+  - favicons, `site.webmanifest`, `robots.txt`
+- `netlify.toml` holds Netlify settings: publish the `site/` folder, no build step, security headers, image caching, and short links.
+- `CLAUDE.md` and `README.md` are notes for us. They are **not** published.
+
+There is **no build step**. Netlify serves the `site/` folder as-is. To preview locally: `python3 -m http.server 8000 -d site`, then open http://localhost:8000.
+
+### Common tasks
+
+- **Update the signature counter:** in `site/index.html`, find `const SIGNATURES=null;` and set it to the current Change.org number (e.g. `const SIGNATURES=1240;`). Change.org has no public API, so this is manual.
+- **Short links** (in `netlify.toml`): `/petition` redirects to the Change.org petition; `/demystified` shows the white paper.
+- **Link previews:** `og:image` and `twitter:image` in `index.html` and `demystified.html` currently say `og-image.png`. LinkedIn and Facebook need the **full** address (e.g. `https://<site-address>/og-image.png`). Update these once the final site address is known. Check with https://www.linkedin.com/post-inspector/.
+- **Petition:** once the site has its address, Brie should put it in the Change.org petition where it says "[your website link]".
 
 ## How changes get made (the workflow)
 
