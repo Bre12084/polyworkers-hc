@@ -891,20 +891,36 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 @media(max-width:1020px){.toplink-paper{display:flex}}
 @media(max-width:900px){.toplink-paper,.nav-div{display:none}.actnav{margin-left:auto}}
 @media(max-width:560px){.actnav .tl-k{display:none}}
+/* Read button + step progress bar */
+.toplink-paper{align-items:center;gap:8px;padding:9px 14px;border:2px solid #141414;background:#fff;box-shadow:3px 3px 0 #141414;transition:transform .12s ease,box-shadow .12s ease}
+.toplink-paper:hover{color:#141414;transform:translate(-1px,-1px);box-shadow:4px 4px 0 #141414}
+.toplink-paper:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #141414}
+.toplink-paper .tl-k{color:#DF5416}
+.actnav .tl-k{display:grid;gap:2px;line-height:1.1}
+.tl-count{font-family:var(--body);font-size:.78rem;letter-spacing:0;text-transform:none;color:#141414;font-weight:700}
+.tl-count.all{color:#028E8B}
+.actsteps{display:grid;gap:4px}
+.stepbar{height:5px;background:#e6dfd2;margin:0 8px}
+.stepbar i{display:block;height:100%;width:0;background:#03B1AE;transition:width .4s ease}
+@media(prefers-reduced-motion:reduce){.stepbar i,.toplink-paper{transition:none}}
+@media(max-width:600px){.actnav .tl-k{display:none}}
 </style>
 
 </head>
 <body>
 <nav class="topbar" aria-label="Main"><div class="wrap">
   <a class="brand" href="#top" aria-label="Polyworkers for Healthcare Reform, back to top"><img class="brand-img" src="polyworkers-logo.png" alt="Polyworkers for Healthcare Reform" width="640" height="263"></a>
-  <a class="toplink-paper" href="demystified.html"><span class="tl-k">Read</span> Healthcare, demystified</a>
+  <a class="toplink-paper" href="demystified.html"><span class="tl-k">Read</span> Healthcare, demystified <span aria-hidden="true">→</span></a>
   <span class="nav-div" aria-hidden="true"></span>
-  <div class="actnav"><span class="tl-k">Take action</span>
+  <div class="actnav"><span class="tl-k">Take action<b class="tl-count" id="stepcount">0 of 3 done</b></span>
+    <div class="actsteps">
     <ol class="stepnav" aria-label="Take action: your progress">
       <li data-step="sign"><a href="#petition"><i aria-hidden="true">1</i><span>Sign</span></a></li>
       <li data-step="call"><a href="#pick"><i aria-hidden="true">2</i><span>Call</span></a></li>
       <li data-step="share"><a href="#share"><i aria-hidden="true">3</i><span>Share</span></a></li>
     </ol>
+    <div class="stepbar" aria-hidden="true"><i id="stepfill"></i></div>
+    </div>
   </div>
 </div></nav>
 <header class="hero hero-light" id="top">
@@ -1275,7 +1291,9 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   function render(){
     document.querySelectorAll('.stepnav li').forEach(li=>{const k=li.dataset.step;li.classList.toggle('done',!!st.done[k]);
       li.querySelector('a').setAttribute('aria-label','Step '+(STEPS.indexOf(k)+1)+': '+li.textContent.trim()+(st.done[k]?' (done)':''));});
-    const nxt=STEPS.find(k=>!st.done[k]);
+    const nxt=STEPS.find(k=>!st.done[k]), nd=STEPS.filter(k=>st.done[k]).length;
+    $('stepfill').style.width=(nd/3*100)+'%';
+    const sc=$('stepcount'); sc.textContent=nd===3?'All 3 done ✓':nd+' of 3 done'; sc.classList.toggle('all',nd===3);
     document.querySelectorAll('.stepnav li').forEach(li=>li.classList.toggle('next',li.dataset.step===nxt));
     const n=Math.min(st.friends||0,5);
     document.querySelectorAll('.friend-dots i').forEach((d,i)=>d.classList.toggle('on',i<n));
