@@ -802,46 +802,23 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .act-card:not(.primary) .act-n{background:#004CA6;color:#FFEFD6}
 .act-card.third .act-n{background:#E25F99;color:#0B0B0B}
 .sharebtns{display:flex;gap:8px}
-/* ===== Poster hero: brand-blue field, number tiles, steps in a row ===== */
-.hero{background:var(--blue)}
-.hero .wrap{padding-block:clamp(40px,7vw,88px)}
-.hero-copy{max-width:none;gap:18px}
-.hero h1.stats{display:grid;gap:.3em;font-size:clamp(1.6rem,4.2vw,3.2rem);line-height:1.1;text-transform:uppercase;letter-spacing:.01em;color:var(--tile-ink);max-width:none}
-.hero h1 .num{display:inline-block;padding:0 .18em;margin-right:.12em;font-weight:700;transform:rotate(-2deg)}
-.hero h1 .num.o{background:#FD6E1A;color:#0B0B0B}
-.hero h1 .num.y{background:var(--yellow);color:#0B0B0B;transform:rotate(1.5deg)}
-.hero .hero-sub{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--tile-ink);max-width:none}
-.hero .actions{max-width:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
-.hero .actions-h{grid-column:1/-1;color:var(--yellow)}
-.hero .act-card{border-color:rgba(255,239,214,.55);color:var(--tile-ink)}
-.hero .act-card:hover{border-color:var(--yellow)}
-.hero .act-card.primary{background:#DF5416;border-color:#DF5416;color:#fff}
-.hero .act-card.primary:hover{background:#F06A2A}
-.hero .act-card:not(.primary):not(.third) .act-n{background:var(--yellow);color:#0B0B0B}
-@media(max-width:760px){.hero .actions{grid-template-columns:1fr}}
-/* ===== Hero pass 3: one dominant action, pressable cards, bigger number hooks ===== */
-.hero h1 .num{font-size:1.3em;line-height:1;vertical-align:-.06em;box-shadow:4px 4px 0 #0B0B0B}
-.hero .hero-sub{font-weight:600;margin-top:8px}
-.hero .actions{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.hero .act-card{transition:transform .12s ease,box-shadow .12s ease,border-color .12s ease;background:rgba(255,255,255,.05)}
-.hero .act-card:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #0B0B0B}
-.hero .act-card:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
-.hero .act-card.primary{grid-column:1/-1;padding:22px 26px;box-shadow:6px 6px 0 #0B0B0B}
-.hero .act-card.primary:hover{transform:translate(-2px,-2px);box-shadow:9px 9px 0 #0B0B0B}
-.hero .act-card.primary:active,.hero .act-card:active{transform:translate(3px,3px);box-shadow:2px 2px 0 #0B0B0B}
-.hero .act-card.primary .act-t b{font-family:var(--serif);font-size:clamp(1.6rem,3.6vw,2.4rem);text-transform:uppercase;letter-spacing:.01em;line-height:1.05}
-.hero .act-card.primary .act-t small{font-size:.95rem}
-.hero .act-card.primary .act-n{width:52px;height:52px;font-size:1.9rem}
-.hero .act-card.primary .act-a{font-size:2.2rem;transition:transform .15s ease}
-.hero .act-card.primary:hover .act-a{transform:translateX(6px)}
-@media(max-width:760px){.hero .actions{grid-template-columns:1fr}.hero .act-card.primary{padding:18px 18px}}
-@media(prefers-reduced-motion:reduce){.hero .act-card,.hero .act-card .act-a{transition:none}}
-/* ===== Hero pass 4: navy field, readable step heading ===== */
-.hero{background:#0B2350}
-.hero .act-card:not(.primary){background:rgba(255,255,255,.06)}
-.hero .actions-h{font-family:var(--serif);font-weight:600;font-size:clamp(1.05rem,2vw,1.3rem);letter-spacing:.06em;text-transform:uppercase;color:var(--yellow)}
-.hero .actions-h::before,.hero .actions-h::after{content:none}
-.hero .actions-h span{color:var(--tile-ink);font-weight:500;text-transform:none;letter-spacing:.02em}
+/* ===== Light hero: cream field, black + orange headline, two buttons ===== */
+.hero.hero-light{background:var(--cream);color:#141414}
+.hero-light .wrap{display:grid;gap:22px;justify-items:start;padding-block:clamp(48px,8vw,96px)}
+.hero-light h1{font-size:clamp(2.3rem,6vw,4.4rem);line-height:1.02;color:#141414;max-width:18ch;margin:0}
+.hero-light h1 em{display:block;font-style:normal;color:#DF5416;margin-top:.08em}
+.hero-steps{margin:0;font-family:var(--body);font-size:clamp(.95rem,1.6vw,1.05rem);font-weight:600;color:#141414}
+.hero-steps a{color:inherit;text-decoration:none;border-bottom:1.5px solid transparent}
+.hero-steps a:hover{border-bottom-color:#DF5416}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.hb{font-family:var(--mono);font-weight:600;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:16px 26px;border:2px solid #141414;transition:transform .12s ease,box-shadow .12s ease}
+.hb-primary{background:#DF5416;border-color:#DF5416;color:#fff;box-shadow:4px 4px 0 #141414}
+.hb-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #141414}
+.hb-ghost{background:transparent;color:#141414}
+.hb-ghost:hover{background:#141414;color:var(--cream)}
+.hb:focus-visible{outline:3px solid #004CA6;outline-offset:3px}
+@media(max-width:600px){.hero-btns{width:100%}.hb{flex:1 1 100%;text-align:center}}
+@media(prefers-reduced-motion:reduce){.hb{transition:none}}
 </style>
 
 </head>
@@ -851,19 +828,13 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   <div class="toplinks"><a href="#petition">1. Sign</a><a href="#pick">2. Call</a><a href="#share">3. Share</a><a href="demystified.html">Healthcare, demystified</a></div>
   <a class="topcta" href="#steps">Take action</a>
 </div></nav>
-<header class="hero" id="top">
+<header class="hero hero-light" id="top">
   <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <h1 class="stats"><span class="row"><b class="num o">16M</b> Americans work for themselves.</span><span class="row"><b class="num y">76M</b> Americans polywork.</span></h1>
-        <p class="hero-sub">Our healthcare system should reflect that.</p>
-        <div class="actions">
-          <p class="actions-h">3 steps to make your voice heard right now <span>(it takes 5 minutes)</span></p>
-          <a class="act-card primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener"><span class="act-n">1</span><span class="act-t"><b>Sign the petition</b><small>30 seconds · Opens Change.org</small></span><span class="act-a" aria-hidden="true">→</span></a>
-          <a class="act-card" href="#pick"><span class="act-n">2</span><span class="act-t"><b>Call Congress</b><small>About 5 minutes · We'll write your script</small></span><span class="act-a" aria-hidden="true">↓</span></a>
-          <a class="act-card third" href="#share"><span class="act-n">3</span><span class="act-t"><b>Tell 5 friends</b><small>1 minute · Ready-made message and image</small></span><span class="act-a" aria-hidden="true">↓</span></a>
-        </div>
-      </div>
+    <h1>16M Americans work for themselves.<em>It's time our healthcare system caught up.</em></h1>
+    <p class="hero-steps"><a href="#petition">Sign the petition</a> · <a href="#pick">Call Congress</a> · <a href="#share">Tell 5 friends</a></p>
+    <div class="hero-btns">
+      <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition <span aria-hidden="true">→</span></a>
+      <a class="hb hb-ghost" href="#lose">Learn more <span aria-hidden="true">↓</span></a>
     </div>
   </div>
 </header>
