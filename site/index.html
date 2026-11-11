@@ -838,6 +838,11 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hb-ghost:hover{background:#FBF3E6;color:#121212}
 .hb:focus-visible{outline-color:#FEEE90}
 .hero-note{color:#CFC6B8}
+/* color tiles behind the hero numbers, like the logo's letter blocks */
+.hero-light h1 .num{display:inline-block;padding:0 .14em;margin-right:.06em;color:#121212;font-weight:inherit;transform:rotate(-2deg)}
+.hero-light h1 .n1{background:#E25F99}
+.hero-light h1 .n2{background:#FEEE90;transform:rotate(1.5deg)}
+.hero-light h1 span+span{margin-top:.2em}
 </style>
 
 </head>
@@ -849,7 +854,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 </div></nav>
 <header class="hero hero-light" id="top">
   <div class="wrap">
-    <h1><span>16M Americans are self-employed.</span> <span>76M are polyworking by choice or by force.</span></h1>
+    <h1><span><b class="num n1">16M</b> Americans are self-employed.</span> <span><b class="num n2">76M</b> are polyworking by choice or by force.</span></h1>
     <p class="hero-tag">It's time our healthcare system reflected that.</p>
     <p class="hero-steps"><a href="#petition">Sign the petition</a> · <a href="#pick">Call Congress</a> · <a href="#share">Tell 5 friends</a></p>
     <div class="hero-btns">
