@@ -7,4 +7,4 @@ Campaign website. Plain static HTML/CSS, no build step.
 
 Deployed on Netlify from `main`; pull requests get a Deploy Preview. See `CLAUDE.md` for the workflow.
 
-Local preview: `python3 -m http.server 8000 -d site`
+Local preview: open `site/index.html` in a browser (no build step).

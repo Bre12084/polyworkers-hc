@@ -33,7 +33,18 @@ How to work with her:
 - `netlify.toml` holds Netlify settings: publish the `site/` folder, no build step, security headers, image caching, and short links.
 - `CLAUDE.md` and `README.md` are notes for us. They are **not** published.
 
-There is **no build step**. Netlify serves the `site/` folder as-is. To preview locally: `python3 -m http.server 8000 -d site`, then open http://localhost:8000.
+### No build step: keep website files in `site/`
+
+There is **no build step**. Netlify just takes the `site/` folder and serves the files exactly as they are. That means:
+
+- **Every website file must live in `site/`**: pages, images, icons, anything visitors load. A file outside `site/` won't be on the website.
+- **Nothing else goes in `site/`.** Anything in that folder is public. Notes and settings like `CLAUDE.md`, `README.md` and `netlify.toml` stay at the top level of the project so they never appear on the website (e.g. nobody should be able to open `yoursite.com/CLAUDE.md`).
+
+### Previewing locally
+
+Since there's no build, just open the file in a browser: `open site/index.html` (or `open site/demystified.html`). Do this to show Brie a change before pushing.
+
+A few things only work once it's on Netlify (in the Deploy Preview): the short links (`/petition`, `/demystified`), the custom 404 page, and the security headers.
 
 ### Common tasks
 
