@@ -802,6 +802,23 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .act-card:not(.primary) .act-n{background:#004CA6;color:#FFEFD6}
 .act-card.third .act-n{background:#E25F99;color:#0B0B0B}
 .sharebtns{display:flex;gap:8px}
+/* ===== Poster hero: brand-blue field, number tiles, steps in a row ===== */
+.hero{background:var(--blue)}
+.hero .wrap{padding-block:clamp(40px,7vw,88px)}
+.hero-copy{max-width:none;gap:18px}
+.hero h1.stats{display:grid;gap:.3em;font-size:clamp(1.6rem,4.2vw,3.2rem);line-height:1.1;text-transform:uppercase;letter-spacing:.01em;color:var(--tile-ink);max-width:none}
+.hero h1 .num{display:inline-block;padding:0 .18em;margin-right:.12em;font-weight:700;transform:rotate(-2deg)}
+.hero h1 .num.o{background:#FD6E1A;color:#0B0B0B}
+.hero h1 .num.y{background:var(--yellow);color:#0B0B0B;transform:rotate(1.5deg)}
+.hero .hero-sub{font-size:clamp(1.05rem,2vw,1.3rem);color:var(--tile-ink);max-width:none}
+.hero .actions{max-width:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.hero .actions-h{grid-column:1/-1;color:var(--yellow)}
+.hero .act-card{border-color:rgba(255,239,214,.55);color:var(--tile-ink)}
+.hero .act-card:hover{border-color:var(--yellow)}
+.hero .act-card.primary{background:#DF5416;border-color:#DF5416;color:#fff}
+.hero .act-card.primary:hover{background:#F06A2A}
+.hero .act-card:not(.primary):not(.third) .act-n{background:var(--yellow);color:#0B0B0B}
+@media(max-width:760px){.hero .actions{grid-template-columns:1fr}}
 </style>
 
 </head>
@@ -815,7 +832,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <h1>16M Americans work for themselves.<em>76M Americans polywork.</em></h1>
+        <h1 class="stats"><span class="row"><b class="num o">16M</b> Americans work for themselves.</span><span class="row"><b class="num y">76M</b> Americans polywork.</span></h1>
         <p class="hero-sub">Our healthcare system should reflect that.</p>
         <div class="actions">
           <p class="actions-h">Take 5 minutes to make your voice heard</p>
