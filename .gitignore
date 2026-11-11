@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Netlify local folder
+.netlify/
+
+# Editors
+.vscode/
+.idea/
+
+# Node (in case it's ever needed)
+node_modules/
