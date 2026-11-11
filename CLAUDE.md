@@ -19,7 +19,8 @@ How to work with her:
 **Polyworkers for Healthcare Reform**: a campaign website (plain HTML and CSS, a little inline JavaScript). It is hosted on **Netlify**, which is connected to the GitHub repo `Bre12084/polyworkers-hc`.
 
 - Every push to `main` deploys the live site.
-- Every pull request gets its own **Deploy Preview** link from Netlify, so changes can be checked before they go live.
+- Every pull request gets its own **Deploy Preview** link from Netlify, so changes can be checked before they go live. The link looks like `https://deploy-preview-<PR number>--polyworkers-for-healthcare-reform.netlify.app`.
+- Netlify project name: `polyworkers-for-healthcare-reform`.
 
 ### Where things are
 
@@ -62,7 +63,7 @@ Never commit straight to `main`. Always:
 3. **Commit** with a short, clear message describing the change.
 4. **Push and open a pull request** to `main` with `gh pr create`. Write the PR description in plain language.
 5. **Check links** if the change added or edited any links or images: use the `check-links` skill (`python3 .claude/skills/check-links/check_links.py`). Fix anything broken before calling it ready.
-6. **Wait for Netlify's checks.** Use `gh pr checks <number> --watch` to see when the Netlify build and Deploy Preview finish. Share the preview link with Brie.
+6. **Wait for the checks.** Use `gh pr checks <number> --watch`. Two checks are required: `build` (GitHub Actions, see `.github/workflows/build.yml`: runs the Netlify build and checks every internal link and image) and `netlify/polyworkers-for-healthcare-reform/deploy-preview` (Netlify's preview). Share the preview link with Brie.
 7. **Tell Brie when it's ready.** It's ready to merge when: the Netlify build passed, Brie has looked at the preview and is happy, and nothing else is pending.
 8. **Merge when she says yes**: `gh pr merge <number> --squash --delete-branch`, then switch back to `main` and `git pull`.
 9. Confirm the live site updated.
@@ -72,6 +73,6 @@ Explaining this to Brie: a *branch* is a separate draft copy of the site; a *pul
 ## Rules
 
 - `main` = the live site. Treat it with care.
-- Don't merge if the Netlify build check is failing. (Goal: add a GitHub rule that enforces this once the Netlify check exists.)
+- `main` is protected: nobody can push to it directly, and a PR can't merge until the `build` and Netlify deploy-preview checks pass. If a check fails, find out why (`gh run view --log-failed` for `build`), fix it on the branch, and push again. Never try to get around the rule.
 - Keep it simple: no frameworks, build tools, or npm packages unless there's a real need and Brie agrees.
 - Don't commit secrets, passwords, or private files.
