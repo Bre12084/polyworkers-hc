@@ -860,10 +860,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .stepnav li.done i::after{content:"✓";font-size:.95rem;font-family:var(--body);font-weight:700}
 .toplink-paper{font-family:var(--body);font-weight:600;font-size:.88rem;color:#141414;text-decoration:none;white-space:nowrap}
 .toplink-paper:hover{color:#DF5416}
-.topcta{margin-left:0}
-.topcta.alldone{background:#03B1AE}
 @media(max-width:1020px){.toplink-paper{display:none}}
-@media(max-width:760px){.topcta{display:none}}
 @media(max-width:420px){.stepnav a{padding:6px 4px;gap:5px;font-size:.8rem}.stepnav li+li::before{width:8px;margin-right:2px}.stepnav i{width:22px;height:22px;font-size:.85rem}}
 
 .toast{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;max-width:min(560px,calc(100vw - 32px));padding:14px 18px;background:#121212;color:#FBF3E6;font-family:var(--body);font-size:.98rem;box-shadow:5px 5px 0 #03B1AE}
@@ -882,19 +879,33 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .friend-dots{display:flex;gap:4px}
 .friend-dots i{width:14px;height:14px;border:2px solid var(--ink)}
 .friend-dots i.on{background:#03B1AE;border-color:#03B1AE}
+/* menu: READ first, then TAKE ACTION 1-2-3; the next step is filled orange */
+.toplink-paper{margin-left:auto;display:flex;align-items:baseline;gap:8px}
+.tl-k{font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#6b645b}
+.nav-div{width:1px;height:30px;background:#d8d0c2;flex:none}
+.actnav{display:flex;align-items:center;gap:10px}
+.stepnav{margin:0}
+.stepnav li.next a{background:#DF5416;color:#fff;border-bottom-color:transparent}
+.stepnav li.next a:hover span{color:#fff}
+.stepnav li.next i{border-color:#fff;color:#fff;background:transparent}
+@media(max-width:1020px){.toplink-paper{display:flex}}
+@media(max-width:900px){.toplink-paper,.nav-div{display:none}.actnav{margin-left:auto}}
+@media(max-width:560px){.actnav .tl-k{display:none}}
 </style>
 
 </head>
 <body>
 <nav class="topbar" aria-label="Main"><div class="wrap">
   <a class="brand" href="#top" aria-label="Polyworkers for Healthcare Reform, back to top"><img class="brand-img" src="polyworkers-logo.png" alt="Polyworkers for Healthcare Reform" width="640" height="263"></a>
-  <ol class="stepnav" aria-label="Your progress">
-    <li data-step="sign"><a href="#petition"><i aria-hidden="true">1</i><span>Sign</span></a></li>
-    <li data-step="call"><a href="#pick"><i aria-hidden="true">2</i><span>Call</span></a></li>
-    <li data-step="share"><a href="#share"><i aria-hidden="true">3</i><span>Share</span></a></li>
-  </ol>
-  <a class="toplink-paper" href="demystified.html">Healthcare, demystified</a>
-  <a class="topcta" id="topcta" href="#petition">Next: Sign the petition</a>
+  <a class="toplink-paper" href="demystified.html"><span class="tl-k">Read</span> Healthcare, demystified</a>
+  <span class="nav-div" aria-hidden="true"></span>
+  <div class="actnav"><span class="tl-k">Take action</span>
+    <ol class="stepnav" aria-label="Take action: your progress">
+      <li data-step="sign"><a href="#petition"><i aria-hidden="true">1</i><span>Sign</span></a></li>
+      <li data-step="call"><a href="#pick"><i aria-hidden="true">2</i><span>Call</span></a></li>
+      <li data-step="share"><a href="#share"><i aria-hidden="true">3</i><span>Share</span></a></li>
+    </ol>
+  </div>
 </div></nav>
 <header class="hero hero-light" id="top">
   <div class="wrap">
@@ -1264,9 +1275,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   function render(){
     document.querySelectorAll('.stepnav li').forEach(li=>{const k=li.dataset.step;li.classList.toggle('done',!!st.done[k]);
       li.querySelector('a').setAttribute('aria-label','Step '+(STEPS.indexOf(k)+1)+': '+li.textContent.trim()+(st.done[k]?' (done)':''));});
-    const nxt=STEPS.find(k=>!st.done[k]), c=$('topcta');
-    if(nxt){c.href=NEXT[nxt][0];c.textContent=NEXT[nxt][1];c.classList.remove('alldone')}
-    else{c.href='#share';c.textContent='All 3 done ✓';c.classList.add('alldone')}
+    const nxt=STEPS.find(k=>!st.done[k]);
+    document.querySelectorAll('.stepnav li').forEach(li=>li.classList.toggle('next',li.dataset.step===nxt));
     const n=Math.min(st.friends||0,5);
     document.querySelectorAll('.friend-dots i').forEach((d,i)=>d.classList.toggle('on',i<n));
     const fc=$('friendcount'); if(fc) fc.textContent=n>=5?'Shared with 5 friends. You did it!':'Shared with '+n+' of 5 friends';
