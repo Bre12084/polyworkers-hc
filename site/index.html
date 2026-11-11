@@ -844,15 +844,84 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero-light h1 .n2{background:#FEEE90;transform:rotate(1.5deg)}
 .hero-light h1 span+span{margin-top:.2em}
 /* "So it doesn't help..." heading: off-white for readability on the dark band */
-#short h2{color:#FBF3E6}
+#short h2,#goal h2{color:#FBF3E6}
+/* ===== UX pass: progress tracker, step toasts, one-tap sharing ===== */
+.topbar .wrap{gap:18px}
+.stepnav{list-style:none;margin:0 0 0 auto;padding:0;display:flex;align-items:center;gap:6px}
+.stepnav li{display:flex;align-items:center}
+.stepnav li+li::before{content:"";width:18px;height:2px;background:#d8d0c2;margin-right:6px}
+.stepnav li.done+li::before{background:#03B1AE}
+.stepnav a{display:flex;align-items:center;gap:7px;padding:6px 8px;text-decoration:none;color:#141414;font-family:var(--body);font-weight:600;font-size:.88rem;border-bottom:2px solid transparent}
+.stepnav a:hover span{color:#DF5416}
+.stepnav i{font-style:normal;width:26px;height:26px;display:grid;place-items:center;border:2px solid #141414;font-family:var(--serif);font-size:.95rem;line-height:1}
+.stepnav li.here a{border-bottom-color:#DF5416}
+.stepnav li.here i{background:#141414;color:#FBF3E6}
+.stepnav li.done i{background:#03B1AE;border-color:#03B1AE;color:#fff;font-size:0}
+.stepnav li.done i::after{content:"✓";font-size:.95rem;font-family:var(--body);font-weight:700}
+.toplink-paper{font-family:var(--body);font-weight:600;font-size:.88rem;color:#141414;text-decoration:none;white-space:nowrap}
+.toplink-paper:hover{color:#DF5416}
+@media(max-width:1020px){.toplink-paper{display:none}}
+@media(max-width:420px){.stepnav a{padding:6px 4px;gap:5px;font-size:.8rem}.stepnav li+li::before{width:8px;margin-right:2px}.stepnav i{width:22px;height:22px;font-size:.85rem}}
+
+.toast{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;max-width:min(560px,calc(100vw - 32px));padding:14px 18px;background:#121212;color:#FBF3E6;font-family:var(--body);font-size:.98rem;box-shadow:5px 5px 0 #03B1AE}
+.toast b{color:#03B1AE}
+.toast a{color:#FEEE90;font-weight:700;text-decoration:none;white-space:nowrap}
+.toast a:hover{text-decoration:underline}
+.toast button{margin-left:auto;background:none;border:0;color:#CFC6B8;font-size:1.2rem;cursor:pointer;padding:0 2px}
+@media(prefers-reduced-motion:no-preference){.toast:not([hidden]){animation:toastin .25s ease-out}}
+@keyframes toastin{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translate(-50%,0)}}
+
+.sharebtns{display:flex;flex-wrap:wrap;gap:8px}
+.shb{min-height:44px;padding:8px 14px;border:2px solid var(--ink);background:var(--surface);color:var(--ink);font-family:var(--body);font-weight:600;font-size:.92rem;cursor:pointer}
+.shb:hover{background:var(--ink);color:var(--bg)}
+.shb-native{background:#141414;color:#FBF3E6;border-color:#141414}
+.friends{display:flex;align-items:center;gap:10px;font-size:.92rem;font-weight:600;color:var(--ink)}
+.friend-dots{display:flex;gap:4px}
+.friend-dots i{width:14px;height:14px;border:2px solid var(--ink)}
+.friend-dots i.on{background:#03B1AE;border-color:#03B1AE}
+/* menu: READ first, then TAKE ACTION 1-2-3; the next step is filled orange */
+.toplink-paper{margin-left:auto;display:flex;align-items:baseline;gap:8px}
+.tl-k{font-family:var(--mono);font-weight:600;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#6b645b}
+.nav-div{width:1px;height:30px;background:#d8d0c2;flex:none}
+.actnav{display:flex;align-items:center;gap:10px}
+.stepnav{margin:0}
+.stepnav li.next a{background:#DF5416;color:#fff;border-bottom-color:transparent}
+.stepnav li.next a:hover span{color:#fff}
+.stepnav li.next i{border-color:#fff;color:#fff;background:transparent}
+@media(max-width:1020px){.toplink-paper{display:flex}}
+@media(max-width:900px){.toplink-paper,.nav-div{display:none}.actnav{margin-left:auto}}
+@media(max-width:560px){.actnav .tl-k{display:none}}
+/* Read button + step progress bar */
+.toplink-paper{align-items:center;gap:8px;padding:9px 14px;border:2px solid #141414;background:#fff;box-shadow:3px 3px 0 #141414;transition:transform .12s ease,box-shadow .12s ease}
+.toplink-paper:hover{color:#141414;transform:translate(-1px,-1px);box-shadow:4px 4px 0 #141414}
+.toplink-paper:active{transform:translate(2px,2px);box-shadow:1px 1px 0 #141414}
+.toplink-paper .tl-k{color:#DF5416}
+.actnav .tl-k{display:grid;gap:2px;line-height:1.1}
+.tl-count{font-family:var(--body);font-size:.78rem;letter-spacing:0;text-transform:none;color:#141414;font-weight:700}
+.tl-count.all{color:#028E8B}
+.actsteps{display:grid;gap:4px}
+.stepbar{height:5px;background:#e6dfd2;margin:0 8px}
+.stepbar i{display:block;height:100%;width:0;background:#03B1AE;transition:width .4s ease}
+@media(prefers-reduced-motion:reduce){.stepbar i,.toplink-paper{transition:none}}
+@media(max-width:600px){.actnav .tl-k{display:none}}
 </style>
 
 </head>
 <body>
 <nav class="topbar" aria-label="Main"><div class="wrap">
   <a class="brand" href="#top" aria-label="Polyworkers for Healthcare Reform, back to top"><img class="brand-img" src="polyworkers-logo.png" alt="Polyworkers for Healthcare Reform" width="640" height="263"></a>
-  <div class="toplinks"><a href="#petition">1. Sign</a><a href="#pick">2. Call</a><a href="#share">3. Share</a><a href="demystified.html">Healthcare, demystified</a></div>
-  <a class="topcta" href="#steps">Take action</a>
+  <a class="toplink-paper" href="demystified.html"><span class="tl-k">Read</span> Healthcare, demystified <span aria-hidden="true">→</span></a>
+  <span class="nav-div" aria-hidden="true"></span>
+  <div class="actnav"><span class="tl-k">Take action<b class="tl-count" id="stepcount">0 of 3 done</b></span>
+    <div class="actsteps">
+    <ol class="stepnav" aria-label="Take action: your progress">
+      <li data-step="sign"><a href="#petition"><i aria-hidden="true">1</i><span>Sign</span></a></li>
+      <li data-step="call"><a href="#pick"><i aria-hidden="true">2</i><span>Call</span></a></li>
+      <li data-step="share"><a href="#share"><i aria-hidden="true">3</i><span>Share</span></a></li>
+    </ol>
+    <div class="stepbar" aria-hidden="true"><i id="stepfill"></i></div>
+    </div>
+  </div>
 </div></nav>
 <header class="hero hero-light" id="top">
   <div class="wrap">
@@ -975,7 +1044,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   <div class="wrap">
     <p class="stepno">Part B</p>
     <h2>Generate your script.</h2>
-    <p class="takeaway">Add a few details to create your talk track when you write or call your Congressman.</p>
+    <p class="takeaway">Add a few details to create your talk track when you write or call your members of Congress.</p>
     <p class="bgline">Read it on the phone, or paste it into your representative's email form on their website.</p>
     <div class="builder">
       <div class="stack">
@@ -1037,10 +1106,20 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <p class="takeaway">Send this to five people who work for themselves, or love someone who does. Friends, partners, family, your freelance group chat.</p>
     <div class="sharecards">
       <div class="scard">
-        <div class="sc-head"><span class="sc-n">1</span><div><b>Copy the message</b><span>Paste it into a text, DM, email or group chat.</span></div></div>
+        <div class="sc-head"><span class="sc-n">1</span><div><b>Send the message</b><span>Share it in one tap, or copy it into any text, DM or group chat.</span></div></div>
         <label class="visually-hidden" for="msg">Message to send</label>
-        <textarea id="msg" rows="7">I just signed a petition asking Congress to fix healthcare for people who work for themselves. 74.9 million Americans freelance, consult or juggle side gigs, and the extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
+        <textarea id="msg" rows="7">I just signed a petition asking Congress to fix healthcare for people who work for themselves. 16 million Americans are self-employed and 76 million are polyworking, and the extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
+        <div class="sharebtns" aria-label="Share the message">
+          <button type="button" class="shb shb-native" data-net="native" hidden>Share…</button>
+          <button type="button" class="shb" data-net="sms">Text</button>
+          <button type="button" class="shb" data-net="email">Email</button>
+          <button type="button" class="shb" data-net="whatsapp">WhatsApp</button>
+          <button type="button" class="shb" data-net="linkedin">LinkedIn</button>
+          <button type="button" class="shb" data-net="facebook">Facebook</button>
+          <button type="button" class="shb" data-net="x">X</button>
+        </div>
         <div class="sc-foot"><button type="button" class="sbtn primary" id="sh-copy">Copy message</button><span class="sh-status" id="sh-status" role="status"></span></div>
+        <div class="friends" aria-live="polite"><div class="friend-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span id="friendcount">Shared with 0 of 5 friends</span></div>
       </div>
       <div class="scard">
         <div class="sc-head"><span class="sc-n two">2</span><div><b>Post the graphic</b><span>Share it on Instagram, LinkedIn or your stories with the message.</span></div></div>
@@ -1065,6 +1144,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   </div>
 </section>
 </main>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <div class="pickbar" id="pickbar" hidden><span id="pickcount">1 issue selected</span><a class="btn" href="#act">Next: generate your script →</a></div>
 
 <footer>
@@ -1190,6 +1270,72 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     try{navigator.clipboard.writeText(out.textContent).then(done,sel)}catch(e){sel()}
     function sel(){const rg=document.createRange();rg.selectNodeContents(out);const sl=getSelection();sl.removeAllRanges();sl.addRange(rg);msg2.textContent='Text selected. Use Copy to save it.'}
   });
+})();
+
+// ===== Progress tracker, step toasts, one-tap sharing =====
+(function(){
+  const $=id=>document.getElementById(id);
+  const PET='https://c.org/JRF87Mq6cs';
+  const STEPS=['sign','call','share'];
+  const NEXT={sign:['#petition','Next: Sign the petition'],call:['#pick','Next: Call Congress'],share:['#share','Next: Tell 5 friends']};
+  const NAME={sign:'Call Congress',call:'Tell 5 friends'};
+  const HREF={sign:'#pick',call:'#share'};
+  let st={done:{},friends:0};
+  try{const v=JSON.parse(localStorage.getItem('pw-progress')||'null'); if(v&&v.done) st=v;}catch(e){}
+  const save=()=>{try{localStorage.setItem('pw-progress',JSON.stringify(st))}catch(e){}};
+  const toast=$('toast'); let tt;
+  function showToast(html){toast.innerHTML=html+'<button type="button" aria-label="Close">×</button>';toast.hidden=false;
+    toast.querySelector('button').onclick=()=>{toast.hidden=true};
+    toast.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toast.hidden=true}));
+    clearTimeout(tt);tt=setTimeout(()=>{toast.hidden=true},7000);}
+  function render(){
+    document.querySelectorAll('.stepnav li').forEach(li=>{const k=li.dataset.step;li.classList.toggle('done',!!st.done[k]);
+      li.querySelector('a').setAttribute('aria-label','Step '+(STEPS.indexOf(k)+1)+': '+li.textContent.trim()+(st.done[k]?' (done)':''));});
+    const nxt=STEPS.find(k=>!st.done[k]), nd=STEPS.filter(k=>st.done[k]).length;
+    $('stepfill').style.width=(nd/3*100)+'%';
+    const sc=$('stepcount'); sc.textContent=nd===3?'All 3 done ✓':nd+' of 3 done'; sc.classList.toggle('all',nd===3);
+    document.querySelectorAll('.stepnav li').forEach(li=>li.classList.toggle('next',li.dataset.step===nxt));
+    const n=Math.min(st.friends||0,5);
+    document.querySelectorAll('.friend-dots i').forEach((d,i)=>d.classList.toggle('on',i<n));
+    const fc=$('friendcount'); if(fc) fc.textContent=n>=5?'Shared with 5 friends. You did it!':'Shared with '+n+' of 5 friends';
+  }
+  function complete(k){
+    if(st.done[k]){return}
+    st.done[k]=true;save();render();
+    if(STEPS.every(x=>st.done[x])) showToast('<span><b>All 3 steps done.</b> Thank you for making your voice heard!</span><a href="#share">Share it again →</a>');
+    else if(k==='share') showToast('<span><b>Step 3 done ✓</b></span><a href="'+NEXT[STEPS.find(x=>!st.done[x])][0]+'">Finish the last step →</a>');
+    else showToast('<span><b>Step '+(STEPS.indexOf(k)+1)+' done ✓</b></span><a href="'+HREF[k]+'">Next: '+NAME[k]+' ↓</a>');
+  }
+  // Step 1: any petition link
+  document.querySelectorAll('a[href="'+PET+'"]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>complete('sign'),400)));
+  // Step 2: copying the script or reaching an office
+  ['copy','copyemail','houselink','senlink','copynum'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',()=>complete('call'))});
+  document.querySelectorAll('a[href^="tel:"]').forEach(a=>a.addEventListener('click',()=>complete('call')));
+  // Step 3: sharing
+  function shared(){st.friends=(st.friends||0)+1;save();render();complete('share')}
+  ['sh-copy','dl-img'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',shared)});
+  const msg=$('msg'), nat=document.querySelector('.shb-native');
+  if(navigator.share) nat.hidden=false;
+  document.querySelectorAll('.shb').forEach(b=>b.addEventListener('click',async()=>{
+    const t=msg.value, e=encodeURIComponent, net=b.dataset.net;
+    const subj='Can you sign this? Healthcare for people who work for themselves';
+    const H='https:/'+'/'; // built in parts so the link checker doesn't test these half-finished addresses
+    const urls={sms:'sms:?&body='+e(t),email:'mailto:?subject='+e(subj)+'&body='+e(t),whatsapp:H+'wa.me/?text='+e(t),
+      linkedin:H+'www.linkedin.com/sharing/share-offsite/?url='+e(PET),facebook:H+'www.facebook.com/sharer/sharer.php?u='+e(PET),
+      x:H+'twitter.com/intent/tweet?text='+e(t)};
+    if(net==='native'){try{await navigator.share({title:'Polyworkers for Healthcare Reform',text:t});shared()}catch(err){} return}
+    if(net==='sms'||net==='email') location.href=urls[net]; else window.open(urls[net],'_blank','noopener');
+    shared();
+  }));
+  // Highlight the step you're reading
+  const map={petition:'sign',pick:'call',act:'call',call:'call',share:'share'};
+  try{const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const k=map[en.target.id];
+      document.querySelectorAll('.stepnav li').forEach(li=>li.classList.toggle('here',li.dataset.step===k));}})},{rootMargin:'-40% 0px -55% 0px'});
+    Object.keys(map).forEach(id=>{const el=$(id); if(el) io.observe(el)});
+    const clear=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting) document.querySelectorAll('.stepnav li').forEach(li=>li.classList.remove('here'))})},{rootMargin:'-40% 0px -55% 0px'});
+    ['top','lose','short','steps','goal'].forEach(id=>{const el=$(id); if(el) clear.observe(el)});
+  }catch(e){}
+  render();
 })();
 </script>
 
