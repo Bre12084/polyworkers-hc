@@ -802,6 +802,10 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .act-card:not(.primary) .act-n{background:#004CA6;color:#FFEFD6}
 .act-card.third .act-n{background:#E25F99;color:#0B0B0B}
 .sharebtns{display:flex;gap:8px}
+/* simple hero: centered logo + one button */
+.hero.hero-simple{background:var(--cream)}
+.hero-simple .wrap{display:flex;flex-direction:column;align-items:center;gap:32px;padding-block:clamp(48px,9vw,110px)}
+.hero-simple .hero-logo{display:block;width:100%;max-width:640px;height:auto}
 </style>
 
 </head>
@@ -811,21 +815,10 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   <div class="toplinks"><a href="#petition">1. Sign</a><a href="#pick">2. Call</a><a href="#share">3. Share</a><a href="demystified.html">Healthcare, demystified</a></div>
   <a class="topcta" href="#steps">Take action</a>
 </div></nav>
-<header class="hero" id="top">
+<header class="hero hero-simple" id="top">
   <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <h1>74.9 million Americans work for themselves.</h1>
-        <p class="hero-sub">It's time our healthcare system caught up.</p>
-        <div class="actions">
-          <p class="actions-h">Three ways to make your voice heard</p>
-          <a class="act-card primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener"><span class="act-n">1</span><span class="act-t"><b>Sign the petition</b><small>30 seconds · Opens Change.org</small></span><span class="act-a" aria-hidden="true">→</span></a>
-          <a class="act-card" href="#pick"><span class="act-n">2</span><span class="act-t"><b>Call Congress</b><small>About 5 minutes · We'll write your script</small></span><span class="act-a" aria-hidden="true">↓</span></a>
-          <a class="act-card third" href="#share"><span class="act-n">3</span><span class="act-t"><b>Tell 5 friends</b><small>1 minute · Ready-made message and image</small></span><span class="act-a" aria-hidden="true">↓</span></a>
-        </div>
-        <p class="hero-src">74.9M: MBO Partners, 2026. Includes full-time, part-time and occasional independent work.</p>
-      </div>
-    </div>
+    <img class="hero-logo" src="polyworkers-logo.png" alt="Polyworkers for Healthcare Reform" width="640" height="263">
+    <a class="btn" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition</a>
   </div>
 </header>
 
