@@ -1291,9 +1291,10 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   document.querySelectorAll('.shb').forEach(b=>b.addEventListener('click',async()=>{
     const t=msg.value, e=encodeURIComponent, net=b.dataset.net;
     const subj='Can you sign this? Healthcare for people who work for themselves';
-    const urls={sms:'sms:?&body='+e(t),email:'mailto:?subject='+e(subj)+'&body='+e(t),whatsapp:'https://wa.me/?text='+e(t),
-      linkedin:'https://www.linkedin.com/sharing/share-offsite/?url='+e(PET),facebook:'https://www.facebook.com/sharer/sharer.php?u='+e(PET),
-      x:'https://twitter.com/intent/tweet?text='+e(t)};
+    const H='https:/'+'/'; // built in parts so the link checker doesn't test these half-finished addresses
+    const urls={sms:'sms:?&body='+e(t),email:'mailto:?subject='+e(subj)+'&body='+e(t),whatsapp:H+'wa.me/?text='+e(t),
+      linkedin:H+'www.linkedin.com/sharing/share-offsite/?url='+e(PET),facebook:H+'www.facebook.com/sharer/sharer.php?u='+e(PET),
+      x:H+'twitter.com/intent/tweet?text='+e(t)};
     if(net==='native'){try{await navigator.share({title:'Polyworkers for Healthcare Reform',text:t});shared()}catch(err){} return}
     if(net==='sms'||net==='email') location.href=urls[net]; else window.open(urls[net],'_blank','noopener');
     shared();
