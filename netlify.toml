@@ -1,0 +1,35 @@
+# Netlify settings for Polyworkers for Healthcare Reform.
+# This is a plain static site: no build step needed.
+
+[build]
+  publish = "site"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Short address for sharing: yoursite.com/petition goes to Change.org
+[[redirects]]
+  from = "/petition"
+  to = "https://c.org/JRF87Mq6cs"
+  status = 302
+
+# Friendly short address for the white paper
+[[redirects]]
+  from = "/demystified"
+  to = "/demystified.html"
+  status = 200
