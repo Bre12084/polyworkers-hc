@@ -962,6 +962,44 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero-light h1 .tw,.hero-light h1 .tw *{display:inline}
 .hero-light h1 .tw .num{display:inline-block}
 @media(prefers-reduced-motion:reduce){.hero-light h1 .line2{font-size:.72em}}
+/* ===== Phone polish ===== */
+@media(max-width:600px){
+  /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
+  .topbar .wrap{gap:10px}
+  .brand-img{height:40px}
+  .stepnav{gap:4px}
+  .stepnav li+li::before{width:8px;margin-right:4px}
+  .stepnav a{padding:5px 4px;gap:5px;font-size:.8rem}
+  .stepnav i{width:22px;height:22px;font-size:.82rem}
+  .stepbar{display:none}
+  /* hero: bigger fact, one clear path, buttons line up */
+  .hero-light .wrap.hero-split{padding-block:28px 32px;row-gap:26px}
+  .hero-kicker{margin-bottom:12px;font-size:.72rem}
+  .hero-light h1{font-size:clamp(2.5rem,11vw,2.9rem)}
+  .hero-tag{margin-top:14px;font-size:1.45rem}
+  .hero-path-wrap{margin-top:22px;padding-top:0;border-top:0}
+  .hero-path{display:none}
+  .hero-path-k{margin:0;color:#FEEE90}
+  .hero-split .hero-btns{margin-top:12px;gap:10px}
+  .hb{padding:14px 18px}
+  .hb-primary{width:calc(100% - 4px);flex:none}
+  .hb-ghost{width:calc(100% - 4px);flex:none}
+  .hero-split .hero-note{margin-top:10px;font-size:.74rem}
+  /* step cards: number beside the title, less empty space */
+  .stepflow{gap:0}
+  .sf a{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:14px;row-gap:2px;padding:16px;align-items:center}
+  .sf-n{grid-row:span 2;width:44px;height:48px;font-size:1.8rem;margin:0}
+  .sf b{font-size:1.45rem}
+  .sf-d{grid-column:1 / -1;margin-top:8px;font-size:.95rem}
+  .sf-arrow{height:28px;font-size:1.2rem}
+  /* share: tidy equal-width grid instead of ragged pills */
+  .sharebtns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .shb{padding:8px 6px;text-align:center}
+  .shb-native:not([hidden]){grid-column:1 / -1}
+  /* full-width action buttons */
+  .sc-foot{flex-wrap:wrap}
+  .sc-foot .sbtn,#zipgo{width:100%;text-align:center;justify-content:center}
+}
 </style>
 
 </head>
