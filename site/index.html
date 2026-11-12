@@ -962,7 +962,10 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero-light h1 .tw,.hero-light h1 .tw *{display:inline}
 .hero-light h1 .tw .num{display:inline-block}
 @media(prefers-reduced-motion:reduce){.hero-light h1 .line2{font-size:.72em}}
-.hero-voice{display:none}
+/* hero: one clear ask above the button on every screen size (replaces the 3-step list) */
+.hero-path-wrap{border-top:0;padding-top:0;margin-top:26px}
+.hero-path-k,.hero-path{display:none}
+.hero-voice{display:block;margin:0;font-family:var(--body);font-weight:700;font-size:clamp(1.1rem,1.8vw,1.3rem);line-height:1.3;color:#FBF3E6}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
