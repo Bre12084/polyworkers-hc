@@ -1330,6 +1330,13 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 }
 #steps .mega{display:inline-block;margin-right:.15em;transform:rotate(-8deg);font-size:.9em}
 #steps .takeaway{max-width:none!important;font-size:clamp(1rem,1.45vw,1.2rem)!important;text-wrap:balance}
+/* voice heard header with the megaphone woman */
+.voice-head{display:grid;grid-template-columns:minmax(0,1fr) clamp(200px,22vw,280px);align-items:end;gap:clamp(20px,3vw,40px);max-width:1100px}
+.voice-art{position:relative;margin:0 0 -18px;height:clamp(220px,24vw,300px)}
+.voice-sun{position:absolute;right:4%;bottom:6%;width:78%;aspect-ratio:1;border-radius:50%;background:#E25F99;background-image:radial-gradient(rgba(20,20,20,.18) 1.2px,transparent 1.6px);background-size:7px 7px}
+.voice-art img{position:relative;display:block;height:100%;width:auto;margin-left:auto;filter:drop-shadow(3px 0 0 #FBF3E6) drop-shadow(-3px 0 0 #FBF3E6) drop-shadow(0 -3px 0 #FBF3E6) drop-shadow(5px 6px 0 rgba(20,20,20,.18))}
+@media(max-width:700px){.voice-head{grid-template-columns:minmax(0,1fr) 110px;gap:12px}.voice-art{height:150px;margin-bottom:0}}
+@media(min-width:701px){#steps .voice-copy .takeaway{font-size:clamp(.98rem,1.2vw,1.08rem)!important}.voice-head{grid-template-columns:minmax(0,1fr) clamp(180px,19vw,250px)}}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1465,8 +1472,10 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 
 <section id="steps">
   <div class="wrap">
-    <h2><span class="mega" aria-hidden="true">📣</span> It's time to make your <span class="uline">voice heard!</span></h2>
+    <div class="voice-head"><div class="voice-copy">
+    <h2>It's time to make your <span class="uline">voice heard!</span></h2>
     <p class="takeaway">Here are three easy ways to demand healthcare reform from Congress for American polyworkers (for real, this will take you 5 minutes tops. We’ve made it that simple).</p>
+    </div><figure class="voice-art" aria-hidden="true"><span class="voice-sun"></span><img src="art/megaphone.png" alt="" width="481" height="600"></figure></div>
     <ol class="actrows">
       <li class="ar ar1"><h3 class="ar-t"><a href="#petition"><span class="ar-tn" aria-hidden="true">1</span><span class="ar-tt">Sign the petition</span></a></h3><a class="ar-card" href="#petition" aria-label="Step 1: Sign the petition"><svg class="ar-ic" viewBox="-14 -14 148 148" aria-hidden="true"><g class="v-rays" filter="url(#rough)"><path d="M60 60 L129.8 55.1 L129.8 64.9 Z"/><path d="M60 60 L126.4 82.2 L122.6 91.2 Z"/><path d="M60 60 L112.8 105.9 L105.9 112.8 Z"/><path d="M60 60 L91.2 122.6 L82.2 126.4 Z"/><path d="M60 60 L64.9 129.8 L55.1 129.8 Z"/><path d="M60 60 L37.8 126.4 L28.8 122.6 Z"/><path d="M60 60 L14.1 112.8 L7.2 105.9 Z"/><path d="M60 60 L-2.6 91.2 L-6.4 82.2 Z"/><path d="M60 60 L-9.8 64.9 L-9.8 55.1 Z"/><path d="M60 60 L-6.4 37.8 L-2.6 28.8 Z"/><path d="M60 60 L7.2 14.1 L14.1 7.2 Z"/><path d="M60 60 L28.8 -2.6 L37.8 -6.4 Z"/><path d="M60 60 L55.1 -9.8 L64.9 -9.8 Z"/><path d="M60 60 L82.2 -6.4 L91.2 -2.6 Z"/><path d="M60 60 L105.9 7.2 L112.8 14.1 Z"/><path d="M60 60 L122.6 28.8 L126.4 37.8 Z"/></g><circle cx="63" cy="63" r="40" fill="#FEEE90" filter="url(#rough)"/><circle class="v-sun" cx="60" cy="60" r="40" filter="url(#rough)"/><circle cx="60" cy="60" r="40" fill="url(#halftone)"/><g filter="url(#rough)" transform="rotate(-7 58 62)"><rect x="33" y="22" width="48" height="66" fill="#FBF3E6" stroke="#141414" stroke-width="4"/><rect x="33" y="22" width="48" height="66" fill="url(#halftone-lt)"/><path d="M40 34 h32 M40 43 h32 M40 52 h24 M40 61 h28" stroke="#141414" stroke-width="3.2" stroke-linecap="round"/><path d="M40 78 c4 -12 9 -10 8 -1 c-1 6 6 -9 10 -3 c2 3 5 1 9 -2" fill="none" stroke="#141414" stroke-width="3.2" stroke-linecap="round"/></g>
 <g filter="url(#rough)" transform="rotate(35 86 58)"><rect x="80" y="22" width="13" height="46" fill="#141414"/><rect x="80" y="22" width="13" height="10" fill="#DF5416" stroke="#141414" stroke-width="3"/><path d="M80 68 L86.5 84 L93 68 Z" fill="#FBF3E6" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><line x1="84" y1="30" x2="84" y2="62" stroke="#FBF3E6" stroke-width="2"/></g></svg></a></li>
