@@ -1085,6 +1085,25 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 #call .actlabel{color:#FBF3E6}
 #call h2{font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
 #call .act-tile.t3{box-shadow:0 0 0 2px #FBF3E6}
+/* ===== Act now: bright icon cards ===== */
+.stepflow .sf a{position:relative;display:grid;justify-items:center;gap:10px;padding:26px 18px 22px;border:3px solid #141414;box-shadow:6px 6px 0 #141414;transition:transform .15s ease,box-shadow .15s ease;text-align:center}
+.stepflow .sf a:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 #141414}
+.sf1 a{background:#FD6E1A}.sf2 a{background:#004CA6}.sf3 a{background:#E25F99}
+.stepflow .sf-n{position:absolute;left:14px;top:14px;margin:0;width:44px;height:48px;font-size:1.7rem;background:#FBF3E6!important;color:#141414!important;border:2px solid #141414}
+.sf-ic{width:min(170px,70%);height:auto;overflow:visible}
+.ic-burst line{stroke:#FEEE90;stroke-width:5;stroke-linecap:round}
+.sf2 .ic-burst line{stroke:#FEEE90}.sf3 .ic-burst line{stroke:#FBF3E6}
+.ic-sun{fill:rgba(251,243,230,.22)}
+.ic-ink *{stroke:#141414;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+.ic-paper{fill:#FBF3E6}.ic-dark{fill:#141414}.ic-pen{fill:#FEEE90}.ic-dial{fill:#FEEE90}
+.stepflow .sf b{display:inline-block;padding:8px 14px 7px;background:#141414;color:#FBF3E6;font-family:var(--serif);font-weight:600;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1;text-transform:uppercase;letter-spacing:.03em;transform:rotate(-2deg)}
+.sf2 b{transform:rotate(1.5deg)!important}
+.stepflow .sf-arrow{font-size:2.2rem;font-weight:700;color:#DF5416}
+@media(max-width:820px){.stepflow{grid-template-columns:1fr;gap:6px}.stepflow .sf-arrow{transform:rotate(90deg);height:34px}}
+@media(max-width:600px){.stepflow .sf a{display:grid;grid-template-columns:90px 1fr;justify-items:start;align-items:center;text-align:left;padding:14px 16px 14px 14px}.sf-ic{width:90px}.stepflow .sf-n{width:34px;height:38px;font-size:1.3rem;left:auto;right:10px;top:10px}}
+@media(prefers-reduced-motion:reduce){.stepflow .sf a{transition:none}}
+/* ===== One heading scale: hero is H1, every section heading is the same H2 size ===== */
+main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.05!important}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1210,18 +1229,18 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <h2>Act now!</h2>
     <p class="takeaway"><b>Three easy steps to make your voice heard.</b> Every signature, call and share shows Congress that Polyworkers are paying attention.</p>
     <ol class="stepflow">
-      <li class="sf sf1"><a href="#petition"><span class="sf-n">1</span><b>Sign the petition</b><span class="sf-d">Add your name to the Change.org petition.</span></a></li>
+      <li class="sf sf1"><a href="#petition"><span class="sf-n">1</span><svg class="sf-ic" viewBox="0 0 120 120" aria-hidden="true"><g class="ic-burst"><line x1="60.0" y1="16.0" x2="60.0" y2="4.0"/><line x1="82.0" y1="21.9" x2="88.0" y2="11.5"/><line x1="98.1" y1="38.0" x2="108.5" y2="32.0"/><line x1="104.0" y1="60.0" x2="116.0" y2="60.0"/><line x1="98.1" y1="82.0" x2="108.5" y2="88.0"/><line x1="82.0" y1="98.1" x2="88.0" y2="108.5"/><line x1="60.0" y1="104.0" x2="60.0" y2="116.0"/><line x1="38.0" y1="98.1" x2="32.0" y2="108.5"/><line x1="21.9" y1="82.0" x2="11.5" y2="88.0"/><line x1="16.0" y1="60.0" x2="4.0" y2="60.0"/><line x1="21.9" y1="38.0" x2="11.5" y2="32.0"/><line x1="38.0" y1="21.9" x2="32.0" y2="11.5"/></g><circle class="ic-sun" cx="60" cy="60" r="38"/><g class="ic-ink" transform="rotate(-6 60 60)"><rect class="ic-paper" x="34" y="24" width="46" height="62" rx="2"/><line x1="42" y1="36" x2="72" y2="36"/><line x1="42" y1="45" x2="72" y2="45"/><line x1="42" y1="54" x2="64" y2="54"/><path d="M42 74 q6 -14 10 0 q3 8 8 -4 q3 -6 8 2" fill="none"/></g><g class="ic-ink" transform="rotate(38 84 62)"><rect class="ic-pen" x="78" y="30" width="12" height="44" rx="2"/><path class="ic-pen" d="M78 74 L84 86 L90 74 Z"/></g></svg><b>Sign the petition</b></a></li>
       <li class="sf-arrow" aria-hidden="true">→</li>
-      <li class="sf sf2"><a href="#share"><span class="sf-n">2</span><b>Tell 5 friends</b><span class="sf-d">Copy our message and send it to people who care about these issues too.</span></a></li>
+      <li class="sf sf2"><a href="#share"><span class="sf-n">2</span><svg class="sf-ic" viewBox="0 0 120 120" aria-hidden="true"><g class="ic-burst"><line x1="60.0" y1="16.0" x2="60.0" y2="4.0"/><line x1="82.0" y1="21.9" x2="88.0" y2="11.5"/><line x1="98.1" y1="38.0" x2="108.5" y2="32.0"/><line x1="104.0" y1="60.0" x2="116.0" y2="60.0"/><line x1="98.1" y1="82.0" x2="108.5" y2="88.0"/><line x1="82.0" y1="98.1" x2="88.0" y2="108.5"/><line x1="60.0" y1="104.0" x2="60.0" y2="116.0"/><line x1="38.0" y1="98.1" x2="32.0" y2="108.5"/><line x1="21.9" y1="82.0" x2="11.5" y2="88.0"/><line x1="16.0" y1="60.0" x2="4.0" y2="60.0"/><line x1="21.9" y1="38.0" x2="11.5" y2="32.0"/><line x1="38.0" y1="21.9" x2="32.0" y2="11.5"/></g><circle class="ic-sun" cx="60" cy="60" r="38"/><g class="ic-ink"><circle class="ic-paper" cx="38" cy="50" r="10"/><path class="ic-paper" d="M22 86 q0 -22 16 -22 q16 0 16 22 Z"/><circle class="ic-paper" cx="82" cy="50" r="10"/><path class="ic-paper" d="M66 86 q0 -22 16 -22 q16 0 16 22 Z"/><circle class="ic-dark" cx="60" cy="44" r="12"/><path class="ic-dark" d="M40 90 q0 -26 20 -26 q20 0 20 26 Z"/></g></svg><b>Tell 5 friends</b></a></li>
       <li class="sf-arrow" aria-hidden="true">→</li>
-      <li class="sf sf3"><a href="#call"><span class="sf-n">3</span><b>Call Congress</b><span class="sf-d">Find your House member and senators by ZIP and give them a quick call.</span></a></li>
+      <li class="sf sf3"><a href="#call"><span class="sf-n">3</span><svg class="sf-ic" viewBox="0 0 120 120" aria-hidden="true"><g class="ic-burst"><line x1="60.0" y1="16.0" x2="60.0" y2="4.0"/><line x1="82.0" y1="21.9" x2="88.0" y2="11.5"/><line x1="98.1" y1="38.0" x2="108.5" y2="32.0"/><line x1="104.0" y1="60.0" x2="116.0" y2="60.0"/><line x1="98.1" y1="82.0" x2="108.5" y2="88.0"/><line x1="82.0" y1="98.1" x2="88.0" y2="108.5"/><line x1="60.0" y1="104.0" x2="60.0" y2="116.0"/><line x1="38.0" y1="98.1" x2="32.0" y2="108.5"/><line x1="21.9" y1="82.0" x2="11.5" y2="88.0"/><line x1="16.0" y1="60.0" x2="4.0" y2="60.0"/><line x1="21.9" y1="38.0" x2="11.5" y2="32.0"/><line x1="38.0" y1="21.9" x2="32.0" y2="11.5"/></g><circle class="ic-sun" cx="60" cy="60" r="38"/><g class="ic-ink"><path d="M30 46 C34 26 86 26 90 46" fill="none" style="stroke:#141414;stroke-width:13"/><path d="M30 46 C34 26 86 26 90 46" fill="none" style="stroke:#FBF3E6;stroke-width:5"/><rect class="ic-dark" x="20" y="42" width="22" height="14" rx="5"/><rect class="ic-dark" x="78" y="42" width="22" height="14" rx="5"/><path class="ic-paper" d="M44 56 h32 l14 32 h-60 Z"/><circle class="ic-dial" cx="60" cy="74" r="9"/><circle class="ic-dark" cx="60" cy="74" r="3"/></g></svg><b>Call Congress</b></a></li>
     </ol>
   </div>
 </section>
 
 <section id="petition" class="band-dark">
   <div class="wrap">
-    <p class="actlabel"><b class="act-tile t1" aria-label="Step 1">1</b> Sign the petition · 30 seconds</p>
+    <p class="actlabel"><b class="act-tile t1" aria-label="Step 1">1</b></p>
     <h2>Help us reach 100,000 signatures.</h2>
     <p class="takeaway pet-take">That's our goal: enough names that Congress has to respond. Healthcare costs are climbing right now, and every signature shows lawmakers that polyworkers are organized and paying attention.</p>
     <div class="goalbar" role="img" id="goalbar" aria-label="Signature progress toward 100,000">
@@ -1240,7 +1259,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <section id="share">
   <div class="wrap">
-    <p class="actlabel"><b class="act-tile t2" aria-label="Step 2">2</b> Tell 5 friends · 1 minute</p>
+    <p class="actlabel"><b class="act-tile t2" aria-label="Step 2">2</b></p>
     <h2>Tell 5 friends.</h2>
     <p class="takeaway">Send this to five people who work for themselves, or love someone who does. Copy the message, then paste it anywhere: a text, an email, your group chat or a social post.</p>
     <div class="copycard">
@@ -1256,7 +1275,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <section id="call" class="band-dark band-blue">
   <div class="wrap">
-    <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b> Call Congress · about 5 minutes</p>
+    <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b></p>
     <h2>Call your members of Congress.</h2>
     <p class="takeaway dark">Call your House representative and both senators. Tell them you're a polyworker, that healthcare costs for people who work for themselves are too high, and ask where they stand.</p>
     <div class="finder">
