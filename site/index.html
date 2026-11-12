@@ -955,6 +955,14 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero-split .hero-btns{margin-top:22px}
 .hero-split .hero-note{margin-top:14px}
 @media(max-width:600px){.hero-path{flex-direction:column;gap:6px}.hero-tag{max-width:none}.hero-light h1{font-size:clamp(2.2rem,9vw,2.6rem)}}
+/* typewriter headline: one spot, two facts */
+.hero-light h1 .tw .num:empty{padding:0;margin:0}
+.hero-light h1 .tw .num.n1{background:#E25F99}
+.hero-light h1 .tw .num.n2{background:#FEEE90}
+.hero-light h1 .tw .caret{display:inline-block;width:.07em;height:.9em;background:#03B1AE;margin-left:.04em;vertical-align:-.08em;animation:pw-blink 1s steps(1) infinite}
+.hero-light h1 .tw,.hero-light h1 .tw *{display:inline}
+.hero-light h1 .tw .num{display:inline-block}
+@media(prefers-reduced-motion:reduce){.hero-light h1 .line2{font-size:.72em}}
 </style>
 
 </head>
@@ -978,7 +986,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   <div class="wrap hero-split">
   <div class="hero-copy">
     <p class="hero-kicker">A petition for polyworkers</p>
-    <h1><span class="line1"><b class="num n1">16M</b> Americans are self-employed.</span> <span class="line2"><b class="num n2">76M</b> are polyworking by choice or by force.</span></h1>
+    <h1><span class="line1"><b class="num n1">16M</b> Americans are self-employed.</span> <span class="line2"><b class="num n2">76M</b> Americans are polyworking by force or by choice.</span></h1>
     <p class="hero-tag">It's time our healthcare system reflected that.</p>
     <div class="hero-path-wrap">
       <p class="hero-path-k">3 steps · about 5 minutes</p>
@@ -995,8 +1003,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <p class="hero-note">16M: U.S. Bureau of Labor Statistics.</p>
   </div>
     <div class="pwall" role="img" aria-label="Photos of real polyworkers">
-      <div class="pcol"><figure class="pt"><img src="people/brie.jpg" alt="Brie Abramowicz" loading="lazy" width="400" height="500"></figure><figure class="pt"><img src="people/adjoa.webp" alt="Adjoa Kittoe" loading="lazy" width="400" height="500"></figure><figure class="pt"><img src="people/brendon.webp" alt="Brendon Hamlin" loading="lazy" width="400" height="500"></figure><figure class="pt"><img src="people/carisa.webp" alt="Carisa Deegan" loading="lazy" width="400" height="500"></figure><figure class="pt"><img src="people/javaree.webp" alt="Javaree Walker" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brie.jpg" alt="" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/adjoa.webp" alt="" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brendon.webp" alt="" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/carisa.webp" alt="" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/javaree.webp" alt="" loading="lazy" width="400" height="500"></figure></div>
-      <div class="pcol down"><figure class="pt"><img src="people/meg.jpg" alt="Meg Scheding" loading="lazy" width="400" height="500"></figure><figure class="pt"><img src="people/john.jpg" alt="John Rabasa" loading="lazy" width="400" height="500"></figure><figure class="pt"><img src="people/vanessa.webp" alt="Vanessa Hoh" loading="lazy" width="400" height="500"></figure><figure class="pt"><img src="people/wendy.webp" alt="Wendy Moore" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/meg.jpg" alt="" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/john.jpg" alt="" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/vanessa.webp" alt="" loading="lazy" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/wendy.webp" alt="" loading="lazy" width="400" height="500"></figure></div>
+      <div class="pcol"><figure class="pt"><img src="people/brie.jpg" alt="Brie Abramowicz" width="400" height="500"></figure><figure class="pt"><img src="people/adjoa.webp" alt="Adjoa Kittoe" width="400" height="500"></figure><figure class="pt"><img src="people/harry.jpg" alt="Harry Siggins" width="400" height="500"></figure><figure class="pt"><img src="people/brendon.webp" alt="Brendon Hamlin" width="400" height="500"></figure><figure class="pt"><img src="people/carisa.webp" alt="Carisa Deegan" width="400" height="500"></figure><figure class="pt"><img src="people/javaree.webp" alt="Javaree Walker" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brie.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/adjoa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/harry.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brendon.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/carisa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/javaree.webp" alt="" width="400" height="500"></figure></div>
+      <div class="pcol down"><figure class="pt"><img src="people/meg.jpg" alt="Meg Scheding" width="400" height="500"></figure><figure class="pt"><img src="people/john.jpg" alt="John Rabasa" width="400" height="500"></figure><figure class="pt"><img src="people/natalee.jpg" alt="Natalee Rivero" width="400" height="500"></figure><figure class="pt"><img src="people/vanessa.webp" alt="Vanessa Hoh" width="400" height="500"></figure><figure class="pt"><img src="people/wendy.webp" alt="Wendy Moore" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/meg.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/john.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/natalee.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/vanessa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/wendy.webp" alt="" width="400" height="500"></figure></div>
     </div>
   </div>
 </header>
@@ -1403,29 +1411,43 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   render();
 })();
 
-/* Hero: type out the first headline line, then show the second */
+/* Hero: one headline spot that types each fact, erases it, then types the next */
 (function(){
-  const h=document.querySelector('.hero-light h1'), line=h&&h.querySelector('.line1');
-  if(!line||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  h.setAttribute('aria-label',h.textContent.replace(/\s+/g,' ').trim());
-  const chars=[];
-  (function wrap(node){
-    [...node.childNodes].forEach(n=>{
-      if(n.nodeType===3){
-        const f=document.createDocumentFragment();
-        [...n.textContent].forEach(c=>{const sp=document.createElement('span');sp.className='ch';sp.textContent=c;f.appendChild(sp);chars.push(sp)});
-        n.replaceWith(f);
-      } else wrap(n);
-    });
-  })(line);
-  line.classList.add('typed'); h.classList.add('typing');
-  const caret=document.createElement('span'); caret.className='caret'; caret.setAttribute('aria-hidden','true');
-  let i=0;
-  function step(){
-    if(i<chars.length){chars[i].classList.add('on');chars[i].after(caret);i++;setTimeout(step,chars[i-1].textContent===' '?40:65);}
-    else{setTimeout(()=>h.classList.remove('typing'),250);}
+  const h=document.querySelector('.hero-light h1');
+  if(!h||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const facts=[
+    {num:'16M',cls:'n1',text:' Americans are self-employed.'},
+    {num:'76M',cls:'n2',text:' Americans are polyworking by force or by choice.'}
+  ];
+  h.setAttribute('aria-label',facts.map(f=>f.num+f.text).join(' '));
+  h.innerHTML='<span class="tw" aria-hidden="true"><b class="num"></b><span class="tw-t"></span><span class="caret"></span></span>';
+  const tw=h.querySelector('.tw'), num=tw.querySelector('.num'), txt=tw.querySelector('.tw-t');
+  // reserve room for the longest fact so nothing below jumps
+  function reserve(){
+    h.style.minHeight='';
+    let max=0;
+    facts.forEach(f=>{num.className='num '+f.cls;num.textContent=f.num;txt.textContent=f.text;max=Math.max(max,h.getBoundingClientRect().height)});
+    h.style.minHeight=max+'px';
   }
-  setTimeout(step,350);
+  reserve(); addEventListener('resize',()=>{clearTimeout(reserve.t);reserve.t=setTimeout(reserve,150)});
+  num.textContent='';txt.textContent='';num.className='num '+facts[0].cls;
+  let fi=0;
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  async function run(){
+    await wait(350);
+    for(;;){
+      const f=facts[fi];
+      num.className='num '+f.cls;
+      for(const c of f.num){num.textContent+=c;await wait(90)}
+      for(const c of f.text){txt.textContent+=c;await wait(c===' '?35:55)}
+      await wait(2600);
+      while(txt.textContent){txt.textContent=txt.textContent.slice(0,-1);await wait(18)}
+      while(num.textContent){num.textContent=num.textContent.slice(0,-1);await wait(40)}
+      await wait(250);
+      fi=(fi+1)%facts.length;
+    }
+  }
+  run();
 })();
 </script>
 
