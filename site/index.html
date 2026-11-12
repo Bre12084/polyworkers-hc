@@ -1066,6 +1066,15 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .act-tile.t1{background:#FD6E1A;color:#0B0B0B}
 .act-tile.t2{background:#004CA6;color:#FFEFD6;transform:rotate(2deg)}
 .act-tile.t3{background:#E25F99;color:#0B0B0B}
+/* ===== Step 1: petition + 100K goal, on the dark band ===== */
+#petition h2{margin-top:10px;color:#FBF3E6;font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+#petition .actlabel{color:#FBF3E6}
+#petition .pet-take{max-width:60ch;color:#E9E1D4;border-left-color:#03B1AE}
+#petition .goalbar{margin-top:30px}
+.pet-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:28px}
+.pet-note{font-family:var(--body);font-size:.88rem;color:var(--on-night-muted,#bdb5a8)}
+#petition .nextaction{color:#CFC6B8}
+#petition .nextaction b{color:#FEEE90}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1201,16 +1210,20 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   </div>
 </section>
 
-<section id="petition">
+<section id="petition" class="band-dark">
   <div class="wrap">
     <p class="actlabel"><b class="act-tile t1" aria-label="Step 1">1</b> Sign the petition · 30 seconds</p>
-    <div class="pet">
-      <div class="pet-copy">
-        <h2>Sign the petition.</h2>
-        <p class="takeaway">Tell Congress that Polyworkers in America want healthcare reform, and we want it now.</p>
-        <a class="btn btn-arrow" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition <span aria-hidden="true">→</span></a>
-        <p class="note">Opens on Change.org. Come back here for step 2.</p>
-      </div>
+    <h2>Help us reach 100,000 signatures.</h2>
+    <p class="takeaway pet-take">That's our goal: enough names that Congress has to respond. Healthcare costs are climbing right now, and every signature shows lawmakers that polyworkers are organized and paying attention.</p>
+    <div class="goalbar" role="img" id="goalbar" aria-label="Signature progress toward 100,000">
+      <div class="gb-track"><div class="gb-fill" id="gbfill"></div>
+        <span class="gb-m" style="left:25%">25K</span><span class="gb-m" style="left:50%">50K</span><span class="gb-m" style="left:75%">75K</span></div>
+      <div class="gb-labels"><span id="gbcount">Counting signatures</span><span>Goal: 100,000</span></div>
+    </div>
+    <p class="note" id="gbnote" style="color:var(--on-night-muted)">Count updated regularly from Change.org.</p>
+    <div class="pet-cta">
+      <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the Petition NOW! <span aria-hidden="true">→</span></a>
+      <span class="pet-note">Opens on Change.org. Come back here for step 2.</span>
     </div>
     <a class="nextaction" href="#pick"><span>Signed it? Next:</span> <b>Step 2 · Call Congress ↓</b></a>
   </div>
@@ -1326,19 +1339,6 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   </div>
 </section>
 
-<section id="goal" class="band-dark">
-  <div class="wrap">
-    <p class="eyebrow">Our goal</p>
-    <h2>100,000 signatures to get Congress to respond.</h2>
-    <div class="goalbar" role="img" id="goalbar" aria-label="Signature progress toward 100,000">
-      <div class="gb-track"><div class="gb-fill" id="gbfill"></div>
-        <span class="gb-m" style="left:25%">25K</span><span class="gb-m" style="left:50%">50K</span><span class="gb-m" style="left:75%">75K</span></div>
-      <div class="gb-labels"><span id="gbcount">Counting signatures</span><span>Goal: 100,000</span></div>
-    </div>
-    <p class="note" id="gbnote" style="color:var(--on-night-muted)">Count updated regularly from Change.org.</p>
-    <div class="nextrow"><a class="btn btn-arrow" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition <span aria-hidden="true">→</span></a><a class="textlink" href="#share">Already signed? Tell 5 friends ↑</a></div>
-  </div>
-</section>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <div class="pickbar" id="pickbar" hidden><span id="pickcount">1 issue selected</span><a class="btn" href="#act">Next: generate your script →</a></div>
