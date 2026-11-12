@@ -1178,6 +1178,30 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 }
 /* body and subheader text: regular weight for easier reading */
 .takeaway,.pet-take,.brad-d,.call-alt,.ar-copy p{font-weight:400!important}
+/* ===== Cost + Brad section ===== */
+#short .cost-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,56px);align-items:center}
+#short .cost-top h2{margin:0}
+.uline{background:linear-gradient(transparent 82%,#DF5416 82%,#DF5416 96%,transparent 96%);padding-bottom:.04em}
+.cost-stat{padding-left:clamp(20px,3vw,40px);border-left:2px solid #FBF3E6}
+.cost-num{margin:0;display:flex;align-items:flex-start;gap:12px;font-family:var(--serif);font-weight:600;font-size:clamp(4rem,9vw,7.5rem);line-height:.9;color:#DF5416}
+.cost-arrow{width:.42em;height:.55em;margin-top:.06em;fill:#DF5416}
+.cost-lab{margin:14px 0 0;display:inline-block;padding:10px 16px 11px;background:#FBF3E6;color:#141414;font-family:var(--body);font-weight:600;font-size:.98rem;line-height:1.35;max-width:42ch;transform:rotate(-1deg);
+  clip-path:polygon(0 6%,4% 0,18% 5%,34% 0,52% 4%,70% 0,88% 5%,100% 1%,98% 50%,100% 96%,82% 100%,62% 95%,44% 100%,24% 95%,6% 100%,1% 92%,2% 50%)}
+#short .brad{margin-top:clamp(48px,6vw,80px);grid-template-columns:minmax(0,440px) minmax(0,1fr);align-items:center}
+.brad-video .brad-tag{background:#FBF3E6}
+.brad-tag b{color:#141414}
+.brad-tag span{color:#141414;font-family:var(--serif);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem}
+.brad-copy h3.brad-h{position:relative;margin:0;padding-left:46px;font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.8rem)!important;line-height:1;color:#FBF3E6!important}
+.brad-spark{position:absolute;left:0;top:-10px;width:40px;height:40px;fill:none;stroke:#DF5416;stroke-width:4;stroke-linecap:round}
+#short .brad-d{margin:14px 0 26px;font-size:1.1rem;line-height:1.5;max-width:46ch;color:#E9E1D4}
+.brad-listen{display:inline-flex;align-items:center;gap:14px;padding:12px 26px 12px 12px;border:0;border-radius:999px;background:#DF5416;color:#FBF3E6;font-family:var(--serif);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.45rem);letter-spacing:.02em;cursor:pointer;box-shadow:4px 4px 0 #FBF3E6;transition:transform .12s ease,box-shadow .12s ease}
+.brad-listen:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #FBF3E6}
+.brad-listen small{font-family:var(--body);font-weight:400;font-size:.8em;opacity:.9}
+.bl-play{position:relative;flex:none;width:42px;height:42px;border-radius:50%;background:#FBF3E6}
+.bl-play::after{content:"";position:absolute;left:16px;top:12px;border-style:solid;border-width:9px 0 9px 14px;border-color:transparent transparent transparent #DF5416}
+.brad-player{margin-top:20px;max-width:520px}
+.brad-player iframe{display:block;width:100%;height:152px;border:0;border-radius:12px}
+@media(max-width:820px){#short .cost-top{grid-template-columns:1fr}.cost-stat{border-left:0;padding-left:0;border-top:2px solid #FBF3E6;padding-top:20px}#short .brad{grid-template-columns:1fr}}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1287,15 +1311,23 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 
 <section id="short" class="band-dark">
   <div class="wrap">
-    <h2>So it doesn't help that the cost of healthcare has increased by 42% since 2025.</h2>
+    <div class="cost-top">
+      <h2>So it doesn't help that our health insurance is getting <span class="uline">more expensive.</span></h2>
+      <div class="cost-stat">
+        <p class="cost-num">42%<svg class="cost-arrow" viewBox="0 0 40 52" aria-hidden="true"><path d="M20 2 L38 24 H27 V50 H13 V24 H2 Z"/></svg></p>
+        <p class="cost-lab">The projected increase in average Marketplace premiums from 2025 to 2027.</p>
+      </div>
+    </div>
     <div class="brad">
       <figure class="brad-video">
         <img src="brad-video.jpg" alt="Brad White, fractional consultant, on The Portfolio Career Lab podcast" width="480" height="395" loading="lazy">
         <figcaption class="brad-tag"><b>Brad White</b><span>Fractional consultant</span></figcaption>
       </figure>
       <div class="brad-copy">
-        <p class="brad-d">Listen to my convo with Brad White about his insurance premiums for his fractional business.</p>
-        <iframe class="brad-spotify" src="https://open.spotify.com/embed/episode/3Qtzvuc4XiB1DQiQyzuosP?theme=0" title="Listen to the episode with Brad White on Spotify" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <h3 class="brad-h"><svg class="brad-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M30 4 L24 16 M14 10 L20 20 M4 26 L18 25"/></svg>Meet Brad White.</h3>
+        <p class="brad-d">He's a fractional consultant navigating what it actually costs to buy your own health insurance as an independent worker, and why it's gotten so expensive.</p>
+        <button type="button" class="brad-listen" id="bradlisten" aria-expanded="false" aria-controls="bradplayer"><span class="bl-play" aria-hidden="true"></span>Listen to Brad's story <small>(38 min)</small></button>
+        <div class="brad-player" id="bradplayer" hidden></div>
       </div>
     </div>
   </div>
@@ -1556,6 +1588,15 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
   [...list.querySelectorAll('.vs-row')].forEach(r=>io.observe(r.firstElementChild));
 })();
 
+
+/* Brad: load the Spotify player on the page when someone taps Listen */
+(function(){
+  const b=document.getElementById('bradlisten'), box=document.getElementById('bradplayer'); if(!b||!box) return;
+  b.addEventListener('click',()=>{
+    if(!box.firstChild) box.innerHTML='<iframe src="https://open.spotify.com/embed/episode/3Qtzvuc4XiB1DQiQyzuosP?theme=0" title="Listen to the episode with Brad White on Spotify" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+    box.hidden=false; b.setAttribute('aria-expanded','true');
+  });
+})();
 </script>
 
 </body>
