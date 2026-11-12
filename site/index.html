@@ -26,7 +26,7 @@
 <title>Polyworkers for Healthcare Reform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:ital,wght@0,400;0,600;0,700;1,700&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Permanent+Marker&display=swap">
 <style>
 /* Layout: matches buildwithbrie.com. Dark navy-to-plum hero with an orange condensed serif headline, warm off-white page, square monospace buttons, dark tiles for coverage types. */
 :root{
@@ -919,7 +919,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .pt{padding:6px}.pt img{border:0}
 .pt figcaption{position:absolute;left:8px;right:8px;bottom:8px;background:#121212;color:#FBF3E6;font-family:var(--body);font-weight:600;font-size:.8rem;line-height:1.25;padding:6px 8px}
 .pt img[src*="vanessa"]{object-position:62% 50%}
-.pt img[src*="brie"],.pt img[src*="brendon"]{object-position:50% 20%}
+.pt img[src*="brie"]{object-position:50% 20%}
 @media(max-width:820px){
   .hero-light .wrap.hero-split{grid-template-columns:minmax(0,1fr)}
   .pwall{min-width:0;grid-template-columns:minmax(0,1fr)!important}
@@ -962,6 +962,496 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero-light h1 .tw,.hero-light h1 .tw *{display:inline}
 .hero-light h1 .tw .num{display:inline-block}
 @media(prefers-reduced-motion:reduce){.hero-light h1 .line2{font-size:.72em}}
+/* hero: one clear ask above the button on every screen size (replaces the 3-step list) */
+.hero-path-wrap{border-top:0;padding-top:0;margin-top:26px}
+.hero-path-k,.hero-path{display:none}
+.hero-voice{display:block;margin:0;font-family:var(--body);font-weight:700;font-size:clamp(1.1rem,1.8vw,1.3rem);line-height:1.3;color:#FBF3E6}
+/* hero tagline on one line on wider screens */
+@media(min-width:821px){.hero-split .hero-copy{max-width:none}.hero-tag{max-width:none;white-space:nowrap;font-size:clamp(1.35rem,2.15vw,2rem)}}
+/* ===== "You lose" list: each lost benefit drops in as you scroll ===== */
+.js-drop .losslist li{opacity:0;transform:translateY(-38px);transition:opacity .5s ease,transform .7s cubic-bezier(.3,1.45,.5,1)}
+.js-drop .losslist li .ln{transform:translateY(-60px) rotate(-14deg) scale(1.15);transition:transform .75s cubic-bezier(.3,1.6,.5,1) .08s}
+.js-drop .losslist li.in{opacity:1;transform:none}
+.js-drop .losslist li:nth-child(odd).in .ln{transform:rotate(-2deg)}
+.js-drop .losslist li:nth-child(even).in .ln{transform:rotate(1.5deg)}
+.js-drop .losslist li{margin-bottom:clamp(0px,6vh,48px)}
+@media(prefers-reduced-motion:reduce){.js-drop .losslist li,.js-drop .losslist li .ln{opacity:1;transform:none;transition:none}}
+/* ===== "You lose" section: side-by-side comparison ===== */
+.vs-take{margin:18px 0 0;font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.1;letter-spacing:.01em;color:#141414;text-transform:uppercase}
+.vs{margin-top:22px;max-width:1040px;display:grid;grid-template-columns:minmax(180px,.8fr) minmax(0,1fr) minmax(0,1fr)}
+.vs-head,.vs-row{display:contents}
+.vs-head span{padding:14px 20px;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.95rem}
+.vs-he{background:#121212;color:#FBF3E6}
+.vs-hs{background:#EFE6D6;color:#141414}
+.vs-k{display:flex;align-items:center;gap:14px;padding:16px 16px 16px 0;border-bottom:1px solid #e6dfd2}
+.vs-k b{font-family:var(--body);font-weight:700;font-size:1.05rem;line-height:1.25}
+.vs-k .ln{flex:none;display:grid;place-items:center;width:42px;height:46px;font-family:var(--serif);font-weight:600;font-size:1.4rem;transform:rotate(-2deg)}
+.vs-row:nth-child(even) .vs-k .ln{transform:rotate(1.5deg)}
+.vs-e,.vs-s{position:relative;display:flex;gap:12px;align-items:flex-start;padding:16px 20px;font-family:var(--body);font-size:.98rem;line-height:1.45}
+.vs-e{background:#121212;color:#E9E1D4;border-bottom:1px solid #2c2c2c}
+.vs-e strong{color:#FEEE90}
+.vs-s{background:#EFE6D6;color:#141414;border-bottom:1px solid #ddd2bf}
+.vs-s strong{color:#C8331B}
+.vs-ic{flex:none;width:22px;height:22px;display:grid;place-items:center;font-weight:700;font-size:.85rem;margin-top:1px}
+.vs-e .vs-ic{background:#03B1AE;color:#121212}
+.vs-s .vs-ic{background:#DF5416;color:#fff}
+.vs-lab{display:none}
+.vs-t{display:block}
+@media(max-width:760px){
+  .vs{grid-template-columns:1fr}
+  .vs-head{display:none}
+  .vs-row{display:grid;grid-template-columns:1fr 1fr;margin-bottom:14px;border:2px solid #121212}
+  .vs-k{grid-column:1 / -1;padding:12px 14px;border-bottom:0;background:#FBF8F1}
+  .vs-e,.vs-s{flex-direction:column;gap:6px;padding:12px 14px;font-size:.9rem;border-bottom:0}
+  .vs-s .vs-lab{color:#DF5416;opacity:1}
+  .vs-s{border-left:0;border-top:4px solid #DF5416}
+  .vs-lab{display:block;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;opacity:.75}
+  .vs-ic{display:none}
+}
+/* drop each row in as it scrolls into view */
+.js-drop .vs-row>*{opacity:0;transform:translateY(-34px);transition:opacity .5s ease,transform .7s cubic-bezier(.3,1.45,.5,1)}
+.js-drop .vs-row>.vs-s{transition-delay:.18s}
+.js-drop .vs-row.in>*{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js-drop .vs-row>*{opacity:1;transform:none;transition:none}}
+.learn-q{margin:28px 0 0;font-family:var(--serif);font-weight:600;font-size:1.25rem;text-transform:uppercase;letter-spacing:.06em;color:var(--teal,#03B1AE)}
+.learn-q+.btn-learn{margin-top:10px}
+.learn-q+.btn-learn span:first-child{color:inherit}
+/* comparison: make the two sides unmistakable */
+.vs-head span{display:grid;gap:4px;padding:16px 20px 14px;font-size:1.15rem;letter-spacing:.06em}
+.vs-head span em{font-style:normal;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;justify-self:start;padding:3px 7px}
+.vs-he em{background:#03B1AE;color:#121212}
+.vs-hs{background:#DF5416!important;color:#fff!important}
+.vs-hs em{background:#121212;color:#FEEE90}
+@media(min-width:761px){.vs-s{border-left:4px solid #DF5416}.vs-e,.vs-s{align-items:center}}
+.vs-e,.vs-s{white-space:nowrap}
+@media(max-width:1000px){.vs-e,.vs-s{white-space:normal}}
+/* still confused: question + the same button style as the top menu */
+.learn-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:30px}
+.learn-row .learn-q{margin:0;font-size:1.15rem}
+.toplink-paper.learn-btn{display:inline-flex!important;margin:0;font-size:.95rem}
+/* breathing room: hero text vs photos, and the comparison section */
+@media(min-width:821px){.hero-light .wrap.hero-split{column-gap:clamp(48px,7vw,112px);grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}.pwall{justify-self:end;width:100%;max-width:400px}}
+.vs{margin-top:clamp(32px,4vw,48px)}
+#lose .note{margin-top:14px}
+.learn-row{margin-top:clamp(40px,5vw,60px)}
+/* ===== "Why it matters": headline + Brad's story ===== */
+#short h2{max-width:none;font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+.short-src{margin:12px 0 0;font-family:var(--body);font-size:.82rem;color:#bdb5a8}
+.brad{margin-top:clamp(32px,4vw,48px);display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center;max-width:1000px}
+.brad-video{position:relative;display:block;margin:0;border:3px solid #FBF3E6;box-shadow:6px 6px 0 #DF5416;overflow:hidden}
+.brad-video img{display:block;width:100%;height:auto}
+.brad-playbtn{position:absolute;inset:0;border:0;padding:0;background:transparent;cursor:pointer}
+.brad-video.playing .brad-playbtn{display:none}
+.brad-playbtn:hover .brad-play{transform:scale(1.08)}
+.brad-play{transition:transform .2s ease}
+.brad-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:#DF5416;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.brad-play::after{content:"";position:absolute;left:30px;top:22px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent #fff}
+.brad-tag{position:absolute;left:12px;bottom:12px;padding:5px 10px;background:#121212;color:#FBF3E6;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem}
+.brad-k{margin:0;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;color:#03B1AE}
+.brad-copy h3{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(1.35rem,2vw,1.7rem);line-height:1.15;color:#03B1AE}
+.brad-d{margin:12px 0 18px;font-family:var(--body);font-size:1.02rem;line-height:1.5;color:#E9E1D4;max-width:46ch}
+.brad-spotify{display:block;border:0;border-radius:12px;max-width:520px}
+@media(max-width:760px){.brad{grid-template-columns:1fr}.brad-video{max-width:420px}}
+.brad-video .brad-tag{left:0;right:auto;bottom:0;display:grid;gap:2px;padding:10px 16px 11px;background:#121212}
+.brad-tag b{font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1;letter-spacing:.04em;color:#FEEE90}
+.brad-tag span{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:600;color:#FBF3E6}
+/* "You lose" heading: same size as the other section headings, Healthcare Demystified button beside it */
+.lose-head{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;max-width:1040px}
+.lose-head h2{margin:0;flex:1 1 520px;max-width:none;font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+.lose-head .learn-btn{flex:none}
+.vs-head .vs-hk{align-self:end;padding-left:0;color:#141414;border-bottom:2px solid #141414}
+/* step number tiles (match the Act now cards) */
+.actlabel{gap:14px;font-weight:600;color:#141414;font-size:1rem}
+.act-tile{display:grid;place-items:center;width:46px;height:52px;font-family:var(--serif);font-size:1.9rem;font-weight:600;line-height:1;transform:rotate(-3deg)}
+.act-tile.t1{background:#FD6E1A;color:#0B0B0B}
+.act-tile.t2{background:#004CA6;color:#FFEFD6;transform:rotate(2deg)}
+.act-tile.t3{background:#E25F99;color:#0B0B0B}
+/* ===== Step 1: petition + 10K goal, on the dark band ===== */
+#petition h2{margin-top:10px;color:#FBF3E6;font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+#petition .actlabel{color:#FBF3E6}
+#petition .pet-take{max-width:60ch;color:#E9E1D4;border-left-color:#03B1AE}
+#petition .goalbar{margin-top:30px}
+.pet-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:28px}
+.pet-note{font-family:var(--body);font-size:.88rem;color:var(--on-night-muted,#bdb5a8)}
+#petition .nextaction{color:#CFC6B8}
+#petition .nextaction b{color:#FEEE90}
+/* Step 2: one message, one copy button */
+.copycard{margin-top:24px;max-width:720px;border:2px solid #141414;background:#fff;padding:18px}
+.copycard textarea{width:100%;box-sizing:border-box;border:0;resize:vertical;font-family:var(--body);font-size:1.02rem;line-height:1.55;color:#141414;background:#fff;padding:0;min-height:6.5em}
+.copy-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:14px}
+.copy-foot .hb{border:0;cursor:pointer}
+.copycard textarea{border:0!important;outline-offset:4px;box-shadow:none!important;padding:0!important}
+#share h2{font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+#call .actlabel{color:#FBF3E6}
+#call h2{font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+#call .act-tile.t3{box-shadow:0 0 0 2px #FBF3E6}
+/* ===== Act now: bright icon cards ===== */
+.stepflow .sf a{position:relative;display:grid;justify-items:center;gap:10px;padding:26px 18px 22px;border:3px solid #141414;box-shadow:6px 6px 0 #141414;transition:transform .15s ease,box-shadow .15s ease;text-align:center}
+.stepflow .sf a:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 #141414}
+.sf1 a{background:#FD6E1A}.sf2 a{background:#004CA6}.sf3 a{background:#E25F99}
+.stepflow .sf-n{position:absolute;left:14px;top:14px;margin:0;width:44px;height:48px;font-size:1.7rem;background:#FBF3E6!important;color:#141414!important;border:2px solid #141414}
+.sf-ic{width:min(170px,70%);height:auto;overflow:visible}
+.ic-burst line{stroke:#FEEE90;stroke-width:5;stroke-linecap:round}
+.sf2 .ic-burst line{stroke:#FEEE90}.sf3 .ic-burst line{stroke:#FBF3E6}
+.ic-sun{fill:rgba(251,243,230,.22)}
+.ic-ink *{stroke:#141414;stroke-width:3.5;stroke-linejoin:round;stroke-linecap:round}
+.ic-paper{fill:#FBF3E6}.ic-dark{fill:#141414}.ic-pen{fill:#FEEE90}.ic-dial{fill:#FEEE90}
+.stepflow .sf b{display:inline-block;padding:8px 14px 7px;background:#141414;color:#FBF3E6;font-family:var(--serif);font-weight:600;font-size:clamp(1.25rem,2vw,1.6rem);line-height:1;text-transform:uppercase;letter-spacing:.03em;transform:rotate(-2deg)}
+.sf2 b{transform:rotate(1.5deg)!important}
+.stepflow .sf-arrow{font-size:2.2rem;font-weight:700;color:#DF5416}
+@media(max-width:820px){.stepflow{grid-template-columns:1fr;gap:6px}.stepflow .sf-arrow{transform:rotate(90deg);height:34px}}
+@media(max-width:600px){.stepflow .sf a{display:grid;grid-template-columns:90px 1fr;justify-items:start;align-items:center;text-align:left;padding:14px 16px 14px 14px}.sf-ic{width:90px}.stepflow .sf-n{width:34px;height:38px;font-size:1.3rem;left:auto;right:10px;top:10px}}
+@media(prefers-reduced-motion:reduce){.stepflow .sf a{transition:none}}
+/* ===== One heading scale: hero is H1, every section heading is the same H2 size ===== */
+main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.05!important}
+/* ===== Act now: three rows, illustrated card beside each ask ===== */
+.actrows{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:clamp(28px,4vw,44px);max-width:900px}
+.ar{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center}
+.ar2{grid-template-columns:minmax(0,1fr) 200px}
+.ar2 .ar-card{order:2}
+.ar-card{position:relative;display:block;aspect-ratio:1/1;background:#FBF3E6;border:3px solid #141414;box-shadow:6px 6px 0 #141414;transition:transform .15s ease,box-shadow .15s ease}
+.ar-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 #141414}
+.ar-n{position:absolute;left:12px;top:12px;z-index:1;display:grid;place-items:center;width:42px;height:46px;font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1;transform:rotate(-3deg);border:2px solid #141414}
+.ar1 .ar-n{background:#FD6E1A;color:#0B0B0B}.ar2 .ar-n{background:#004CA6;color:#FFEFD6;transform:rotate(2deg)}.ar3 .ar-n{background:#E25F99;color:#0B0B0B}
+.ar-ic{position:absolute;inset:12% 8% 6% 12%;width:80%;height:82%;overflow:visible}
+.ar-ic .ic-sun{r:40px}
+.ar1 .ic-sun{fill:#FD6E1A}.ar2 .ic-sun{fill:#03B1AE}.ar3 .ic-sun{fill:#E25F99}
+.ar-ic .ic-burst line{stroke-width:5.5;stroke-linecap:round}
+.ar1 .ic-burst line{stroke:#FD6E1A}.ar2 .ic-burst line{stroke:#03B1AE}.ar3 .ic-burst line{stroke:#E25F99}
+.ar-ic .ic-ink *{stroke:#141414;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}
+.ar-ic .ic-pen,.ar-ic .ic-dial{fill:#FEEE90}
+.ar-copy h3{margin:0;font-family:var(--serif);font-weight:600;font-size:clamp(1.6rem,3vw,2.3rem);line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.ar-copy h3 a{color:#141414;text-decoration:none;background:linear-gradient(transparent 62%,#FEEE90 62%,#FEEE90 92%,transparent 92%)}
+.ar-copy h3 a:hover{color:#DF5416}
+.ar-copy p{margin:10px 0 0;max-width:40ch;font-family:var(--body);font-size:1.05rem;line-height:1.5;color:#3b3640}
+.ar2 .ar-copy{text-align:right}.ar2 .ar-copy p{margin-left:auto}
+@media(max-width:600px){
+  .ar,.ar2{grid-template-columns:110px minmax(0,1fr);gap:16px}
+  .ar2 .ar-card{order:0}.ar2 .ar-copy{text-align:left}.ar2 .ar-copy p{margin-left:0}
+  .ar-n{width:28px;height:31px;font-size:1.05rem;left:6px;top:6px}
+  .ar-card{box-shadow:4px 4px 0 #141414}
+  .ar-copy h3{font-size:1.4rem}.ar-copy p{font-size:.95rem;margin-top:6px}
+}
+@media(prefers-reduced-motion:reduce){.ar-card{transition:none}}
+/* vintage print look for the step illustrations */
+.ar-card{background:#F6EEDF;background-image:radial-gradient(rgba(20,20,20,.07) 1px,transparent 1.3px);background-size:5px 5px}
+.ar-ic{inset:6% 4% 4% 6%;width:90%;height:90%}
+.v-rays path{fill:var(--ray)}
+.ar1{--ray:#FD6E1A;--sun:#FD6E1A}.ar2{--ray:#03B1AE;--sun:#03B1AE}.ar3{--ray:#E25F99;--sun:#E25F99}
+.v-rays{opacity:1;transform:scale(.8);transform-origin:60px 60px;transform-box:view-box}
+.v-sun{fill:var(--sun)}
+/* step sections: number tile and heading side by side */
+#petition .wrap,#share .wrap,#call .wrap{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:18px;align-items:center}
+#petition .wrap>*,#share .wrap>*,#call .wrap>*{grid-column:1 / -1}
+#petition .wrap>.actlabel,#share .wrap>.actlabel,#call .wrap>.actlabel{grid-column:1;margin:0}
+#petition .wrap>.actlabel+h2,#share .wrap>.actlabel+h2,#call .wrap>.actlabel+h2{grid-column:2;margin:0}
+/* ===== Act flow: calm spacing, one ask per step ===== */
+#steps,#petition,#share,#call{padding-block:clamp(72px,9vw,120px)}
+#steps .takeaway,#petition .pet-take,#share .takeaway,#call .takeaway{margin-top:16px;max-width:52ch}
+#steps .actrows{margin-top:clamp(44px,5vw,64px)}
+#petition .goalbar{margin-top:36px;max-width:720px}
+.pet-cta{margin-top:32px}
+#petition .nextaction,#share .nextaction{margin-top:28px}
+#share .copycard{margin-top:28px;max-width:640px}
+.copycard textarea{min-height:5.2em!important}
+#call .finder{margin-top:32px;max-width:520px}
+.finder-l{display:block;margin-bottom:8px}
+.finder-out[hidden]{display:none!important}
+.finder-out{margin-top:16px}
+.call-alt{margin:28px 0 0;max-width:56ch;font-family:var(--body);font-size:.95rem;line-height:1.55;color:#DCE6F5}
+.call-alt a{color:#FEEE90;font-weight:700;white-space:nowrap}
+.call-alt .linkbtn{color:#FEEE90}
+#call .nextaction{margin-top:32px}
+/* ===== Act now: all three steps in one row ===== */
+#steps .actrows{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px);max-width:1040px}
+#steps .ar,#steps .ar2{grid-template-columns:1fr;justify-items:center;gap:18px;text-align:center}
+#steps .ar2 .ar-card{order:0}
+#steps .ar2 .ar-copy{text-align:center}
+#steps .ar-card{width:100%;max-width:240px}
+#steps .ar-copy h3{font-size:clamp(1.3rem,2.2vw,1.8rem)}
+@media(max-width:600px){
+  #steps .actrows{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  #steps .ar,#steps .ar2{gap:10px}
+  #steps .ar-card{box-shadow:3px 3px 0 #141414;border-width:2px}
+  #steps .ar-n{width:22px;height:24px;font-size:.85rem;left:4px;top:4px;border-width:1.5px}
+  #steps .ar-copy h3{font-size:1rem;line-height:1.05}
+}
+/* body and subheader text: regular weight for easier reading */
+.takeaway,.pet-take,.brad-d,.call-alt,.ar-copy p{font-weight:400!important}
+/* ===== Cost + Brad section ===== */
+#short .cost-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,56px);align-items:center}
+#short .cost-top h2{margin:0}
+.uline{background:linear-gradient(transparent 82%,#DF5416 82%,#DF5416 96%,transparent 96%);padding-bottom:.04em}
+.cost-stat{padding-left:clamp(20px,3vw,40px);border-left:2px solid #FBF3E6}
+.cost-num{margin:0;display:flex;align-items:flex-start;gap:12px;font-family:var(--serif);font-weight:600;font-size:clamp(4rem,9vw,7.5rem);line-height:.9;color:#DF5416}
+.cost-arrow{width:.42em;height:.55em;margin-top:.06em;fill:#DF5416}
+.cost-lab{margin:14px 0 0;display:inline-block;padding:10px 16px 11px;background:#FBF3E6;color:#141414;font-family:var(--body);font-weight:600;font-size:.98rem;line-height:1.35;max-width:42ch;transform:rotate(-1deg);
+  clip-path:polygon(0 6%,4% 0,18% 5%,34% 0,52% 4%,70% 0,88% 5%,100% 1%,98% 50%,100% 96%,82% 100%,62% 95%,44% 100%,24% 95%,6% 100%,1% 92%,2% 50%)}
+#short .brad{margin-top:clamp(48px,6vw,80px);grid-template-columns:minmax(0,440px) minmax(0,1fr);align-items:center}
+.brad-video .brad-tag{background:#FBF3E6}
+.brad-tag b{color:#141414}
+.brad-tag span{color:#141414;font-family:var(--serif);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem}
+.brad-copy h3.brad-h{position:relative;margin:0;padding-left:46px;font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.8rem)!important;line-height:1;color:#FBF3E6!important}
+.brad-spark{position:absolute;left:0;top:-10px;width:40px;height:40px;fill:none;stroke:#DF5416;stroke-width:4;stroke-linecap:round}
+#short .brad-d{margin:14px 0 26px;font-size:1.1rem;line-height:1.5;max-width:46ch;color:#E9E1D4}
+.brad-listen{text-decoration:none;display:inline-flex;align-items:center;gap:14px;padding:12px 24px 12px 14px;border:0;border-radius:0;background:#DF5416;color:#FBF3E6;font-family:var(--serif);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.45rem);letter-spacing:.02em;cursor:pointer;box-shadow:4px 4px 0 #FBF3E6;transition:transform .12s ease,box-shadow .12s ease}
+.brad-listen:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #FBF3E6}
+.brad-listen small{font-family:var(--body);font-weight:400;font-size:.8em;opacity:.9}
+.bl-play{position:relative;flex:none;width:36px;height:36px;border-radius:0;background:#FBF3E6}
+.bl-play::after{content:"";position:absolute;left:13px;top:10px;border-style:solid;border-width:8px 0 8px 12px;border-color:transparent transparent transparent #DF5416}
+.brad-player{margin-top:20px;max-width:520px}
+.brad-player iframe{display:block;width:100%;height:152px;border:0;border-radius:12px}
+@media(max-width:820px){#short .cost-top{grid-template-columns:1fr}.cost-stat{border-left:0;padding-left:0;border-top:2px solid #FBF3E6;padding-top:20px}#short .brad{grid-template-columns:1fr}}
+/* tighter spacing in the cost + Brad section */
+#short{padding-block:clamp(56px,7vw,88px)}
+#short .brad{margin-top:clamp(32px,4vw,48px);gap:clamp(24px,3vw,40px)}
+#short .brad-d{margin:10px 0 20px}
+.cost-lab{margin-top:10px}
+.brad-player{margin-top:14px}
+/* ===== Cost + Brad: editorial refinement pass ===== */
+#short{--col-gap:clamp(28px,4vw,64px);--rule-pad:clamp(24px,3vw,44px);padding-block:clamp(64px,8vw,104px)}
+#short .cost-top,#short .brad{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:var(--col-gap);max-width:1040px}
+#short .cost-top{align-items:center}
+#short .cost-top h2{font-size:clamp(1.6rem,2.9vw,2.5rem)!important;line-height:1.08!important;max-width:19ch;text-wrap:balance}
+.uline{background:linear-gradient(transparent 88%,#DF5416 88%,#DF5416 96%,transparent 96%);padding-bottom:.02em}
+.cost-stat{padding-left:var(--rule-pad);border-left:1px solid rgba(251,243,230,.35)}
+.cost-num{font-size:clamp(5rem,11vw,9rem);line-height:.82;gap:.08em;letter-spacing:-.01em}
+.cost-arrow{width:.36em;height:.5em;margin-top:.02em}
+.cost-lab{margin:18px 0 0;padding:12px 18px;max-width:38ch;font-family:var(--body);font-weight:500;font-size:.95rem;line-height:1.45;color:#3b3640;background:#F3EADB;transform:rotate(-.6deg);text-wrap:pretty;
+  clip-path:polygon(0 3%,25% 0,50% 2%,75% 0,100% 3%,99.4% 50%,100% 97%,75% 100%,50% 98%,25% 100%,0 97%,.6% 50%)}
+#short .brad{margin-top:clamp(64px,8vw,104px);align-items:center}
+#short .brad-video{max-width:none;box-shadow:8px 8px 0 #DF5416}
+#short .brad-copy{padding-left:var(--rule-pad)}
+.brad-copy h3.brad-h{padding-left:0;font-size:clamp(1.9rem,3.2vw,2.6rem)!important;line-height:1}
+#short .brad-d{margin:14px 0 24px;max-width:40ch;font-size:1.05rem;line-height:1.55;color:#E9E1D4;text-wrap:pretty}
+.brad-listen{gap:12px;padding:10px 20px 10px 10px;font-size:clamp(1.05rem,1.5vw,1.25rem);box-shadow:4px 4px 0 #FBF3E6}
+.brad-listen:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #FBF3E6}
+.brad-listen:active{transform:translate(2px,2px);box-shadow:2px 2px 0 #FBF3E6}
+.brad-listen:focus-visible{outline:3px solid #FEEE90;outline-offset:3px}
+.brad-listen small{font-size:.72em;font-weight:400;opacity:.78;letter-spacing:.02em}
+.bl-play{width:32px;height:32px;display:grid;place-items:center}
+.bl-play::after{position:static;border-width:7px 0 7px 11px;margin-left:3px}
+@media(max-width:820px){
+  #short .cost-top,#short .brad{grid-template-columns:1fr;row-gap:22px}
+  .cost-stat{padding-left:0;border-left:0;border-top:1px solid rgba(251,243,230,.35);padding-top:22px}
+  #short .brad{margin-top:56px}
+  #short .brad-copy{padding-left:0}
+  .cost-num{font-size:clamp(4.4rem,22vw,6rem)}
+  #short .brad-video{box-shadow:6px 6px 0 #DF5416}
+}
+/* 42%: bigger, closer to Brad's row */
+.cost-num{font-size:clamp(6rem,13vw,11rem)!important}
+.cost-lab{font-size:1.05rem!important;max-width:40ch!important}
+#short .brad{margin-top:clamp(36px,4.5vw,56px)!important}
+@media(max-width:820px){.cost-num{font-size:clamp(5rem,26vw,7rem)!important}#short .brad{margin-top:40px!important}}
+/* pull Brad's row up under the 42% */
+#short .brad{margin-top:clamp(20px,2.4vw,32px)!important;align-items:start!important}
+#short .brad-copy{padding-top:clamp(4px,1vw,12px)}
+#short .cost-top{align-items:end}
+@media(max-width:820px){#short .brad{margin-top:28px!important}}
+/* stacked: headline, then 42% stat, then Brad */
+#short .cost-top{grid-template-columns:1fr!important;row-gap:clamp(18px,2.4vw,28px);align-items:start!important}
+#short .cost-top h2{max-width:24ch!important}
+#short .cost-stat{border:0!important;padding:0!important;display:flex;align-items:center;flex-wrap:wrap;gap:12px clamp(20px,3vw,36px)}
+#short .cost-num{font-size:clamp(5rem,10vw,8.5rem)!important}
+#short .cost-lab{margin:0!important}
+#short .brad{margin-top:clamp(36px,4.5vw,56px)!important}
+/* mockup layout: headline, 42%, label tucked over the photo's top edge */
+#short .cost-top{row-gap:clamp(10px,1.4vw,18px)!important}
+#short .cost-stat{display:block!important}
+#short .cost-num{font-size:clamp(5.5rem,11vw,9.5rem)!important;line-height:.8!important}
+#short .cost-lab{position:relative;z-index:2;display:inline-block;margin:14px 0 -26px clamp(24px,4vw,48px)!important;padding:9px 16px!important;font-size:.88rem!important;max-width:36ch!important;transform:rotate(-2deg)!important;box-shadow:4px 4px 0 #141414}
+#short .brad{margin-top:0!important;align-items:center!important}
+#short .brad-copy{padding-top:0!important}
+@media(max-width:820px){#short .cost-lab{margin:12px 0 -22px 16px!important}}
+/* ===== Cost + Brad: two columns (stat left, Brad stacked right) ===== */
+#short .cb-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center;max-width:1100px}
+#short .cb-grid .cost-top{display:block!important}
+#short .cb-grid .cost-top h2{max-width:20ch!important}
+#short .cb-grid .cost-num{margin-top:clamp(18px,2.4vw,30px)}
+#short .cb-grid .cost-lab{margin:clamp(16px,2vw,24px) 0 0 0!important;box-shadow:none!important;transform:rotate(-2deg)!important}
+#short .cb-grid .brad{display:block!important;margin:0!important}
+#short .cb-grid .brad-video{width:min(100%,420px)}
+#short .cb-grid .brad-copy{padding:clamp(24px,3vw,36px) 0 0 0!important}
+@media(max-width:820px){#short .cb-grid{grid-template-columns:1fr;gap:40px}#short .cb-grid .brad-video{width:100%}}
+#short .cb-grid .cost-top{margin-bottom:clamp(48px,6vw,96px)}
+@media(max-width:820px){#short .cb-grid .cost-top{margin-bottom:0}}
+/* one style for every action button's text */
+.hb,.brad-listen,#zipgo,.copy-foot .hb{font-family:var(--serif)!important;font-weight:600!important;font-size:1.05rem!important;letter-spacing:.08em!important;text-transform:uppercase!important;line-height:1.1}
+.brad-listen small{text-transform:none;letter-spacing:.02em;font-family:var(--body);font-weight:400}
+/* buttons: action verb in capitals, the rest in sentence case */
+.hb,.brad-listen,#zipgo,.copy-foot .hb{text-transform:none!important;letter-spacing:.03em!important;font-size:1.15rem!important}
+.bv{font-weight:inherit;text-transform:uppercase;letter-spacing:.08em}
+/* Healthcare, demystified buttons: same type as the other buttons */
+.toplink-paper{font-family:var(--serif)!important;font-weight:600!important;letter-spacing:.03em!important;text-transform:none!important;gap:6px!important}
+.toplink-paper .tl-k{font-family:var(--serif)!important;font-weight:600!important;font-size:1em!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:inherit!important}
+.toplink-paper.learn-btn{font-size:1.15rem!important}
+#short .cb-grid .cost-num{margin-top:clamp(28px,3.4vw,44px)!important}
+/* hero photo tiles: tilted and a little off-kilter, like the logo's letter blocks */
+.pwall{overflow:hidden;padding-inline:16px}
+.pt{transform:rotate(var(--r,0deg)) translateX(var(--x,0px));box-shadow:4px 4px 0 rgba(0,0,0,.35)}
+.pt:nth-child(6n+1){--r:-4deg;--x:-4px}
+.pt:nth-child(6n+2){--r:3deg;--x:6px}
+.pt:nth-child(6n+3){--r:-1.5deg;--x:2px}
+.pt:nth-child(6n+4){--r:5deg;--x:-6px}
+.pt:nth-child(6n+5){--r:-3deg;--x:5px}
+.pt:nth-child(6n){--r:2deg;--x:-3px}
+.pcol.down .pt:nth-child(6n+1){--r:3.5deg;--x:5px}
+.pcol.down .pt:nth-child(6n+2){--r:-4.5deg;--x:-5px}
+.pcol.down .pt:nth-child(6n+3){--r:2deg;--x:-2px}
+.pcol.down .pt:nth-child(6n+4){--r:-2.5deg;--x:6px}
+.pcol.down .pt:nth-child(6n+5){--r:4deg;--x:-4px}
+.pcol.down .pt:nth-child(6n){--r:-1deg;--x:3px}
+.pcol{padding-top:8px}
+/* ===== Make your voice heard: numbered titles over cards, arrows between ===== */
+#steps h2 .uline{background:linear-gradient(transparent 86%,#DF5416 86%,#DF5416 96%,transparent 96%)}
+#steps .takeaway{border-left:0;padding-left:0;max-width:60ch;color:#3b3640}
+#steps .actrows{grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr) 44px minmax(0,1fr)!important;gap:clamp(8px,1.4vw,18px)!important;align-items:end;max-width:1100px}
+#steps .ar{display:grid!important;grid-template-rows:auto auto;justify-items:center;gap:18px!important}
+.ar-arrow{align-self:end;display:grid;place-items:center;height:clamp(150px,18vw,220px);font-size:2.4rem;font-weight:700;color:#DF5416}
+.ar-t{margin:0;justify-self:start}
+.ar-t a{display:flex;align-items:center;gap:10px;color:#141414;text-decoration:none}
+.ar-tn{flex:none;display:grid;place-items:center;width:40px;height:44px;border:2px solid #141414;font-family:var(--serif);font-weight:600;font-size:1.6rem;line-height:1}
+.ar1 .ar-tn{background:#FD6E1A;color:#141414}.ar2 .ar-tn{background:#004CA6;color:#FBF3E6}.ar3 .ar-tn{background:#E25F99;color:#141414}
+.ar-tt{font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1;white-space:nowrap;background:linear-gradient(transparent 62%,#FEEE90 62%,#FEEE90 94%,transparent 94%)}
+.ar-t a:hover .ar-tt{color:#DF5416}
+#steps .ar-card{max-width:none!important;width:100%;aspect-ratio:5/4!important}
+#steps .ar1 .ar-card{transform:rotate(-1.5deg)}#steps .ar2 .ar-card{transform:rotate(1deg)}#steps .ar3 .ar-card{transform:rotate(-1deg)}
+#steps .ar-card:hover{transform:translate(-3px,-3px) rotate(0)}
+#steps .ar-ic{inset:6% 14% 4% 14%;width:72%;height:90%}
+@media(max-width:820px){
+  #steps .actrows{grid-template-columns:1fr!important;gap:14px!important;max-width:460px}
+  .ar-arrow{display:none!important}
+  #steps .ar{grid-template-columns:110px minmax(0,1fr)!important;grid-template-rows:auto!important;align-items:center;justify-items:start;gap:16px!important}
+  #steps .ar .ar-card{order:-1;aspect-ratio:1/1!important}
+  #steps .ar-ic{inset:8%;width:84%;height:84%}
+  .ar-tt{white-space:normal;font-size:1.35rem}
+  .ar-tn{width:32px;height:35px;font-size:1.25rem}
+}
+#steps .mega{display:inline-block;margin-right:.15em;transform:rotate(-8deg);font-size:.9em}
+#steps .takeaway{max-width:none!important;font-size:clamp(1rem,1.45vw,1.2rem)!important;text-wrap:balance}
+/* voice heard header with the megaphone woman */
+.voice-head{display:grid;grid-template-columns:minmax(0,1fr) clamp(200px,22vw,280px);align-items:end;gap:clamp(20px,3vw,40px);max-width:1100px}
+.voice-art{position:relative;margin:0 0 -18px;height:clamp(220px,24vw,300px)}
+.voice-sun{position:absolute;right:4%;bottom:6%;width:78%;aspect-ratio:1;border-radius:50%;background:#E25F99;background-image:radial-gradient(rgba(20,20,20,.18) 1.2px,transparent 1.6px);background-size:7px 7px}
+.voice-art img{position:relative;display:block;height:100%;width:auto;margin-left:auto;filter:drop-shadow(3px 0 0 #FBF3E6) drop-shadow(-3px 0 0 #FBF3E6) drop-shadow(0 -3px 0 #FBF3E6) drop-shadow(5px 6px 0 rgba(20,20,20,.18))}
+@media(max-width:700px){.voice-head{grid-template-columns:minmax(0,1fr) 110px;gap:12px}.voice-art{height:150px;margin-bottom:0}}
+@media(min-width:701px){#steps .voice-copy .takeaway{font-size:clamp(.98rem,1.2vw,1.08rem)!important}.voice-head{grid-template-columns:minmax(0,1fr) clamp(180px,19vw,250px)}}
+/* ===== Voice heard: centered header, staggered cards, megaphone woman, space-age icons ===== */
+#steps .voice-copy{text-align:center;max-width:860px;margin-inline:auto}
+#steps .voice-copy h2{margin-inline:auto}
+#steps .voice-copy .takeaway{margin-inline:auto}
+.voice-stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) clamp(220px,24vw,330px);align-items:end;gap:clamp(8px,2vw,24px);margin-top:clamp(28px,4vw,48px);max-width:1180px}
+.voice-stage .actrows{margin:0!important}
+.voice-stage .voice-art{height:clamp(320px,36vw,460px);margin:0}
+.voice-stage .voice-sun{right:0;bottom:4%;width:92%}
+#steps .ar2{transform:translateY(clamp(18px,3vw,40px))}
+#steps .ar3{transform:translateY(clamp(-24px,-2vw,-12px))}
+/* space-age icon details */
+.v-orbit{fill:none;stroke:#141414;stroke-width:2.6;stroke-dasharray:7 5}
+.v-moon{fill:#141414}
+.v-star{fill:#141414}
+#steps .ar-card{background:#F3EBDD}
+@media(max-width:900px){
+  .voice-stage{grid-template-columns:1fr}
+  .voice-stage .voice-art{display:none}
+  #steps .ar2,#steps .ar3{transform:none}
+}
+/* stage fixes: even columns, no arrows, larger icons */
+#steps .voice-stage .actrows{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:clamp(16px,2.2vw,30px)!important;align-items:start!important;padding-bottom:clamp(30px,4vw,50px)}
+.voice-stage .ar-arrow{display:none!important}
+.voice-stage .ar-tt{font-size:clamp(1.15rem,1.7vw,1.5rem)}
+.voice-stage .ar-tn{width:34px;height:38px;font-size:1.3rem}
+#steps .ar-ic{inset:0!important;width:100%!important;height:100%!important;transform:scale(1.25)}
+#steps .ar-card{overflow:hidden}
+@media(max-width:900px){#steps .voice-stage .actrows{grid-template-columns:1fr!important;padding-bottom:0}#steps .ar-ic{transform:scale(1.15)}}
+@media(min-width:901px){.voice-stage{margin-top:clamp(-150px,-9vw,-70px)!important}#steps .voice-copy{position:relative;z-index:2;max-width:760px;margin-left:clamp(0px,6vw,90px)}}
+/* left: heading + cards, right: megaphone woman */
+@media(min-width:901px){.voice-stage{margin-top:0!important;align-items:end}#steps .voice-copy{margin:0 auto clamp(32px,4vw,48px)!important;max-width:760px}}
+.voice-left{min-width:0}
+@media(max-width:900px){#steps .voice-copy{margin-bottom:28px}}
+/* why calling works */
+.whycall{margin-top:28px;max-width:640px;padding:18px 22px;border:2px solid #FBF3E6;background:rgba(251,243,230,.06)}
+.wc-h{margin:0 0 10px;font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:.02em;color:#FEEE90}
+.whycall ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.whycall li{position:relative;padding-left:22px;font-family:var(--body);font-size:.98rem;line-height:1.5;color:#E9EEF7}
+.whycall li::before{content:"✦";position:absolute;left:0;top:0;color:#FEEE90}
+.whycall li b{color:#FBF3E6;font-weight:700}
+.wc-src{margin:12px 0 0;font-size:.78rem;color:#C7D3EA}
+.wc-src a{color:#FEEE90}
+#steps .takeaway em{font-weight:400!important}
+@media(min-width:901px){#steps .voice-stage .voice-art{margin-bottom:calc(-1 * clamp(72px,9vw,120px))!important}#steps .voice-art img{filter:drop-shadow(3px 0 0 #FBF3E6) drop-shadow(-3px 0 0 #FBF3E6) drop-shadow(0 -3px 0 #FBF3E6)}#steps .voice-sun{bottom:10%!important}}
+#steps .voice-copy .takeaway em,#steps .voice-copy .takeaway{font-weight:400!important}
+@media(min-width:901px){#steps .voice-copy{max-width:none!important}}
+@media(min-width:901px){#steps .voice-copy .takeaway{max-width:62ch!important}}
+.vs-head .vs-he{background:#03B1AE!important;color:#121212!important}
+#petition .pet-take{font-size:clamp(1rem,1.45vw,1.2rem)!important;max-width:62ch!important}
+/* Share step: message + graphic side by side */
+.sharegrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(20px,3vw,40px);align-items:start;margin-top:28px;max-width:1040px}
+#share .sharegrid .copycard{margin-top:0;max-width:none}
+.gfxcard{border:2px solid #141414;background:#fff;padding:16px;display:grid;gap:10px}
+.gfxcard img{display:block;width:100%;max-height:340px;object-fit:contain;background:#EDEDED}
+.gfx-l{font-family:var(--body);font-weight:600;font-size:.9rem}
+#gfx-fmt{font:inherit;font-size:1rem;padding:10px;border:2px solid #141414;background:#FBF3E6}
+.gfxcard .hb{justify-self:start}
+@media(max-width:760px){.sharegrid{grid-template-columns:1fr}}
+.copycard textarea{min-height:22em!important;font-size:.98rem!important}
+@media(min-width:761px){.sharegrid{align-items:stretch!important}#share .sharegrid .copycard{display:flex;flex-direction:column}#share .sharegrid .copycard textarea{flex:1;min-height:0!important;height:auto}}
+#share .takeaway,#call .takeaway{font-size:clamp(1rem,1.45vw,1.2rem)!important;max-width:62ch!important}
+/* archival space-race photos on the step cards */
+#steps .ar-card{padding:0!important;overflow:hidden;background:#141414!important;border:0!important;box-shadow:5px 6px 0 rgba(20,20,20,.25)!important;
+  clip-path:polygon(0 3%,8% 0,22% 2%,40% 0,58% 2.5%,76% .5%,92% 2%,100% 0,99% 22%,100% 46%,98.6% 70%,100% 97%,84% 100%,66% 98%,48% 100%,30% 97.5%,12% 100%,0 98%,1.2% 74%,0 50%,1.4% 26%)}
+.ar-photo{display:block;width:100%;height:100%;object-fit:cover;filter:sepia(.35) contrast(1.1)}
+#steps .ar-card::after{content:none}
+#petition .takeaway,#share .takeaway,#call .takeaway{border-left:0!important;padding-left:0!important}
+/* step cards: same look as the rest of the page (cream card, black outline, colored halftone circle, B&W cutout) */
+#steps .ar-card{background:#F6EEDF!important;border:3px solid #141414!important;box-shadow:6px 6px 0 #141414!important;clip-path:none!important;overflow:hidden;display:grid!important;place-items:center}
+#steps .ar-card::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;left:50%;top:52%;transform:translate(-50%,-50%);background-image:radial-gradient(rgba(20,20,20,.22) 1.1px,transparent 1.5px);background-size:6px 6px}
+#steps .ar1 .ar-card::before{background-color:#FD6E1A}
+#steps .ar2 .ar-card::before{background-color:#03B1AE}
+#steps .ar3 .ar-card::before{background-color:#E25F99}
+#steps .ar-photo{position:relative;width:82%!important;height:82%!important;object-fit:contain!important;filter:grayscale(1) contrast(1.35)!important;mix-blend-mode:multiply}
+#steps .ar2 .ar-photo{mix-blend-mode:normal;filter:grayscale(1) contrast(1.15) drop-shadow(2px 0 0 #FBF3E6) drop-shadow(-2px 0 0 #FBF3E6) drop-shadow(0 -2px 0 #FBF3E6) drop-shadow(0 2px 0 #FBF3E6)!important}
+#steps .ar3 .ar-photo{width:62%!important;height:auto!important;aspect-ratio:1;object-fit:cover!important;border-radius:50%;top:2%;filter:grayscale(1) contrast(1.6) brightness(1.15)!important}
+/* ===== Phone polish ===== */
+@media(max-width:600px){
+  /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
+  .topbar .wrap{gap:10px}
+  .brand-img{height:40px}
+  .stepnav{gap:4px}
+  .stepnav li+li::before{width:8px;margin-right:4px}
+  .stepnav a{padding:5px 4px;gap:5px;font-size:.8rem}
+  .stepnav i{width:22px;height:22px;font-size:.82rem}
+  .stepbar{display:none}
+  /* hero: bigger fact, one clear path, buttons line up */
+  .hero-light .wrap.hero-split{padding-block:28px 32px;row-gap:26px}
+  .hero-kicker{margin-bottom:12px;font-size:.72rem}
+  .hero-light h1{font-size:clamp(2.5rem,11vw,2.9rem)}
+  .hero-tag{margin-top:14px;font-size:1.45rem}
+  .hero-path-wrap{margin-top:22px;padding-top:0;border-top:0}
+  .hero-path{display:none}
+  .hero-path-k{display:none}
+  .hero-voice{display:block;margin:0;font-family:var(--body);font-weight:700;font-size:1.1rem;line-height:1.3;color:#FBF3E6}
+  .hero-split .hero-btns{margin-top:12px;gap:10px}
+  .hb{padding:14px 18px}
+  .hb-primary{width:calc(100% - 4px);flex:none}
+  .hb-ghost{width:calc(100% - 4px);flex:none}
+  .hero-split .hero-note{margin-top:10px;font-size:.74rem}
+  /* step cards: number beside the title, less empty space */
+  .stepflow{gap:0}
+  .sf a{display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:14px;row-gap:2px;padding:16px;align-items:center}
+  .sf-n{grid-row:span 2;width:44px;height:48px;font-size:1.8rem;margin:0}
+  .sf b{font-size:1.45rem}
+  .sf-d{grid-column:1 / -1;margin-top:8px;font-size:.95rem}
+  .sf-arrow{height:28px;font-size:1.2rem}
+  /* share: tidy equal-width grid instead of ragged pills */
+  .sharebtns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .shb{padding:8px 6px;text-align:center}
+  .shb-native:not([hidden]){grid-column:1 / -1}
+  /* full-width action buttons */
+  .sc-foot{flex-wrap:wrap}
+  .sc-foot .sbtn,#zipgo{width:100%;text-align:center;justify-content:center}
+}
 </style>
 
 </head>
@@ -974,8 +1464,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <div class="actsteps">
     <ol class="stepnav" aria-label="Take action: your progress">
       <li data-step="sign"><a href="#petition"><i aria-hidden="true">1</i><span>Sign</span></a></li>
-      <li data-step="call"><a href="#pick"><i aria-hidden="true">2</i><span>Call</span></a></li>
-      <li data-step="share"><a href="#share"><i aria-hidden="true">3</i><span>Share</span></a></li>
+      <li data-step="share"><a href="#share"><i aria-hidden="true">2</i><span>Share</span></a></li>
+      <li data-step="call"><a href="#call"><i aria-hidden="true">3</i><span>Call</span></a></li>
     </ol>
     <div class="stepbar" aria-hidden="true"><i id="stepfill"></i></div>
     </div>
@@ -984,78 +1474,72 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 <header class="hero hero-light" id="top">
   <div class="wrap hero-split">
   <div class="hero-copy">
-    <p class="hero-kicker">Petition for Change</p>
     <h1><span class="line1"><b class="num n1">16M</b> Americans are self-employed.</span> <span class="line2"><b class="num n2">76M</b> Americans are polyworking.</span></h1>
     <p class="hero-tag">It's time our healthcare system reflected that.</p>
     <div class="hero-path-wrap">
       <p class="hero-path-k">3 steps · about 5 minutes</p>
       <ol class="hero-path">
         <li><a href="#petition"><i aria-hidden="true">1</i>Sign the petition</a></li>
-        <li><a href="#pick"><i aria-hidden="true">2</i>Call Congress</a></li>
-        <li><a href="#share"><i aria-hidden="true">3</i>Tell 5 friends</a></li>
+        <li><a href="#call"><i aria-hidden="true">2</i>Call Congress</a></li>
+        <li><a href="#share"><i aria-hidden="true">2</i>Share on social</a></li>
       </ol>
     </div>
     <div class="hero-btns">
-      <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition <span aria-hidden="true">→</span></a>
-      <a class="hb hb-ghost" href="#lose">Learn more <span aria-hidden="true">↓</span></a>
+      <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener"><b class="bv">Sign</b> the petition <span aria-hidden="true">→</span></a>
     </div>
-    <p class="hero-note">16M: U.S. Bureau of Labor Statistics.</p>
   </div>
     <div class="pwall" role="img" aria-label="Photos of real polyworkers">
-      <div class="pcol"><figure class="pt"><img src="people/brie.jpg" alt="Brie Abramowicz" width="400" height="500"></figure><figure class="pt"><img src="people/adjoa.webp" alt="Adjoa Kittoe" width="400" height="500"></figure><figure class="pt"><img src="people/harry.jpg" alt="Harry Siggins" width="400" height="500"></figure><figure class="pt"><img src="people/brendon.webp" alt="Brendon Hamlin" width="400" height="500"></figure><figure class="pt"><img src="people/carisa.webp" alt="Carisa Deegan" width="400" height="500"></figure><figure class="pt"><img src="people/javaree.webp" alt="Javaree Walker" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brie.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/adjoa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/harry.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brendon.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/carisa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/javaree.webp" alt="" width="400" height="500"></figure></div>
+      <div class="pcol"><figure class="pt"><img src="people/brie.jpg" alt="Brie Abramowicz" width="400" height="500"></figure><figure class="pt"><img src="people/adjoa.webp" alt="Adjoa Kittoe" width="400" height="500"></figure><figure class="pt"><img src="people/harry.jpg" alt="Harry Siggins" width="400" height="500"></figure><figure class="pt"><img src="people/brendon.jpg" alt="Brendon Hamlin" width="400" height="500"></figure><figure class="pt"><img src="people/carisa.webp" alt="Carisa Deegan" width="400" height="500"></figure><figure class="pt"><img src="people/javaree.webp" alt="Javaree Walker" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brie.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/adjoa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/harry.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brendon.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/carisa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/javaree.webp" alt="" width="400" height="500"></figure></div>
       <div class="pcol down"><figure class="pt"><img src="people/meg.jpg" alt="Meg Scheding" width="400" height="500"></figure><figure class="pt"><img src="people/john.jpg" alt="John Rabasa" width="400" height="500"></figure><figure class="pt"><img src="people/natalee.jpg" alt="Natalee Rivero" width="400" height="500"></figure><figure class="pt"><img src="people/vanessa.webp" alt="Vanessa Hoh" width="400" height="500"></figure><figure class="pt"><img src="people/wendy.webp" alt="Wendy Moore" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/meg.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/john.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/natalee.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/vanessa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/wendy.webp" alt="" width="400" height="500"></figure></div>
     </div>
   </div>
 </header>
 
 <main>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <filter id="rough" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <pattern id="halftone" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="3" cy="3" r="1.25" fill="#141414" opacity=".28"/></pattern>
+  <pattern id="halftone-lt" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="2.5" cy="2.5" r="1" fill="#141414" opacity=".18"/></pattern>
+</defs></svg>
+
 <section id="lose">
   <div class="wrap">
-    <p class="eyebrow">Background</p>
-    <h2>You Lose a Lot of Your Benefits When You Work for Yourself.</h2>
-    <ul class="losslist">
-      <li><span class="ln">01</span><div><b>Your Employer Insurance Subsidy</b><p>The average employer pays <strong>$8,132 a year</strong> toward a worker's health plan. On your own, there's no employer share.</p></div></li>
-      <li><span class="ln">02</span><div><b>Tax Assistance</b><p>Employers pay <strong>7.65%</strong> toward your Social Security and Medicare. Self-employed, you pay the full 15.3%.</p></div></li>
-      <li><span class="ln">03</span><div><b>Your 401(k) Match</b><p>No one adds money to your 401(k) but you.</p></div></li>
-      <li><span class="ln">04</span><div><b>Unemployment insurance</b><p>Lose a big client, and you generally can't collect unemployment.</p></div></li>
-      <li><span class="ln">05</span><div><b>Paid leave and disability</b><p>No automatic coverage. Only a few states let you opt in, or you buy a private policy.</p></div></li>
-    </ul>
+    <div class="lose-head">
+      <h2>You lose a lot of your benefits when you work for yourself.</h2>
+      <a class="toplink-paper learn-btn" href="demystified.html"><span class="tl-k">Read</span> Healthcare, demystified <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="vs" role="table" aria-label="Benefits with an employer compared with self-employed">
+      <div class="vs-head" role="row"><span class="vs-hk" role="columnheader">Benefits</span><span class="vs-he" role="columnheader">With an employer</span><span class="vs-hs" role="columnheader">Self-employed</span></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#0B0B0B;color:#FEEE90">01</span><b>Health insurance</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Employers contribute <strong>~$8K</strong>.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Self-employed</span><span class="vs-t">You pay the whole premium.</span></div></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#004CA6;color:#FFEFD6">02</span><b>Social Security/Medicare</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer pays <strong>7.65%</strong>.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Self-employed</span><span class="vs-t">You pay the full <strong>15.3%</strong>.</span></div></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#E25F99;color:#0B0B0B">03</span><b>401(k)</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer adds a match.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Self-employed</span><span class="vs-t">No one contributes but you.</span></div></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#FD6E1A;color:#0B0B0B">04</span><b>Unemployment</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">A 6mo subsidy if you are out of work.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Self-employed</span><span class="vs-t">You bridge lumpy cash flows.</span></div></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#03B1AE;color:#FFEFD6">05</span><b>Paid leave &amp; disability</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Often provided as an add on.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Self-employed</span><span class="vs-t">You have to buy a private policy.</span></div></div>
+    </div>
     <p class="note">Sources: KFF Employer Health Benefits Survey, 2026; IRS self-employment tax.</p>
-    <a class="btn-learn" href="demystified.html"><span>Still confused?</span> Read Healthcare, Demystified <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
 <section id="short" class="band-dark">
   <div class="wrap">
-    <p class="eyebrow">Why it matters</p>
-    <h2>So it doesn't help that the cost of your healthcare insurance just skyrocketed.</h2>
-    <div class="fcard hot result">
-      <span class="big-num">+42%</span>
-      <p class="result-lead">That's how much the price of a typical Marketplace plan has risen from 2025 to 2027.</p>
-      <span class="src">KFF, 2026</span>
-    </div>
-    <p class="cliff-body">This is because the ACA federal tax credit expired. Now if you earn over $62,600 as a single person, or $84,600 as a married couple filing jointly, you get no tax credit.</p>
-    <figure class="cliffbar" role="img" aria-label="Income scale for a single person in 2026. Below $62,600 you can get a tax credit. Above $62,600 you get no tax credit.">
-      <div class="cb-track"><span class="cb-yes">Tax credit lowers your premium</span><span class="cb-no">No tax credit</span></div>
-      <div class="cb-mark" style="left:62%"><span>$62,600</span></div>
-      <div class="cb-scale"><span>$0</span><span>Yearly income, single person</span><span>$100K</span></div>
-    </figure>
-    <p class="note" style="color:var(--on-night-muted)">2026 coverage, 48 contiguous states and DC. About $63,840 for 2027 coverage, and higher for families. For freelancers, one big December invoice can push you over.</p>
-
-    <div class="statcards">
-      <div class="fcard hot result sc-pink">
-        <span class="big-num">38%</span>
-        <p class="result-lead">of the Americans losing their ACA subsidy are self-employed. Only 7% of working-age adults are.</p>
-        <span class="src">KFF, 2025</span>
-      </div>
-      <div class="fcard hot result sc-teal">
-        <span class="big-num">48%</span>
-        <p class="result-lead">Nearly half of the 2026 drop in Marketplace sign-ups came from people above the cliff.</p>
-        <span class="src">KFF, 2026</span>
+    <div class="cb-grid">
+    <div class="cost-top">
+      <h2>So it doesn't help that our health insurance is getting <span class="uline">cost prohibitive.</span></h2>
+      <div class="cost-stat">
+        <p class="cost-num">42%</p>
+        <p class="cost-lab">The projected increase in average Marketplace premiums from 2025 to 2027.</p>
       </div>
     </div>
-    <div class="nextrow">
-      <a class="btn btn-arrow" href="#steps">Take action <span aria-hidden="true">↓</span></a>
+    <div class="brad">
+      <figure class="brad-video">
+        <img src="brad-video.jpg" alt="Brad White, fractional consultant, on The Portfolio Career Lab podcast" width="480" height="395" loading="lazy">
+      </figure>
+      <div class="brad-copy">
+        <h3 class="brad-h">Meet Brad White.</h3>
+        <p class="brad-d">Brad runs his own consulting business. We talked about how hard it’s been to afford healthcare insurance for his family this year.</p>
+        <a class="brad-listen" href="https://open.spotify.com/episode/3Qtzvuc4XiB1DQiQyzuosP" target="_blank" rel="noopener"><span class="bl-play" aria-hidden="true"></span><span><b class="bv">Listen</b> to the interview <small>(38 min)</small> <span aria-hidden="true">→</span></span></a>
+      </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1064,160 +1548,132 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <section id="steps">
   <div class="wrap">
-    <p class="eyebrow">Take action</p>
-    <h2>Act now!</h2>
-    <p class="takeaway"><b>Three easy steps to make your voice heard.</b> Every signature, call and share shows Congress that Polyworkers are paying attention.</p>
-    <ol class="stepflow">
-      <li class="sf sf1"><a href="#petition"><span class="sf-n">1</span><b>Sign the petition</b><span class="sf-time">30 seconds</span><span class="sf-d">Add your name to the Change.org petition.</span></a></li>
-      <li class="sf-arrow" aria-hidden="true">→</li>
-      <li class="sf sf2"><a href="#pick"><span class="sf-n">2</span><b>Call Congress</b><span class="sf-time">About 5 minutes</span><span class="sf-d">You choose the issues that matter and we'll generate a script to call or email.</span></a></li>
-      <li class="sf-arrow" aria-hidden="true">→</li>
-      <li class="sf sf3"><a href="#share"><span class="sf-n">3</span><b>Tell 5 friends</b><span class="sf-time">1 minute</span><span class="sf-d">Send this website and petition to people that care about these issues too.</span></a></li>
+    
+    <div class="voice-stage">
+    <div class="voice-left">
+<div class="voice-copy">
+    <h2>It's time to make your <span class="uline">voice heard!</span></h2>
+    <p class="takeaway">Here are three easy ways to demand healthcare reform from Congress for American polyworkers <em>(for real, this will take you 5 minutes tops. We’ve made it that simple!)</em></p>
+    </div>
+    <ol class="actrows">
+      <li class="ar ar1"><h3 class="ar-t"><a href="#petition"><span class="ar-tn" aria-hidden="true">1</span><span class="ar-tt">Sign the petition</span></a></h3><a class="ar-card" href="#petition" aria-label="Step 1: Sign the petition"><img class="ar-photo" src="art/step-stamp.png" alt="" width="640" height="480" loading="lazy"></a></li>
+      <li class="ar-arrow" aria-hidden="true">→</li>
+      <li class="ar ar2"><h3 class="ar-t"><a href="#share"><span class="ar-tn" aria-hidden="true">2</span><span class="ar-tt">Share on social</span></a></h3><a class="ar-card" href="#share" aria-label="Step 2: Share on social"><img class="ar-photo" src="art/step-megaphone-only.png" alt="" width="640" height="480" loading="lazy"></a></li>
+      <li class="ar-arrow" aria-hidden="true">→</li>
+      <li class="ar ar3"><h3 class="ar-t"><a href="#call"><span class="ar-tn" aria-hidden="true">3</span><span class="ar-tt">Call Congress</span></a></h3><a class="ar-card" href="#call" aria-label="Step 3: Call Congress"><img class="ar-photo" src="art/step-capitol.png" alt="" width="640" height="480" loading="lazy"></a></li>
     </ol>
-  </div>
-</section>
-
-<section id="petition">
-  <div class="wrap">
-    <p class="actlabel"><span>Step 1 of 3</span> Sign the petition · 30 seconds</p>
-    <div class="pet">
-      <div class="pet-copy">
-        <h2>Sign the petition.</h2>
-        <p class="takeaway">Tell Congress that Polyworkers in America want healthcare reform, and we want it now.</p>
-        <a class="btn btn-arrow" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition <span aria-hidden="true">→</span></a>
-        <p class="note">Opens on Change.org. Come back here for step 2.</p>
-      </div>
     </div>
-    <a class="nextaction" href="#pick"><span>Signed it? Next:</span> <b>Step 2 · Call Congress ↓</b></a>
-  </div>
-</section>
-
-<section id="pick">
-  <div class="wrap">
-    <p class="actlabel"><span>Step 2 of 3</span> Call Congress · about 5 minutes</p>
-    <p class="stepno">Part A</p>
-    <h2>Choose your issues.</h2>
-    <p class="takeaway">Select the issues that are important to you as a Polyworker. They'll go straight into your script.</p>
-    <p class="bgline">Need background on these issues first? <a href="demystified.html#debate">Read Healthcare, Demystified →</a></p>
-    <ul class="checklist">
-      <li><label><input type="checkbox" id="a-ptc" data-phrase="restoring the enhanced Marketplace tax credits"><span><b>Bring back the extra help</b> on Marketplace premiums, so there's no cliff<small>Passed the House, stalled in the Senate</small></span></label></li>
-      <li><label><input type="checkbox" id="a-pb" data-phrase="portable benefits accounts that independent workers can keep between clients"><span><b>Let benefits follow the worker</b> with accounts clients can pay into<small>Senate bill in committee; some state laws</small></span></label></li>
-      <li><label><input type="checkbox" id="a-pbg" data-phrase="safeguards so portable benefits can't be used to misclassify employees as contractors"><span><b>Protect workers from misclassification</b> in any portable benefits law<small>Safeguard for the idea above</small></span></label></li>
-      <li><label><input type="checkbox" id="a-ahp" data-phrase="more options for independent workers to buy coverage as a group"><span><b>Let independent workers buy coverage together</b> as a group<small>Passed the House, awaiting the Senate</small></span></label></li>
-      <li><label><input type="checkbox" id="a-ahpg" data-phrase="making sure any group plans keep comprehensive coverage protections"><span><b>Keep full coverage protections</b> in any group plans<small>Safeguard for the idea above</small></span></label></li>
-      <li><label><input type="checkbox" id="a-pub" data-phrase="a public insurance option people can buy without an employer"><span><b>Create a public insurance option</b> anyone can buy<small>Bills introduced, no votes</small></span></label></li>
-      <li><label><input type="checkbox" id="a-leave" data-phrase="paid leave and disability protections that include independent workers"><span><b>Include independent workers in paid leave</b> and disability programs<small>Mostly state programs</small></span></label></li>
-    </ul>
-    <p class="asof">Status checked Nov 2, 2026</p>
-  </div>
-</section>
-
-<section id="act">
-  <div class="wrap">
-    <p class="stepno">Part B</p>
-    <h2>Generate your script.</h2>
-    <p class="takeaway">Add a few details to create your talk track when you write or call your members of Congress.</p>
-    <p class="bgline">Read it on the phone, or paste it into your representative's email form on their website.</p>
-    <div class="builder">
-      <div class="stack">
-        <div class="field"><label for="nm">Your name</label><input id="nm" autocomplete="name" placeholder="Jordan Rivera"></div>
-        <div class="field"><label for="city">City and state</label><input id="city" placeholder="Seattle, WA"></div>
-        <div class="field"><label for="work">What you do</label><input id="work" placeholder="a freelance designer"></div>
-        <div class="field"><label for="rep">Who you're calling (optional)</label><input id="rep" placeholder="Senator Lee"></div>
-        <div class="field"><label for="cov">Your coverage right now</label>
-          <select id="cov">
-            <option value="own">I buy my own plan</option>
-            <option value="partner">I'm on a partner's or family member's plan</option>
-            <option value="none">I'm uninsured right now</option>
-            <option value="skip">I'd rather not say</option>
-          </select>
-        </div>
-      </div>
-      <div class="stack">
-        <div class="script" id="script" aria-live="polite"></div>
-        <div class="copyrow"><button class="btn" id="copy" type="button">Copy my script</button><button class="btn-outline" id="copyemail" type="button">Copy as an email</button><span id="copied" role="status"></span></div>
-      </div>
+    <figure class="voice-art" aria-hidden="true"><span class="voice-sun"></span><img src="art/megaphone.png" alt="" width="481" height="600"></figure>
     </div>
   </div>
 </section>
 
-<section id="call" class="band-dark band-blue">
+<section id="petition" class="band-dark">
   <div class="wrap">
-    <p class="stepno">Part C</p>
-    <h2>Make the call.</h2>
-    <p class="takeaway dark">Call your House representative and both senators. Say you're a Polyworker for healthcare reform, then read your script.</p>
-    <div class="finder">
-      <label for="zip" class="finder-l">Enter your ZIP code to find your three offices</label>
-      <div class="finder-row">
-        <input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="98101" aria-describedby="zipmsg">
-        <button class="btn" type="button" id="zipgo">Find my reps</button>
-      </div>
-      <p class="finder-msg" id="zipmsg" role="status"></p>
-      <div class="finder-out" id="zipout">
-        <a class="bigbtn" id="houselink" href="https://www.house.gov/representatives/find-your-representative" target="_blank" rel="noopener"><b>Find my House member</b><span id="houselbl">Look up by ZIP at house.gov →</span></a>
-        <a class="bigbtn" id="senlink" href="https://www.senate.gov/senators/senators-contact.htm" target="_blank" rel="noopener"><b>Find my senators</b><span id="senlbl">Look up by state at senate.gov →</span></a>
-      </div>
-      <p class="note" style="color:var(--on-night-muted)">Opens the official House and Senate sites, so names and phone numbers are always current. If your ZIP is split between districts, house.gov will ask for your street address.</p>
+    <p class="actlabel"><b class="act-tile t1" aria-label="Step 1">1</b></p>
+    <h2>Sign the petition.</h2>
+    <p class="takeaway pet-take">Our goal is to get 10K signatures to send a clear demand to Congress: Make healthcare affordable for independent workers in America.</p>
+    <div class="goalbar" role="img" id="goalbar" aria-label="Signature progress toward 10,000">
+      <div class="gb-track"><div class="gb-fill" id="gbfill"></div>
+        <span class="gb-m" style="left:25%">2.5K</span><span class="gb-m" style="left:50%">5K</span><span class="gb-m" style="left:75%">7.5K</span></div>
+      <div class="gb-labels"><span id="gbcount">Counting signatures</span><span>Goal: 10,000</span></div>
     </div>
-    <div class="bigbtn plain sw"><b>Or call the Capitol switchboard</b><span class="mono num">(202) 224-3121</span><span>Ask for each office by name. <a href="tel:+12022243121">Tap to dial</a> · <button type="button" class="linkbtn" id="copynum">Copy number</button></span></div>
-    <ul class="tips">
-      <li>A staff member will usually answer. If not, leave a voicemail. Both get logged.</li>
-      <li>You don't need to be an expert. Your own story is the most useful part.</li>
-      <li>Calling all three offices takes about six minutes.</li>
-    </ul>
-    <a class="nextaction light" href="#share"><span>Called? Last step:</span> <b>Step 3 · Tell 5 friends ↓</b></a>
+    <div class="pet-cta">
+      <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener"><b class="bv">Sign</b> the petition now! <span aria-hidden="true">→</span></a>
+      <span class="pet-note">30 seconds on Change.org.</span>
+    </div>
+    <a class="nextaction" href="#share"><span>Signed it? Next:</span> <b>Step 2 · Share on social ↓</b></a>
   </div>
 </section>
-
-
 
 <section id="share">
   <div class="wrap">
-    <p class="actlabel"><span>Step 3 of 3</span> Tell 5 friends · 1 minute</p>
-    <h2>Tell 5 friends.</h2>
-    <p class="takeaway">Send this to five people who work for themselves, or love someone who does. Friends, partners, family, your freelance group chat.</p>
-    <div class="sharecards">
-      <div class="scard">
-        <div class="sc-head"><span class="sc-n">1</span><div><b>Send the message</b><span>Share it in one tap, or copy it into any text, DM or group chat.</span></div></div>
-        <label class="visually-hidden" for="msg">Message to send</label>
-        <textarea id="msg" rows="7">I just signed a petition asking Congress to fix healthcare for people who work for themselves. 16 million Americans are self-employed and 76 million are polyworking, and the extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
-        <div class="sharebtns" aria-label="Share the message">
-          <button type="button" class="shb shb-native" data-net="native" hidden>Share…</button>
-          <button type="button" class="shb" data-net="sms">Text</button>
-          <button type="button" class="shb" data-net="email">Email</button>
-          <button type="button" class="shb" data-net="whatsapp">WhatsApp</button>
-          <button type="button" class="shb" data-net="linkedin">LinkedIn</button>
-          <button type="button" class="shb" data-net="facebook">Facebook</button>
-          <button type="button" class="shb" data-net="x">X</button>
-        </div>
-        <div class="sc-foot"><button type="button" class="sbtn primary" id="sh-copy">Copy message</button><span class="sh-status" id="sh-status" role="status"></span></div>
-        <div class="friends" aria-live="polite"><div class="friend-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span id="friendcount">Shared with 0 of 5 friends</span></div>
-      </div>
-      <div class="scard">
-        <div class="sc-head"><span class="sc-n two">2</span><div><b>Post the graphic</b><span>Share it on Instagram, LinkedIn or your stories with the message.</span></div></div>
-        <img class="sc-img" src="polyworkers-share.png" width="1080" height="1080" alt="Square graphic: the Polyworkers for Healthcare Reform logo, with the line I signed the petition for healthcare reform.">
-        <div class="sc-foot"><a class="sbtn primary" id="dl-img" href="polyworkers-share.png" download="polyworkers-i-signed.png">Download image</a><span class="sh-status" id="dl-note"></span></div>
-      </div>
+    <p class="actlabel"><b class="act-tile t2" aria-label="Step 2">2</b></p>
+    <h2>Share on social.</h2>
+    <p class="takeaway">Copy the script below, download the petition graphic, and post on your preferred social channel!</p>
+    <div class="sharegrid">
+    <div class="copycard">
+      <label class="visually-hidden" for="msg">Message to send</label>
+      <textarea id="msg" rows="14">I just signed a petition demanding Congress make healthcare affordable for people who work for themselves. Here's why this matters, even if you have a full-time job today.
+
+Nearly 75 million Americans now partake in some form of independent work. Some do this by choice. Others because of layoffs, rising cost of living, or concerns about the job market and AI.
+
+All of that is to say, the number of people working this way will continue to keep growing.
+
+Meanwhile, the cost of healthcare is making working for yourself cost prohibitive. (ACA Marketplace benchmark premiums have increased an average of 45% between 2025 and 2027 when Congress allowed the enhanced ACA subsidies to expire at the end of 2025.)
+
+So why should you care?
+
+Because you might have a W-2 job with great benefits today. But what if you're laid off tomorrow? What if you want to start a business? Or your partner, your best friend, or your adult child needs to work independently?
+
+Your job or theirs can change overnight. Changing laws can take years.
+
+That's why we're organizing around this issue now.
+
+We're demanding that Congress restore the enhanced ACA subsidies and make affordable healthcare available to all independent workers in America.
+
+Healthcare should be a right, not a privilege.
+
+Sign the petition and help us bring this demand to Congress:
+
+https://c.org/JRF87Mq6cs</textarea>
+      <div class="copy-foot"><button type="button" class="hb hb-primary" id="sh-copy"><b class="bv">Copy</b> message <span aria-hidden="true">→</span></button><span class="sh-status" id="sh-status" role="status"></span></div>
     </div>
+    <div class="gfxcard">
+      <img src="share/polyworkers-post.jpg" id="gfx-img" alt="Polyworkers for Healthcare Reform graphic with a QR code to sign the petition" width="1080" height="1350" loading="lazy">
+      <label for="gfx-fmt" class="gfx-l">Where are you sharing it?</label>
+      <select id="gfx-fmt">
+        <option value="post" data-file="polyworkers-post.jpg">Instagram post</option>
+        <option value="story" data-file="polyworkers-story.jpg">Instagram or TikTok story</option>
+        <option value="square" data-file="polyworkers-square.jpg">LinkedIn, Facebook or X</option>
+        <option value="email" data-file="polyworkers-post.jpg">Email attachment</option>
+      </select>
+      <a class="hb hb-primary" id="dl-img" href="share/polyworkers-post.jpg" download="polyworkers-healthcare-reform.jpg"><b class="bv">Download</b> graphic <span aria-hidden="true">→</span></a>
+    </div>
+    </div>
+    <a class="nextaction" href="#call"><span>Shared it? Last step:</span> <b>Step 3 · Call Congress ↓</b></a>
   </div>
 </section>
 
-<section id="goal" class="band-dark">
+
+
+<section id="call" class="band-dark band-blue">
   <div class="wrap">
-    <p class="eyebrow">Our goal</p>
-    <h2>100,000 signatures to get Congress to respond.</h2>
-    <div class="goalbar" role="img" id="goalbar" aria-label="Signature progress toward 100,000">
-      <div class="gb-track"><div class="gb-fill" id="gbfill"></div>
-        <span class="gb-m" style="left:25%">25K</span><span class="gb-m" style="left:50%">50K</span><span class="gb-m" style="left:75%">75K</span></div>
-      <div class="gb-labels"><span id="gbcount">Counting signatures</span><span>Goal: 100,000</span></div>
+    <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b></p>
+    <h2>Call Congress.</h2>
+    <p class="takeaway dark">Call your representatives and tell them you are a polyworker, your healthcare cost is too high, and ask them to make it affordable for the self-employed workforce.</p>
+    <div class="whycall">
+      <p class="wc-h">Why calls beat an email</p>
+      <ul>
+        <li><b>Staffers tally calls right away.</b> Emails and letters are sorted later.</li>
+        <li><b>You can influence their position.</b> Calls help lawmakers understand where constituents stand, especially before they've made up their minds.</li>
+        <li><b>You go on record.</b> Whether your representative supports healthcare reform or not, your call puts your position as a constituent on the record.</li>
+      </ul>
+      <p class="wc-src">Source: <a href="https://5calls.org/why-calling-works/" target="_blank" rel="noopener">5 Calls</a></p>
     </div>
-    <p class="note" id="gbnote" style="color:var(--on-night-muted)">Count updated regularly from Change.org.</p>
-    <div class="nextrow"><a class="btn btn-arrow" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition <span aria-hidden="true">→</span></a><a class="textlink" href="#share">Already signed? Tell 5 friends ↑</a></div>
+    <div class="finder">
+      <label for="zip" class="finder-l">Your ZIP code</label>
+      <div class="finder-row">
+        <input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="98101" aria-describedby="zipmsg">
+        <button class="btn" type="button" id="zipgo"><b class="bv">Find</b> my reps <span aria-hidden="true">→</span></button>
+      </div>
+      <p class="finder-msg" id="zipmsg" role="status"></p>
+      <div class="finder-out" id="zipout" hidden>
+        <a class="bigbtn" id="houselink" href="https://www.house.gov/representatives/find-your-representative" target="_blank" rel="noopener"><b>Find my House member</b><span id="houselbl">Look up by ZIP at house.gov →</span></a>
+        <a class="bigbtn" id="senlink" href="https://www.senate.gov/senators/senators-contact.htm" target="_blank" rel="noopener"><b>Find my senators</b><span id="senlbl">Look up by state at senate.gov →</span></a>
+      </div>
+    </div>
+    <p class="call-alt">No ZIP handy? Call the Capitol switchboard at <a href="tel:+12022243121">(202) 224-3121</a> <button type="button" class="linkbtn" id="copynum">Copy</button> and ask for your members by name. A staff member usually answers; if not, leave a voicemail.</p>
+    <p class="nextaction light"><b>Called? That's all three steps. Thank you!</b></p>
   </div>
 </section>
+
+
+
+
+
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-<div class="pickbar" id="pickbar" hidden><span id="pickcount">1 issue selected</span><a class="btn" href="#act">Next: generate your script →</a></div>
 
 <footer>
   <div class="wrap foot-grid">
@@ -1259,42 +1715,9 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <script>
 (function(){
-  const boxes=[...document.querySelectorAll('.checklist input')];
   const $=id=>document.getElementById(id);
-  const fields=['nm','city','work','rep','cov'].map($);
-  const out=$('script');
-  const covLine={
-    own:"Like many independent workers, I don't receive health insurance through an employer. I arrange and pay for my own coverage, and changes to Marketplace premiums and federal assistance can have a significant impact on my finances.",
-    partner:"I don't receive health insurance through my own work. Right now I'm covered through a family member's plan, but independent workers who buy their own coverage are facing real cost increases.",
-    none:"I don't receive health insurance through my work, and right now I'm uninsured. The cost of coverage for people who work for themselves is a real barrier.",
-    skip:"Independent workers don't receive health insurance through an employer, so changes to Marketplace premiums and federal assistance can have a significant impact on our finances."
-  };
-  function list(a){ if(a.length<2) return a[0]||''; if(a.length===2) return a[0]+' and '+a[1]; return a.slice(0,-1).join(', ')+', and '+a[a.length-1]; }
-  function build(){
-    const n=$('nm').value.trim()||'[your name]', c=$('city').value.trim()||'[city, state]';
-    const w=$('work').value.trim()||'[what you do]', r=$('rep').value.trim()||'[their name]';
-    const picks=boxes.filter(b=>b.checked).map(b=>b.dataset.phrase);
-    let t=`Hi, my name is ${n}, and I'm a constituent from ${c}.\n\n`;
-    t+=`I work independently as ${w}, and I'm calling because I'd like to know where ${r} stands on healthcare affordability and benefits for self-employed workers.\n\n`;
-    t+=covLine[$('cov').value]+'\n\n';
-    if(picks.length) t+=`I'm particularly interested in ${list(picks)}.\n\n`;
-    t+=`Could you tell me where ${r} stands on ${picks.length>1?'these issues':'this'}, and whether their office is considering any related legislation?\n\nI'd appreciate it if you could pass along my concerns. Thank you for your time.`;
-    out.textContent=t;
-    hint.hidden=picks.length>0;
-  }
-  const hint=document.createElement('p'); hint.className='script-hint';
-  hint.textContent='Tip: check the proposals you care about in Step 1 above to add them to your script.';
-  out.after(hint);
-  [...boxes,...fields].forEach(el=>{el.addEventListener('input',build);el.addEventListener('change',build)});
-  build();
   try{const now=new Date(), dl=new Date(now.getFullYear(),11,15), d=Math.ceil((dl-now)/864e5);
     if(d>1&&d<60){$('daysleft').textContent=d+' days'; $('daysline').textContent='until the Dec 15 deadline to pick a plan for January 1.';}}catch(e){}
-  const bar=$('pickbar'), cnt=$('pickcount');
-  let pastPick=false;
-  function upd(){const n=boxes.filter(b=>b.checked).length; cnt.textContent=n+(n===1?' issue':' issues')+' selected'; bar.hidden=!(n>0 && !pastPick);}
-  boxes.forEach(b=>b.addEventListener('change',upd));
-  try{new IntersectionObserver(es=>{es.forEach(e=>{pastPick=e.isIntersecting||e.boundingClientRect.top<0; upd();})}).observe($('act'));}catch(e){}
-  if(window.matchMedia&&matchMedia('(min-width: 821px)').matches){document.querySelectorAll('details.sides').forEach(d=>d.open=true)}
 
   const ZR=[[5,5,'NY'],[6,7,'PR'],[8,8,'VI'],[9,9,'PR'],[10,27,'MA'],[28,29,'RI'],[30,38,'NH'],[39,49,'ME'],[50,54,'VT'],[55,55,'MA'],[56,59,'VT'],[60,69,'CT'],[70,89,'NJ'],[100,149,'NY'],[150,196,'PA'],[197,199,'DE'],[200,200,'DC'],[201,201,'VA'],[202,205,'DC'],[206,219,'MD'],[220,246,'VA'],[247,268,'WV'],[270,289,'NC'],[290,299,'SC'],[300,319,'GA'],[320,339,'FL'],[341,349,'FL'],[350,369,'AL'],[370,385,'TN'],[386,397,'MS'],[398,399,'GA'],[400,427,'KY'],[430,459,'OH'],[460,479,'IN'],[480,499,'MI'],[500,528,'IA'],[530,549,'WI'],[550,567,'MN'],[569,569,'DC'],[570,577,'SD'],[580,588,'ND'],[590,599,'MT'],[600,629,'IL'],[630,658,'MO'],[660,679,'KS'],[680,693,'NE'],[700,714,'LA'],[716,729,'AR'],[730,732,'OK'],[733,733,'TX'],[734,749,'OK'],[750,799,'TX'],[800,816,'CO'],[820,831,'WY'],[832,838,'ID'],[840,847,'UT'],[850,865,'AZ'],[870,884,'NM'],[885,885,'TX'],[889,898,'NV'],[900,961,'CA'],[967,968,'HI'],[969,969,'GU'],[970,979,'OR'],[980,994,'WA'],[995,999,'AK']];
   const SN={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
@@ -1303,8 +1726,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     const z=$('zip').value.replace(/\D/g,''), msg=$('zipmsg'), out=$('zipout');
     if(z.length!==5){msg.textContent='Enter a 5-digit ZIP code.';return}
     const st=stateOf(z);
-    if(!st){msg.textContent="We couldn't match that ZIP. Use the two buttons below to look it up directly.";return}
-    msg.textContent='';
+    if(!st){msg.textContent="We couldn't match that ZIP. Use the two buttons below to look it up directly.";out.hidden=false;return}
+    msg.textContent=''; out.hidden=false;
     $('houselink').href='https://ziplook.house.gov/htbin/findrep_house?ZIP='+z;
     $('houselbl').textContent='See who represents '+z+' at house.gov →';
     const sl=$('senlink');
@@ -1318,40 +1741,24 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   // ===== Share + goal =====
   const PETITION='https://c.org/JRF87Mq6cs';
   const SIGNATURES=null; // <- update with the current Change.org count, e.g. 1250
-  const GOAL=100000;
+  const GOAL=10000;
   const msg=$('msg'), st=$('sh-status');
   $('sh-copy').addEventListener('click',()=>{const ok=()=>{st.textContent='Copied. Paste it into a text, DM, email or post.'};
     try{navigator.clipboard.writeText(msg.value).then(ok,()=>{msg.select();st.textContent='Selected. Use Copy to save it.'})}catch(e){msg.select();st.textContent='Selected. Use Copy to save it.'}});
-  $('copyemail').addEventListener('click',()=>{const r=$('rep').value.trim()||'Representative';
-    const body='Subject: Healthcare for self-employed workers\n\nDear '+r+',\n\n'+$('script').textContent.replace(/^Hi, my name is/,'My name is');
-    const b=$('copyemail');try{navigator.clipboard.writeText(body).then(()=>{b.textContent='Email copied';setTimeout(()=>b.textContent='Copy as an email',2000)},()=>{})}catch(e){}});
-  // Download image: inside Claude's viewer use the downloads capability; on a normal website the link downloads directly.
-  (function(){const a=$('dl-img'); if(!(window.claude&&window.claude.use)) return;
-    let dl=null; window.claude.use('downloads').then(d=>{dl=d; if(!d){a.hidden=true;$('dl-note').textContent='Press and hold (phone) or right-click (computer) the image to save it.'}}).catch(()=>{});
-    a.addEventListener('click',async e=>{e.preventDefault(); if(!dl) return;
-      try{const blob=await fetch('polyworkers-share.png').then(r=>r.blob()); await dl.save({filename:'polyworkers-i-signed.png',data:blob}); $('dl-note').textContent='Saved. Now post it!'}
-      catch(err){ if(err&&err.code==='declined') return; $('dl-note').textContent='Download unavailable here. Press and hold or right-click the image to save it.'}});
-  })();
   (function(){const f=$('gbfill'),c=$('gbcount');
-    if(SIGNATURES===null){c.textContent='Be one of the first 100,000';f.style.width='0%';return}
+    if(SIGNATURES===null){c.textContent='Be one of the first 10,000';f.style.width='0%';return}
     const pct=Math.min(100,SIGNATURES/GOAL*100);f.style.width=Math.max(pct,1)+'%';
-    c.textContent=SIGNATURES.toLocaleString()+' signed';$('goalbar').setAttribute('aria-label',SIGNATURES.toLocaleString()+' of 100,000 signatures');})();
-  const msg2=$('copied');
-  $('copy').addEventListener('click',()=>{
-    const done=()=>{msg2.textContent='Copied';setTimeout(()=>msg2.textContent='',2000)};
-    try{navigator.clipboard.writeText(out.textContent).then(done,sel)}catch(e){sel()}
-    function sel(){const rg=document.createRange();rg.selectNodeContents(out);const sl=getSelection();sl.removeAllRanges();sl.addRange(rg);msg2.textContent='Text selected. Use Copy to save it.'}
-  });
+    c.textContent=SIGNATURES.toLocaleString()+' signed';$('goalbar').setAttribute('aria-label',SIGNATURES.toLocaleString()+' of 10,000 signatures');})();
 })();
 
 // ===== Progress tracker, step toasts, one-tap sharing =====
 (function(){
   const $=id=>document.getElementById(id);
   const PET='https://c.org/JRF87Mq6cs';
-  const STEPS=['sign','call','share'];
-  const NEXT={sign:['#petition','Next: Sign the petition'],call:['#pick','Next: Call Congress'],share:['#share','Next: Tell 5 friends']};
-  const NAME={sign:'Call Congress',call:'Tell 5 friends'};
-  const HREF={sign:'#pick',call:'#share'};
+  const STEPS=['sign','share','call'];
+  const NEXT={sign:['#petition','Next: Sign the petition'],call:['#call','Next: Call Congress'],share:['#share','Next: Share on social']};
+  const NAME={sign:'Share on social',share:'Call Congress'};
+  const HREF={sign:'#share',share:'#call'};
   let st={done:{},friends:0};
   try{const v=JSON.parse(localStorage.getItem('pw-progress')||'null'); if(v&&v.done) st=v;}catch(e){}
   const save=()=>{try{localStorage.setItem('pw-progress',JSON.stringify(st))}catch(e){}};
@@ -1374,33 +1781,20 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   function complete(k){
     if(st.done[k]){return}
     st.done[k]=true;save();render();
-    if(STEPS.every(x=>st.done[x])) showToast('<span><b>All 3 steps done.</b> Thank you for making your voice heard!</span><a href="#share">Share it again →</a>');
-    else if(k==='share') showToast('<span><b>Step 3 done ✓</b></span><a href="'+NEXT[STEPS.find(x=>!st.done[x])][0]+'">Finish the last step →</a>');
+    if(STEPS.every(x=>st.done[x])) showToast('<span><b>All 3 steps done.</b> Thank you for making your voice heard!</span><a href="#share">Share it again ↑</a>');
+    else if(k==='call') showToast('<span><b>Step 3 done ✓</b></span><a href="'+NEXT[STEPS.find(x=>!st.done[x])][0]+'">Finish the last step →</a>');
     else showToast('<span><b>Step '+(STEPS.indexOf(k)+1)+' done ✓</b></span><a href="'+HREF[k]+'">Next: '+NAME[k]+' ↓</a>');
   }
   // Step 1: any petition link
   document.querySelectorAll('a[href="'+PET+'"]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>complete('sign'),400)));
   // Step 2: copying the script or reaching an office
-  ['copy','copyemail','houselink','senlink','copynum'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',()=>complete('call'))});
+  ['houselink','senlink','copynum','zipgo'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',()=>complete('call'))});
   document.querySelectorAll('a[href^="tel:"]').forEach(a=>a.addEventListener('click',()=>complete('call')));
   // Step 3: sharing
   function shared(){st.friends=(st.friends||0)+1;save();render();complete('share')}
   ['sh-copy','dl-img'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',shared)});
-  const msg=$('msg'), nat=document.querySelector('.shb-native');
-  if(navigator.share) nat.hidden=false;
-  document.querySelectorAll('.shb').forEach(b=>b.addEventListener('click',async()=>{
-    const t=msg.value, e=encodeURIComponent, net=b.dataset.net;
-    const subj='Can you sign this? Healthcare for people who work for themselves';
-    const H='https:/'+'/'; // built in parts so the link checker doesn't test these half-finished addresses
-    const urls={sms:'sms:?&body='+e(t),email:'mailto:?subject='+e(subj)+'&body='+e(t),whatsapp:H+'wa.me/?text='+e(t),
-      linkedin:H+'www.linkedin.com/sharing/share-offsite/?url='+e(PET),facebook:H+'www.facebook.com/sharer/sharer.php?u='+e(PET),
-      x:H+'twitter.com/intent/tweet?text='+e(t)};
-    if(net==='native'){try{await navigator.share({title:'Polyworkers for Healthcare Reform',text:t});shared()}catch(err){} return}
-    if(net==='sms'||net==='email') location.href=urls[net]; else window.open(urls[net],'_blank','noopener');
-    shared();
-  }));
   // Highlight the step you're reading
-  const map={petition:'sign',pick:'call',act:'call',call:'call',share:'share'};
+  const map={petition:'sign',call:'call',share:'share'};
   try{const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const k=map[en.target.id];
       document.querySelectorAll('.stepnav li').forEach(li=>li.classList.toggle('here',li.dataset.step===k));}})},{rootMargin:'-40% 0px -55% 0px'});
     Object.keys(map).forEach(id=>{const el=$(id); if(el) io.observe(el)});
@@ -1447,6 +1841,23 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     }
   }
   run();
+})();
+
+/* "You lose" list: drop each benefit in when it scrolls into view */
+(function(){
+  const list=document.querySelector('#lose .vs');
+  if(!list||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('js-drop');
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.parentElement.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -18% 0px',threshold:.2});
+  [...list.querySelectorAll('.vs-row')].forEach(r=>io.observe(r.firstElementChild));
+})();
+
+
+
+/* Share graphic: pick a size, download it */
+(function(){
+  const sel=document.getElementById('gfx-fmt'), a=document.getElementById('dl-img'), img=document.getElementById('gfx-img'); if(!sel||!a) return;
+  sel.addEventListener('change',()=>{const f=sel.selectedOptions[0].dataset.file;a.href='share/'+f;img.src='share/'+f;a.setAttribute('download','polyworkers-healthcare-reform-'+sel.value+'.jpg')});
 })();
 </script>
 

@@ -803,20 +803,22 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .act-card:not(.primary) .act-n{background:#004CA6;color:#FFEFD6}
 .act-card.third .act-n{background:#E25F99;color:#0B0B0B}
 .sharebtns{display:flex;gap:8px}
+/* One heading scale: H1 for the page title, every section heading the same H2 size */
+main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.05!important}
 </style>
 
 </head>
 <body>
 <nav class="topbar" aria-label="Main"><div class="wrap">
   <a class="brand" href="/" aria-label="Polyworkers for Healthcare Reform, back to top"><img class="brand-img" src="/polyworkers-logo.png" alt="Polyworkers for Healthcare Reform" width="640" height="263"></a>
-  <div class="toplinks"><a href="/#petition">1. Sign</a><a href="/#pick">2. Call</a><a href="/#share">3. Share</a><a href="/demystified.html">Healthcare, demystified</a></div>
+  <div class="toplinks"><a href="/#petition">1. Sign</a><a href="/#share">2. Share</a><a href="/#call">3. Call</a><a href="/demystified.html">Healthcare, demystified</a></div>
   <a class="topcta" href="/#steps">Take action</a>
 </div></nav>
 <main>
 <section class="band-dark" style="min-height:60vh;display:grid;align-items:center">
   <div class="wrap">
     <p class="eyebrow">404</p>
-    <h2>We couldn't find that page.</h2>
+    <h1>We couldn't find that page.</h1>
     <p class="takeaway dark">But you can still make your voice heard.</p>
     <div class="nextrow"><a class="btn btn-arrow" href="/">Back to the homepage <span aria-hidden="true">→</span></a><a class="textlink" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition →</a></div>
   </div>
