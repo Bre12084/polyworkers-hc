@@ -1060,6 +1060,12 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .lose-head h2{margin:0;flex:1 1 520px;max-width:none;font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
 .lose-head .learn-btn{flex:none}
 .vs-head .vs-hk{align-self:end;padding-left:0;color:#141414;border-bottom:2px solid #141414}
+/* step number tiles (match the Act now cards) */
+.actlabel{gap:14px;font-weight:600;color:#141414;font-size:1rem}
+.act-tile{display:grid;place-items:center;width:46px;height:52px;font-family:var(--serif);font-size:1.9rem;font-weight:600;line-height:1;transform:rotate(-3deg)}
+.act-tile.t1{background:#FD6E1A;color:#0B0B0B}
+.act-tile.t2{background:#004CA6;color:#FFEFD6;transform:rotate(2deg)}
+.act-tile.t3{background:#E25F99;color:#0B0B0B}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1197,7 +1203,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <section id="petition">
   <div class="wrap">
-    <p class="actlabel"><span>Step 1 of 3</span> Sign the petition · 30 seconds</p>
+    <p class="actlabel"><b class="act-tile t1" aria-label="Step 1">1</b> Sign the petition · 30 seconds</p>
     <div class="pet">
       <div class="pet-copy">
         <h2>Sign the petition.</h2>
@@ -1212,7 +1218,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <section id="pick">
   <div class="wrap">
-    <p class="actlabel"><span>Step 2 of 3</span> Call Congress · about 5 minutes</p>
+    <p class="actlabel"><b class="act-tile t2" aria-label="Step 2">2</b> Call Congress · about 5 minutes</p>
     <p class="stepno">Part A</p>
     <h2>Choose your issues.</h2>
     <p class="takeaway">Select the issues that are important to you as a Polyworker. They'll go straight into your script.</p>
@@ -1291,7 +1297,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <section id="share">
   <div class="wrap">
-    <p class="actlabel"><span>Step 3 of 3</span> Tell 5 friends · 1 minute</p>
+    <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b> Tell 5 friends · 1 minute</p>
     <h2>Tell 5 friends.</h2>
     <p class="takeaway">Send this to five people who work for themselves, or love someone who does. Friends, partners, family, your freelance group chat.</p>
     <div class="sharecards">
