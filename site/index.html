@@ -976,6 +976,41 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .js-drop .losslist li:nth-child(even).in .ln{transform:rotate(1.5deg)}
 .js-drop .losslist li{margin-bottom:clamp(0px,6vh,48px)}
 @media(prefers-reduced-motion:reduce){.js-drop .losslist li,.js-drop .losslist li .ln{opacity:1;transform:none;transition:none}}
+/* ===== "You lose" section: side-by-side comparison ===== */
+.vs-take{margin:18px 0 0;font-family:var(--serif);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.1;letter-spacing:.01em;color:#141414;text-transform:uppercase}
+.vs{margin-top:22px;max-width:1040px;display:grid;grid-template-columns:minmax(180px,.8fr) minmax(0,1fr) minmax(0,1fr)}
+.vs-head,.vs-row{display:contents}
+.vs-head span{padding:14px 20px;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.95rem}
+.vs-he{background:#121212;color:#FBF3E6}
+.vs-hs{background:#EFE6D6;color:#141414}
+.vs-k{display:flex;align-items:center;gap:14px;padding:16px 16px 16px 0;border-bottom:1px solid #e6dfd2}
+.vs-k b{font-family:var(--body);font-weight:700;font-size:1.05rem;line-height:1.25}
+.vs-k .ln{flex:none;display:grid;place-items:center;width:42px;height:46px;font-family:var(--serif);font-weight:600;font-size:1.4rem;transform:rotate(-2deg)}
+.vs-row:nth-child(even) .vs-k .ln{transform:rotate(1.5deg)}
+.vs-e,.vs-s{position:relative;display:flex;gap:12px;align-items:flex-start;padding:16px 20px;font-family:var(--body);font-size:.98rem;line-height:1.45}
+.vs-e{background:#121212;color:#E9E1D4;border-bottom:1px solid #2c2c2c}
+.vs-e strong{color:#FEEE90}
+.vs-s{background:#EFE6D6;color:#141414;border-bottom:1px solid #ddd2bf}
+.vs-s strong{color:#C8331B}
+.vs-ic{flex:none;width:22px;height:22px;display:grid;place-items:center;font-weight:700;font-size:.85rem;margin-top:1px}
+.vs-e .vs-ic{background:#03B1AE;color:#121212}
+.vs-s .vs-ic{background:#DF5416;color:#fff}
+.vs-lab{display:none}
+.vs-t{display:block}
+@media(max-width:760px){
+  .vs{grid-template-columns:1fr}
+  .vs-head{display:none}
+  .vs-row{display:grid;grid-template-columns:1fr 1fr;margin-bottom:14px;border:2px solid #121212}
+  .vs-k{grid-column:1 / -1;padding:12px 14px;border-bottom:0;background:#FBF8F1}
+  .vs-e,.vs-s{flex-direction:column;gap:6px;padding:12px 14px;font-size:.9rem;border-bottom:0}
+  .vs-lab{display:block;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;opacity:.75}
+  .vs-ic{display:none}
+}
+/* drop each row in as it scrolls into view */
+.js-drop .vs-row>*{opacity:0;transform:translateY(-34px);transition:opacity .5s ease,transform .7s cubic-bezier(.3,1.45,.5,1)}
+.js-drop .vs-row>.vs-s{transition-delay:.18s}
+.js-drop .vs-row.in>*{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js-drop .vs-row>*{opacity:1;transform:none;transition:none}}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1063,13 +1098,15 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   <div class="wrap">
     <p class="eyebrow">Background</p>
     <h2>You Lose a Lot of Your Benefits When You Work for Yourself.</h2>
-    <ul class="losslist">
-      <li><span class="ln">01</span><div><b>Your Employer Insurance Subsidy</b><p>The average employer pays <strong>$8,132 a year</strong> toward a worker's health plan. On your own, there's no employer share.</p></div></li>
-      <li><span class="ln">02</span><div><b>Tax Assistance</b><p>Employers pay <strong>7.65%</strong> toward your Social Security and Medicare. Self-employed, you pay the full 15.3%.</p></div></li>
-      <li><span class="ln">03</span><div><b>Your 401(k) Match</b><p>No one adds money to your 401(k) but you.</p></div></li>
-      <li><span class="ln">04</span><div><b>Unemployment insurance</b><p>Lose a big client, and you generally can't collect unemployment.</p></div></li>
-      <li><span class="ln">05</span><div><b>Paid leave and disability</b><p>No automatic coverage. Only a few states let you opt in, or you buy a private policy.</p></div></li>
-    </ul>
+    <p class="vs-take">Same worker. Different safety net.</p>
+    <div class="vs" role="table" aria-label="Benefits with an employer compared with working for yourself">
+      <div class="vs-head" role="row"><span role="columnheader"></span><span class="vs-he" role="columnheader">With an employer</span><span class="vs-hs" role="columnheader">Working for yourself</span></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#0B0B0B;color:#FEEE90">01</span><b>Health insurance</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer pays <strong>$8,132 a year</strong> toward your plan.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You pay the whole premium. No employer share.</span></div></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#004CA6;color:#FFEFD6">02</span><b>Social Security &amp; Medicare</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer pays <strong>7.65%</strong>.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You pay the full <strong>15.3%</strong>.</span></div></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#E25F99;color:#0B0B0B">03</span><b>401(k)</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer adds a match.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">No one adds money but you.</span></div></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#FD6E1A;color:#0B0B0B">04</span><b>Unemployment insurance</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Covered if you lose your job.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">Lose a big client, and you generally can't collect.</span></div></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#03B1AE;color:#FFEFD6">05</span><b>Paid leave &amp; disability</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Often provided through your job.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">Only a few states let you opt in, or you buy a private policy.</span></div></div>
+    </div>
     <p class="note">Sources: KFF Employer Health Benefits Survey, 2026; IRS self-employment tax.</p>
     <a class="btn-learn" href="demystified.html"><span>Still confused?</span> Read Healthcare, Demystified <span aria-hidden="true">→</span></a>
   </div>
@@ -1501,11 +1538,11 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 /* "You lose" list: drop each benefit in when it scrolls into view */
 (function(){
-  const list=document.querySelector('#lose .losslist');
+  const list=document.querySelector('#lose .vs');
   if(!list||!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   document.documentElement.classList.add('js-drop');
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -18% 0px',threshold:.2});
-  [...list.children].forEach(li=>io.observe(li));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.parentElement.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -18% 0px',threshold:.2});
+  [...list.querySelectorAll('.vs-row')].forEach(r=>io.observe(r.firstElementChild));
 })();
 </script>
 
