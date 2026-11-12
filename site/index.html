@@ -939,6 +939,22 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero-light h1 .line2{transition:opacity .6s ease,transform .6s ease}
 .hero-light h1.typing .line2{opacity:0;transform:translateY(8px)}
 @media(prefers-reduced-motion:reduce){.pcol{animation:none}.hero-light h1 .caret{display:none}}
+/* ===== Hero copy: clearer reading order (kicker > fact > supporting fact > ask > steps > buttons) ===== */
+.hero-split .hero-copy{gap:0;max-width:640px}
+.hero-kicker{margin:0 0 18px;font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#FEEE90}
+.hero-light h1{line-height:1.04}
+.hero-light h1 .line2{font-size:.72em;color:#D9D0C2;margin-top:.45em}
+.hero-light h1 .line2 .num{color:#121212}
+.hero-tag{margin:22px 0 0;max-width:20ch;font-size:clamp(1.5rem,2.9vw,2.2rem);line-height:1.1}
+.hero-path-wrap{margin:30px 0 0;padding-top:20px;border-top:1px solid rgba(251,243,230,.18);width:100%}
+.hero-path-k{margin:0 0 10px;font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#CFC6B8}
+.hero-path{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px}
+.hero-path a{display:flex;align-items:center;gap:9px;color:#FBF3E6;text-decoration:none;font-family:var(--body);font-weight:600;font-size:1rem;padding:4px 0;border-bottom:2px solid transparent}
+.hero-path a:hover,.hero-path a:focus-visible{border-bottom-color:#03B1AE}
+.hero-path i{font-style:normal;width:24px;height:24px;display:grid;place-items:center;background:#FBF3E6;color:#121212;font-family:var(--serif);font-size:.9rem;line-height:1}
+.hero-split .hero-btns{margin-top:22px}
+.hero-split .hero-note{margin-top:14px}
+@media(max-width:600px){.hero-path{flex-direction:column;gap:6px}.hero-tag{max-width:none}.hero-light h1{font-size:clamp(2.2rem,9vw,2.6rem)}}
 </style>
 
 </head>
@@ -961,9 +977,17 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 <header class="hero hero-light" id="top">
   <div class="wrap hero-split">
   <div class="hero-copy">
+    <p class="hero-kicker">A petition for polyworkers</p>
     <h1><span class="line1"><b class="num n1">16M</b> Americans are self-employed.</span> <span class="line2"><b class="num n2">76M</b> are polyworking by choice or by force.</span></h1>
     <p class="hero-tag">It's time our healthcare system reflected that.</p>
-    <p class="hero-steps"><a href="#petition">Sign the petition</a> · <a href="#pick">Call Congress</a> · <a href="#share">Tell 5 friends</a></p>
+    <div class="hero-path-wrap">
+      <p class="hero-path-k">3 steps · about 5 minutes</p>
+      <ol class="hero-path">
+        <li><a href="#petition"><i aria-hidden="true">1</i>Sign the petition</a></li>
+        <li><a href="#pick"><i aria-hidden="true">2</i>Call Congress</a></li>
+        <li><a href="#share"><i aria-hidden="true">3</i>Tell 5 friends</a></li>
+      </ol>
+    </div>
     <div class="hero-btns">
       <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the petition <span aria-hidden="true">→</span></a>
       <a class="hb hb-ghost" href="#lose">Learn more <span aria-hidden="true">↓</span></a>
