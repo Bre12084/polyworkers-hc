@@ -1145,6 +1145,23 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 #petition .wrap>*,#share .wrap>*,#call .wrap>*{grid-column:1 / -1}
 #petition .wrap>.actlabel,#share .wrap>.actlabel,#call .wrap>.actlabel{grid-column:1;margin:0}
 #petition .wrap>.actlabel+h2,#share .wrap>.actlabel+h2,#call .wrap>.actlabel+h2{grid-column:2;margin:0}
+/* ===== Act flow: calm spacing, one ask per step ===== */
+#steps,#petition,#share,#call{padding-block:clamp(72px,9vw,120px)}
+#steps .takeaway,#petition .pet-take,#share .takeaway,#call .takeaway{margin-top:16px;max-width:52ch}
+#steps .actrows{margin-top:clamp(44px,5vw,64px)}
+#petition .goalbar{margin-top:36px;max-width:720px}
+.pet-cta{margin-top:32px}
+#petition .nextaction,#share .nextaction{margin-top:28px}
+#share .copycard{margin-top:28px;max-width:640px}
+.copycard textarea{min-height:5.2em!important}
+#call .finder{margin-top:32px;max-width:520px}
+.finder-l{display:block;margin-bottom:8px}
+.finder-out[hidden]{display:none!important}
+.finder-out{margin-top:16px}
+.call-alt{margin:28px 0 0;max-width:56ch;font-family:var(--body);font-size:.95rem;line-height:1.55;color:#DCE6F5}
+.call-alt a{color:#FEEE90;font-weight:700;white-space:nowrap}
+.call-alt .linkbtn{color:#FEEE90}
+#call .nextaction{margin-top:32px}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1274,7 +1291,7 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 <section id="steps">
   <div class="wrap">
     <h2>Act now!</h2>
-    <p class="takeaway"><b>Three easy steps to make your voice heard.</b> Every signature, call and share shows Congress that Polyworkers are paying attention.</p>
+    <p class="takeaway">Three steps. About five minutes. Each one tells Congress polyworkers are paying attention.</p>
     <ol class="actrows">
       <li class="ar ar1"><a class="ar-card" href="#petition" aria-label="Step 1: Sign the petition"><span class="ar-n" aria-hidden="true">1</span><svg class="ar-ic" viewBox="-14 -14 148 148" aria-hidden="true"><g class="v-rays" filter="url(#rough)"><path d="M60 60 L129.8 55.1 L129.8 64.9 Z"/><path d="M60 60 L126.4 82.2 L122.6 91.2 Z"/><path d="M60 60 L112.8 105.9 L105.9 112.8 Z"/><path d="M60 60 L91.2 122.6 L82.2 126.4 Z"/><path d="M60 60 L64.9 129.8 L55.1 129.8 Z"/><path d="M60 60 L37.8 126.4 L28.8 122.6 Z"/><path d="M60 60 L14.1 112.8 L7.2 105.9 Z"/><path d="M60 60 L-2.6 91.2 L-6.4 82.2 Z"/><path d="M60 60 L-9.8 64.9 L-9.8 55.1 Z"/><path d="M60 60 L-6.4 37.8 L-2.6 28.8 Z"/><path d="M60 60 L7.2 14.1 L14.1 7.2 Z"/><path d="M60 60 L28.8 -2.6 L37.8 -6.4 Z"/><path d="M60 60 L55.1 -9.8 L64.9 -9.8 Z"/><path d="M60 60 L82.2 -6.4 L91.2 -2.6 Z"/><path d="M60 60 L105.9 7.2 L112.8 14.1 Z"/><path d="M60 60 L122.6 28.8 L126.4 37.8 Z"/></g><circle cx="63" cy="63" r="40" fill="#FEEE90" filter="url(#rough)"/><circle class="v-sun" cx="60" cy="60" r="40" filter="url(#rough)"/><circle cx="60" cy="60" r="40" fill="url(#halftone)"/><g filter="url(#rough)" transform="rotate(-7 58 62)"><rect x="33" y="22" width="48" height="66" fill="#FBF3E6" stroke="#141414" stroke-width="4"/><rect x="33" y="22" width="48" height="66" fill="url(#halftone-lt)"/><path d="M40 34 h32 M40 43 h32 M40 52 h24 M40 61 h28" stroke="#141414" stroke-width="3.2" stroke-linecap="round"/><path d="M40 78 c4 -12 9 -10 8 -1 c-1 6 6 -9 10 -3 c2 3 5 1 9 -2" fill="none" stroke="#141414" stroke-width="3.2" stroke-linecap="round"/></g>
 <g filter="url(#rough)" transform="rotate(35 86 58)"><rect x="80" y="22" width="13" height="46" fill="#141414"/><rect x="80" y="22" width="13" height="10" fill="#DF5416" stroke="#141414" stroke-width="3"/><path d="M80 68 L86.5 84 L93 68 Z" fill="#FBF3E6" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><line x1="84" y1="30" x2="84" y2="62" stroke="#FBF3E6" stroke-width="2"/></g></svg></a><div class="ar-copy"><h3><a href="#petition">Sign the petition</a></h3><p>Add your name to our Change.org petition. It takes about 30 seconds.</p></div></li>
@@ -1288,16 +1305,15 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
   <div class="wrap">
     <p class="actlabel"><b class="act-tile t1" aria-label="Step 1">1</b></p>
     <h2>Help us reach 100,000 signatures.</h2>
-    <p class="takeaway pet-take">That's our goal: enough names that Congress has to respond. Healthcare costs are climbing right now, and every signature shows lawmakers that polyworkers are organized and paying attention.</p>
+    <p class="takeaway pet-take">That's how many names it takes to get Congress to respond. Add yours.</p>
     <div class="goalbar" role="img" id="goalbar" aria-label="Signature progress toward 100,000">
       <div class="gb-track"><div class="gb-fill" id="gbfill"></div>
         <span class="gb-m" style="left:25%">25K</span><span class="gb-m" style="left:50%">50K</span><span class="gb-m" style="left:75%">75K</span></div>
       <div class="gb-labels"><span id="gbcount">Counting signatures</span><span>Goal: 100,000</span></div>
     </div>
-    <p class="note" id="gbnote" style="color:var(--on-night-muted)">Count updated regularly from Change.org.</p>
     <div class="pet-cta">
       <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the Petition NOW! <span aria-hidden="true">→</span></a>
-      <span class="pet-note">Opens on Change.org. Come back here for step 2.</span>
+      <span class="pet-note">30 seconds on Change.org.</span>
     </div>
     <a class="nextaction" href="#share"><span>Signed it? Next:</span> <b>Step 2 · Tell 5 friends ↓</b></a>
   </div>
@@ -1307,10 +1323,10 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
   <div class="wrap">
     <p class="actlabel"><b class="act-tile t2" aria-label="Step 2">2</b></p>
     <h2>Tell 5 friends.</h2>
-    <p class="takeaway">Send this to five people who work for themselves, or love someone who does. Copy the message, then paste it anywhere: a text, an email, your group chat or a social post.</p>
+    <p class="takeaway">Copy this and send it to five people who work for themselves.</p>
     <div class="copycard">
       <label class="visually-hidden" for="msg">Message to send</label>
-      <textarea id="msg" rows="7">I just signed a petition asking Congress to fix healthcare for people who work for themselves. 16 million Americans are self-employed and 76 million are polyworking, and the extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
+      <textarea id="msg" rows="4">I just signed a petition asking Congress to fix healthcare for people who work for themselves. The extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
       <div class="copy-foot"><button type="button" class="hb hb-primary" id="sh-copy">Copy message</button><span class="sh-status" id="sh-status" role="status"></span></div>
     </div>
     <a class="nextaction" href="#call"><span>Shared it? Last step:</span> <b>Step 3 · Call Congress ↓</b></a>
@@ -1323,26 +1339,20 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
   <div class="wrap">
     <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b></p>
     <h2>Call your members of Congress.</h2>
-    <p class="takeaway dark">Call your House representative and both senators. Tell them you're a polyworker, that healthcare costs for people who work for themselves are too high, and ask where they stand.</p>
+    <p class="takeaway dark">Say you're a polyworker, healthcare costs are too high, and ask where they stand.</p>
     <div class="finder">
-      <label for="zip" class="finder-l">Enter your ZIP code to find your three offices</label>
+      <label for="zip" class="finder-l">Your ZIP code</label>
       <div class="finder-row">
         <input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="98101" aria-describedby="zipmsg">
         <button class="btn" type="button" id="zipgo">Find my reps</button>
       </div>
       <p class="finder-msg" id="zipmsg" role="status"></p>
-      <div class="finder-out" id="zipout">
+      <div class="finder-out" id="zipout" hidden>
         <a class="bigbtn" id="houselink" href="https://www.house.gov/representatives/find-your-representative" target="_blank" rel="noopener"><b>Find my House member</b><span id="houselbl">Look up by ZIP at house.gov →</span></a>
         <a class="bigbtn" id="senlink" href="https://www.senate.gov/senators/senators-contact.htm" target="_blank" rel="noopener"><b>Find my senators</b><span id="senlbl">Look up by state at senate.gov →</span></a>
       </div>
-      <p class="note" style="color:var(--on-night-muted)">Opens the official House and Senate sites, so names and phone numbers are always current. If your ZIP is split between districts, house.gov will ask for your street address.</p>
     </div>
-    <div class="bigbtn plain sw"><b>Or call the Capitol switchboard</b><span class="mono num">(202) 224-3121</span><span>Ask for each office by name. <a href="tel:+12022243121">Tap to dial</a> · <button type="button" class="linkbtn" id="copynum">Copy number</button></span></div>
-    <ul class="tips">
-      <li>A staff member will usually answer. If not, leave a voicemail. Both get logged.</li>
-      <li>You don't need to be an expert. Your own story is the most useful part.</li>
-      <li>Calling all three offices takes about six minutes.</li>
-    </ul>
+    <p class="call-alt">No ZIP handy? Call the Capitol switchboard at <a href="tel:+12022243121">(202) 224-3121</a> <button type="button" class="linkbtn" id="copynum">Copy</button> and ask for your members by name. A staff member usually answers; if not, leave a voicemail.</p>
     <p class="nextaction light"><b>Called? That's all three steps. Thank you!</b></p>
   </div>
 </section>
@@ -1405,8 +1415,8 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
     const z=$('zip').value.replace(/\D/g,''), msg=$('zipmsg'), out=$('zipout');
     if(z.length!==5){msg.textContent='Enter a 5-digit ZIP code.';return}
     const st=stateOf(z);
-    if(!st){msg.textContent="We couldn't match that ZIP. Use the two buttons below to look it up directly.";return}
-    msg.textContent='';
+    if(!st){msg.textContent="We couldn't match that ZIP. Use the two buttons below to look it up directly.";out.hidden=false;return}
+    msg.textContent=''; out.hidden=false;
     $('houselink').href='https://ziplook.house.gov/htbin/findrep_house?ZIP='+z;
     $('houselbl').textContent='See who represents '+z+' at house.gov →';
     const sl=$('senlink');
