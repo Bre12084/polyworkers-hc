@@ -1194,7 +1194,7 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 .brad-copy h3.brad-h{position:relative;margin:0;padding-left:46px;font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.8rem)!important;line-height:1;color:#FBF3E6!important}
 .brad-spark{position:absolute;left:0;top:-10px;width:40px;height:40px;fill:none;stroke:#DF5416;stroke-width:4;stroke-linecap:round}
 #short .brad-d{margin:14px 0 26px;font-size:1.1rem;line-height:1.5;max-width:46ch;color:#E9E1D4}
-.brad-listen{display:inline-flex;align-items:center;gap:14px;padding:12px 24px 12px 14px;border:0;border-radius:0;background:#DF5416;color:#FBF3E6;font-family:var(--serif);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.45rem);letter-spacing:.02em;cursor:pointer;box-shadow:4px 4px 0 #FBF3E6;transition:transform .12s ease,box-shadow .12s ease}
+.brad-listen{text-decoration:none;display:inline-flex;align-items:center;gap:14px;padding:12px 24px 12px 14px;border:0;border-radius:0;background:#DF5416;color:#FBF3E6;font-family:var(--serif);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.45rem);letter-spacing:.02em;cursor:pointer;box-shadow:4px 4px 0 #FBF3E6;transition:transform .12s ease,box-shadow .12s ease}
 .brad-listen:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #FBF3E6}
 .brad-listen small{font-family:var(--body);font-weight:400;font-size:.8em;opacity:.9}
 .bl-play{position:relative;flex:none;width:36px;height:36px;border-radius:0;background:#FBF3E6}
@@ -1398,8 +1398,7 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
       <div class="brad-copy">
         <h3 class="brad-h">Meet Brad White.</h3>
         <p class="brad-d">He's a fractional consultant navigating what it actually costs to buy your own health insurance as an independent worker, and why it's gotten so expensive.</p>
-        <button type="button" class="brad-listen" id="bradlisten" aria-expanded="false" aria-controls="bradplayer"><span class="bl-play" aria-hidden="true"></span>Listen to Brad's story <small>(38 min)</small></button>
-        <div class="brad-player" id="bradplayer" hidden></div>
+        <a class="brad-listen" href="https://open.spotify.com/episode/3Qtzvuc4XiB1DQiQyzuosP" target="_blank" rel="noopener"><span class="bl-play" aria-hidden="true"></span>Listen to Brad's story <small>(38 min)</small></a>
       </div>
     </div>
     </div>
@@ -1662,14 +1661,6 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 })();
 
 
-/* Brad: load the Spotify player on the page when someone taps Listen */
-(function(){
-  const b=document.getElementById('bradlisten'), box=document.getElementById('bradplayer'); if(!b||!box) return;
-  b.addEventListener('click',()=>{
-    if(!box.firstChild) box.innerHTML='<iframe src="https://open.spotify.com/embed/episode/3Qtzvuc4XiB1DQiQyzuosP?theme=0" title="Listen to the episode with Brad White on Spotify" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-    box.hidden=false; b.setAttribute('aria-expanded','true');
-  });
-})();
 </script>
 
 </body>
