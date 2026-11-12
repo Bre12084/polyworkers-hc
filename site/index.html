@@ -1370,6 +1370,15 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 @media(min-width:901px){.voice-stage{margin-top:0!important;align-items:end}#steps .voice-copy{margin:0 auto clamp(32px,4vw,48px)!important;max-width:760px}}
 .voice-left{min-width:0}
 @media(max-width:900px){#steps .voice-copy{margin-bottom:28px}}
+/* why calling works */
+.whycall{margin-top:28px;max-width:640px;padding:18px 22px;border:2px solid #FBF3E6;background:rgba(251,243,230,.06)}
+.wc-h{margin:0 0 10px;font-family:var(--serif);font-weight:600;font-size:1.25rem;letter-spacing:.02em;color:#FEEE90}
+.whycall ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.whycall li{position:relative;padding-left:22px;font-family:var(--body);font-size:.98rem;line-height:1.5;color:#E9EEF7}
+.whycall li::before{content:"✦";position:absolute;left:0;top:0;color:#FEEE90}
+.whycall li b{color:#FBF3E6;font-weight:700}
+.wc-src{margin:12px 0 0;font-size:.78rem;color:#C7D3EA}
+.wc-src a{color:#FEEE90}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1565,6 +1574,15 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
     <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b></p>
     <h2>Call your members of Congress.</h2>
     <p class="takeaway dark">Say you're a polyworker, healthcare costs are too high, and ask where they stand.</p>
+    <div class="whycall">
+      <p class="wc-h">Why a call beats an email</p>
+      <ul>
+        <li><b>It gets counted today.</b> Staffers tally calls right away. Emails and letters wait to be sorted.</li>
+        <li><b>It lands before they decide.</b> Once a lawmaker takes a public stance, it's hard to walk back.</li>
+        <li><b>It counts either way.</b> Call tallies show your rep how strongly voters feel, whether they agree or not.</li>
+      </ul>
+      <p class="wc-src">Source: <a href="https://5calls.org/why-calling-works/" target="_blank" rel="noopener">5 Calls</a></p>
+    </div>
     <div class="finder">
       <label for="zip" class="finder-l">Your ZIP code</label>
       <div class="finder-row">
