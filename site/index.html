@@ -1404,6 +1404,15 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 .ar-photo{display:block;width:100%;height:100%;object-fit:cover;filter:sepia(.35) contrast(1.1)}
 #steps .ar-card::after{content:none}
 #petition .takeaway,#share .takeaway,#call .takeaway{border-left:0!important;padding-left:0!important}
+/* step cards: same look as the rest of the page (cream card, black outline, colored halftone circle, B&W cutout) */
+#steps .ar-card{background:#F6EEDF!important;border:3px solid #141414!important;box-shadow:6px 6px 0 #141414!important;clip-path:none!important;overflow:hidden;display:grid!important;place-items:center}
+#steps .ar-card::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;left:50%;top:52%;transform:translate(-50%,-50%);background-image:radial-gradient(rgba(20,20,20,.22) 1.1px,transparent 1.5px);background-size:6px 6px}
+#steps .ar1 .ar-card::before{background-color:#FD6E1A}
+#steps .ar2 .ar-card::before{background-color:#03B1AE}
+#steps .ar3 .ar-card::before{background-color:#E25F99}
+#steps .ar-photo{position:relative;width:82%!important;height:82%!important;object-fit:contain!important;filter:grayscale(1) contrast(1.35)!important;mix-blend-mode:multiply}
+#steps .ar2 .ar-photo{mix-blend-mode:normal;filter:grayscale(1) contrast(1.15) drop-shadow(2px 0 0 #FBF3E6) drop-shadow(-2px 0 0 #FBF3E6) drop-shadow(0 -2px 0 #FBF3E6) drop-shadow(0 2px 0 #FBF3E6)!important}
+#steps .ar3 .ar-photo{width:62%!important;height:auto!important;aspect-ratio:1;object-fit:cover!important;border-radius:50%;top:2%;filter:grayscale(1) contrast(1.6) brightness(1.15)!important}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1547,11 +1556,11 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
     <p class="takeaway">Here are three easy ways to demand healthcare reform from Congress for American polyworkers <em>(for real, this will take you 5 minutes tops. We’ve made it that simple!)</em></p>
     </div>
     <ol class="actrows">
-      <li class="ar ar1"><h3 class="ar-t"><a href="#petition"><span class="ar-tn" aria-hidden="true">1</span><span class="ar-tt">Sign the petition</span></a></h3><a class="ar-card" href="#petition" aria-label="Step 1: Sign the petition"><img class="ar-photo" src="art/step-stamp.jpg" alt="" width="640" height="480" loading="lazy"></a></li>
+      <li class="ar ar1"><h3 class="ar-t"><a href="#petition"><span class="ar-tn" aria-hidden="true">1</span><span class="ar-tt">Sign the petition</span></a></h3><a class="ar-card" href="#petition" aria-label="Step 1: Sign the petition"><img class="ar-photo" src="art/step-stamp.png" alt="" width="640" height="480" loading="lazy"></a></li>
       <li class="ar-arrow" aria-hidden="true">→</li>
-      <li class="ar ar2"><h3 class="ar-t"><a href="#share"><span class="ar-tn" aria-hidden="true">2</span><span class="ar-tt">Share on social</span></a></h3><a class="ar-card" href="#share" aria-label="Step 2: Share on social"><img class="ar-photo" src="art/step-megaphone.jpg" alt="" width="640" height="480" loading="lazy"></a></li>
+      <li class="ar ar2"><h3 class="ar-t"><a href="#share"><span class="ar-tn" aria-hidden="true">2</span><span class="ar-tt">Share on social</span></a></h3><a class="ar-card" href="#share" aria-label="Step 2: Share on social"><img class="ar-photo" src="art/step-megaphone.png" alt="" width="640" height="480" loading="lazy"></a></li>
       <li class="ar-arrow" aria-hidden="true">→</li>
-      <li class="ar ar3"><h3 class="ar-t"><a href="#call"><span class="ar-tn" aria-hidden="true">3</span><span class="ar-tt">Call Congress</span></a></h3><a class="ar-card" href="#call" aria-label="Step 3: Call Congress"><img class="ar-photo" src="art/step-capitol.jpg" alt="" width="640" height="480" loading="lazy"></a></li>
+      <li class="ar ar3"><h3 class="ar-t"><a href="#call"><span class="ar-tn" aria-hidden="true">3</span><span class="ar-tt">Call Congress</span></a></h3><a class="ar-card" href="#call" aria-label="Step 3: Call Congress"><img class="ar-photo" src="art/step-capitol.png" alt="" width="640" height="480" loading="lazy"></a></li>
     </ol>
     </div>
     <figure class="voice-art" aria-hidden="true"><span class="voice-sun"></span><img src="art/megaphone.png" alt="" width="481" height="600"></figure>
