@@ -1082,6 +1082,9 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .copy-foot .hb{border:0;cursor:pointer}
 .copycard textarea{border:0!important;outline-offset:4px;box-shadow:none!important;padding:0!important}
 #share h2{font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+#call .actlabel{color:#FBF3E6}
+#call h2{font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+#call .act-tile.t3{box-shadow:0 0 0 2px #FBF3E6}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1134,7 +1137,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <ol class="stepnav" aria-label="Take action: your progress">
       <li data-step="sign"><a href="#petition"><i aria-hidden="true">1</i><span>Sign</span></a></li>
       <li data-step="share"><a href="#share"><i aria-hidden="true">2</i><span>Share</span></a></li>
-      <li data-step="call"><a href="#pick"><i aria-hidden="true">3</i><span>Call</span></a></li>
+      <li data-step="call"><a href="#call"><i aria-hidden="true">3</i><span>Call</span></a></li>
     </ol>
     <div class="stepbar" aria-hidden="true"><i id="stepfill"></i></div>
     </div>
@@ -1149,7 +1152,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
       <p class="hero-path-k">3 steps · about 5 minutes</p>
       <ol class="hero-path">
         <li><a href="#petition"><i aria-hidden="true">1</i>Sign the petition</a></li>
-        <li><a href="#pick"><i aria-hidden="true">2</i>Call Congress</a></li>
+        <li><a href="#call"><i aria-hidden="true">2</i>Call Congress</a></li>
         <li><a href="#share"><i aria-hidden="true">3</i>Tell 5 friends</a></li>
       </ol>
     </div>
@@ -1212,7 +1215,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
       <li class="sf-arrow" aria-hidden="true">→</li>
       <li class="sf sf2"><a href="#share"><span class="sf-n">2</span><b>Tell 5 friends</b><span class="sf-time">1 minute</span><span class="sf-d">Copy our message and send it to people who care about these issues too.</span></a></li>
       <li class="sf-arrow" aria-hidden="true">→</li>
-      <li class="sf sf3"><a href="#pick"><span class="sf-n">3</span><b>Call Congress</b><span class="sf-time">About 5 minutes</span><span class="sf-d">You choose the issues that matter and we'll generate a script to call or email.</span></a></li>
+      <li class="sf sf3"><a href="#call"><span class="sf-n">3</span><b>Call Congress</b><span class="sf-time">About 5 minutes</span><span class="sf-d">Find your House member and senators by ZIP and give them a quick call.</span></a></li>
     </ol>
   </div>
 </section>
@@ -1246,64 +1249,17 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
       <textarea id="msg" rows="7">I just signed a petition asking Congress to fix healthcare for people who work for themselves. 16 million Americans are self-employed and 76 million are polyworking, and the extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
       <div class="copy-foot"><button type="button" class="hb hb-primary" id="sh-copy">Copy message</button><span class="sh-status" id="sh-status" role="status"></span></div>
     </div>
-    <a class="nextaction" href="#pick"><span>Shared it? Last step:</span> <b>Step 3 · Call Congress ↓</b></a>
+    <a class="nextaction" href="#call"><span>Shared it? Last step:</span> <b>Step 3 · Call Congress ↓</b></a>
   </div>
 </section>
 
-<section id="pick">
-  <div class="wrap">
-    <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b> Call Congress · about 5 minutes</p>
-    <p class="stepno">Part A</p>
-    <h2>Choose your issues.</h2>
-    <p class="takeaway">Select the issues that are important to you as a Polyworker. They'll go straight into your script.</p>
-    <p class="bgline">Need background on these issues first? <a href="demystified.html#debate">Read Healthcare, Demystified →</a></p>
-    <ul class="checklist">
-      <li><label><input type="checkbox" id="a-ptc" data-phrase="restoring the enhanced Marketplace tax credits"><span><b>Bring back the extra help</b> on Marketplace premiums, so there's no cliff<small>Passed the House, stalled in the Senate</small></span></label></li>
-      <li><label><input type="checkbox" id="a-pb" data-phrase="portable benefits accounts that independent workers can keep between clients"><span><b>Let benefits follow the worker</b> with accounts clients can pay into<small>Senate bill in committee; some state laws</small></span></label></li>
-      <li><label><input type="checkbox" id="a-pbg" data-phrase="safeguards so portable benefits can't be used to misclassify employees as contractors"><span><b>Protect workers from misclassification</b> in any portable benefits law<small>Safeguard for the idea above</small></span></label></li>
-      <li><label><input type="checkbox" id="a-ahp" data-phrase="more options for independent workers to buy coverage as a group"><span><b>Let independent workers buy coverage together</b> as a group<small>Passed the House, awaiting the Senate</small></span></label></li>
-      <li><label><input type="checkbox" id="a-ahpg" data-phrase="making sure any group plans keep comprehensive coverage protections"><span><b>Keep full coverage protections</b> in any group plans<small>Safeguard for the idea above</small></span></label></li>
-      <li><label><input type="checkbox" id="a-pub" data-phrase="a public insurance option people can buy without an employer"><span><b>Create a public insurance option</b> anyone can buy<small>Bills introduced, no votes</small></span></label></li>
-      <li><label><input type="checkbox" id="a-leave" data-phrase="paid leave and disability protections that include independent workers"><span><b>Include independent workers in paid leave</b> and disability programs<small>Mostly state programs</small></span></label></li>
-    </ul>
-    <p class="asof">Status checked Nov 2, 2026</p>
-  </div>
-</section>
 
-<section id="act">
-  <div class="wrap">
-    <p class="stepno">Part B</p>
-    <h2>Generate your script.</h2>
-    <p class="takeaway">Add a few details to create your talk track when you write or call your members of Congress.</p>
-    <p class="bgline">Read it on the phone, or paste it into your representative's email form on their website.</p>
-    <div class="builder">
-      <div class="stack">
-        <div class="field"><label for="nm">Your name</label><input id="nm" autocomplete="name" placeholder="Jordan Rivera"></div>
-        <div class="field"><label for="city">City and state</label><input id="city" placeholder="Seattle, WA"></div>
-        <div class="field"><label for="work">What you do</label><input id="work" placeholder="a freelance designer"></div>
-        <div class="field"><label for="rep">Who you're calling (optional)</label><input id="rep" placeholder="Senator Lee"></div>
-        <div class="field"><label for="cov">Your coverage right now</label>
-          <select id="cov">
-            <option value="own">I buy my own plan</option>
-            <option value="partner">I'm on a partner's or family member's plan</option>
-            <option value="none">I'm uninsured right now</option>
-            <option value="skip">I'd rather not say</option>
-          </select>
-        </div>
-      </div>
-      <div class="stack">
-        <div class="script" id="script" aria-live="polite"></div>
-        <div class="copyrow"><button class="btn" id="copy" type="button">Copy my script</button><button class="btn-outline" id="copyemail" type="button">Copy as an email</button><span id="copied" role="status"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="call" class="band-dark band-blue">
   <div class="wrap">
-    <p class="stepno">Part C</p>
-    <h2>Make the call.</h2>
-    <p class="takeaway dark">Call your House representative and both senators. Say you're a Polyworker for healthcare reform, then read your script.</p>
+    <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b> Call Congress · about 5 minutes</p>
+    <h2>Call your members of Congress.</h2>
+    <p class="takeaway dark">Call your House representative and both senators. Tell them you're a polyworker, that healthcare costs for people who work for themselves are too high, and ask where they stand.</p>
     <div class="finder">
       <label for="zip" class="finder-l">Enter your ZIP code to find your three offices</label>
       <div class="finder-row">
@@ -1333,7 +1289,6 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-<div class="pickbar" id="pickbar" hidden><span id="pickcount">1 issue selected</span><a class="btn" href="#act">Next: generate your script →</a></div>
 
 <footer>
   <div class="wrap foot-grid">
@@ -1375,42 +1330,9 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <script>
 (function(){
-  const boxes=[...document.querySelectorAll('.checklist input')];
   const $=id=>document.getElementById(id);
-  const fields=['nm','city','work','rep','cov'].map($);
-  const out=$('script');
-  const covLine={
-    own:"Like many independent workers, I don't receive health insurance through an employer. I arrange and pay for my own coverage, and changes to Marketplace premiums and federal assistance can have a significant impact on my finances.",
-    partner:"I don't receive health insurance through my own work. Right now I'm covered through a family member's plan, but independent workers who buy their own coverage are facing real cost increases.",
-    none:"I don't receive health insurance through my work, and right now I'm uninsured. The cost of coverage for people who work for themselves is a real barrier.",
-    skip:"Independent workers don't receive health insurance through an employer, so changes to Marketplace premiums and federal assistance can have a significant impact on our finances."
-  };
-  function list(a){ if(a.length<2) return a[0]||''; if(a.length===2) return a[0]+' and '+a[1]; return a.slice(0,-1).join(', ')+', and '+a[a.length-1]; }
-  function build(){
-    const n=$('nm').value.trim()||'[your name]', c=$('city').value.trim()||'[city, state]';
-    const w=$('work').value.trim()||'[what you do]', r=$('rep').value.trim()||'[their name]';
-    const picks=boxes.filter(b=>b.checked).map(b=>b.dataset.phrase);
-    let t=`Hi, my name is ${n}, and I'm a constituent from ${c}.\n\n`;
-    t+=`I work independently as ${w}, and I'm calling because I'd like to know where ${r} stands on healthcare affordability and benefits for self-employed workers.\n\n`;
-    t+=covLine[$('cov').value]+'\n\n';
-    if(picks.length) t+=`I'm particularly interested in ${list(picks)}.\n\n`;
-    t+=`Could you tell me where ${r} stands on ${picks.length>1?'these issues':'this'}, and whether their office is considering any related legislation?\n\nI'd appreciate it if you could pass along my concerns. Thank you for your time.`;
-    out.textContent=t;
-    hint.hidden=picks.length>0;
-  }
-  const hint=document.createElement('p'); hint.className='script-hint';
-  hint.textContent='Tip: check the proposals you care about in Step 1 above to add them to your script.';
-  out.after(hint);
-  [...boxes,...fields].forEach(el=>{el.addEventListener('input',build);el.addEventListener('change',build)});
-  build();
   try{const now=new Date(), dl=new Date(now.getFullYear(),11,15), d=Math.ceil((dl-now)/864e5);
     if(d>1&&d<60){$('daysleft').textContent=d+' days'; $('daysline').textContent='until the Dec 15 deadline to pick a plan for January 1.';}}catch(e){}
-  const bar=$('pickbar'), cnt=$('pickcount');
-  let pastPick=false;
-  function upd(){const n=boxes.filter(b=>b.checked).length; cnt.textContent=n+(n===1?' issue':' issues')+' selected'; bar.hidden=!(n>0 && !pastPick);}
-  boxes.forEach(b=>b.addEventListener('change',upd));
-  try{new IntersectionObserver(es=>{es.forEach(e=>{pastPick=e.isIntersecting||e.boundingClientRect.top<0; upd();})}).observe($('act'));}catch(e){}
-  if(window.matchMedia&&matchMedia('(min-width: 821px)').matches){document.querySelectorAll('details.sides').forEach(d=>d.open=true)}
 
   const ZR=[[5,5,'NY'],[6,7,'PR'],[8,8,'VI'],[9,9,'PR'],[10,27,'MA'],[28,29,'RI'],[30,38,'NH'],[39,49,'ME'],[50,54,'VT'],[55,55,'MA'],[56,59,'VT'],[60,69,'CT'],[70,89,'NJ'],[100,149,'NY'],[150,196,'PA'],[197,199,'DE'],[200,200,'DC'],[201,201,'VA'],[202,205,'DC'],[206,219,'MD'],[220,246,'VA'],[247,268,'WV'],[270,289,'NC'],[290,299,'SC'],[300,319,'GA'],[320,339,'FL'],[341,349,'FL'],[350,369,'AL'],[370,385,'TN'],[386,397,'MS'],[398,399,'GA'],[400,427,'KY'],[430,459,'OH'],[460,479,'IN'],[480,499,'MI'],[500,528,'IA'],[530,549,'WI'],[550,567,'MN'],[569,569,'DC'],[570,577,'SD'],[580,588,'ND'],[590,599,'MT'],[600,629,'IL'],[630,658,'MO'],[660,679,'KS'],[680,693,'NE'],[700,714,'LA'],[716,729,'AR'],[730,732,'OK'],[733,733,'TX'],[734,749,'OK'],[750,799,'TX'],[800,816,'CO'],[820,831,'WY'],[832,838,'ID'],[840,847,'UT'],[850,865,'AZ'],[870,884,'NM'],[885,885,'TX'],[889,898,'NV'],[900,961,'CA'],[967,968,'HI'],[969,969,'GU'],[970,979,'OR'],[980,994,'WA'],[995,999,'AK']];
   const SN={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
@@ -1438,19 +1360,10 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   const msg=$('msg'), st=$('sh-status');
   $('sh-copy').addEventListener('click',()=>{const ok=()=>{st.textContent='Copied. Paste it into a text, DM, email or post.'};
     try{navigator.clipboard.writeText(msg.value).then(ok,()=>{msg.select();st.textContent='Selected. Use Copy to save it.'})}catch(e){msg.select();st.textContent='Selected. Use Copy to save it.'}});
-  $('copyemail').addEventListener('click',()=>{const r=$('rep').value.trim()||'Representative';
-    const body='Subject: Healthcare for self-employed workers\n\nDear '+r+',\n\n'+$('script').textContent.replace(/^Hi, my name is/,'My name is');
-    const b=$('copyemail');try{navigator.clipboard.writeText(body).then(()=>{b.textContent='Email copied';setTimeout(()=>b.textContent='Copy as an email',2000)},()=>{})}catch(e){}});
   (function(){const f=$('gbfill'),c=$('gbcount');
     if(SIGNATURES===null){c.textContent='Be one of the first 100,000';f.style.width='0%';return}
     const pct=Math.min(100,SIGNATURES/GOAL*100);f.style.width=Math.max(pct,1)+'%';
     c.textContent=SIGNATURES.toLocaleString()+' signed';$('goalbar').setAttribute('aria-label',SIGNATURES.toLocaleString()+' of 100,000 signatures');})();
-  const msg2=$('copied');
-  $('copy').addEventListener('click',()=>{
-    const done=()=>{msg2.textContent='Copied';setTimeout(()=>msg2.textContent='',2000)};
-    try{navigator.clipboard.writeText(out.textContent).then(done,sel)}catch(e){sel()}
-    function sel(){const rg=document.createRange();rg.selectNodeContents(out);const sl=getSelection();sl.removeAllRanges();sl.addRange(rg);msg2.textContent='Text selected. Use Copy to save it.'}
-  });
 })();
 
 // ===== Progress tracker, step toasts, one-tap sharing =====
@@ -1458,9 +1371,9 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   const $=id=>document.getElementById(id);
   const PET='https://c.org/JRF87Mq6cs';
   const STEPS=['sign','share','call'];
-  const NEXT={sign:['#petition','Next: Sign the petition'],call:['#pick','Next: Call Congress'],share:['#share','Next: Tell 5 friends']};
+  const NEXT={sign:['#petition','Next: Sign the petition'],call:['#call','Next: Call Congress'],share:['#share','Next: Tell 5 friends']};
   const NAME={sign:'Tell 5 friends',share:'Call Congress'};
-  const HREF={sign:'#share',share:'#pick'};
+  const HREF={sign:'#share',share:'#call'};
   let st={done:{},friends:0};
   try{const v=JSON.parse(localStorage.getItem('pw-progress')||'null'); if(v&&v.done) st=v;}catch(e){}
   const save=()=>{try{localStorage.setItem('pw-progress',JSON.stringify(st))}catch(e){}};
@@ -1490,13 +1403,13 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   // Step 1: any petition link
   document.querySelectorAll('a[href="'+PET+'"]').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>complete('sign'),400)));
   // Step 2: copying the script or reaching an office
-  ['copy','copyemail','houselink','senlink','copynum'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',()=>complete('call'))});
+  ['houselink','senlink','copynum','zipgo'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',()=>complete('call'))});
   document.querySelectorAll('a[href^="tel:"]').forEach(a=>a.addEventListener('click',()=>complete('call')));
   // Step 3: sharing
   function shared(){st.friends=(st.friends||0)+1;save();render();complete('share')}
   ['sh-copy'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',shared)});
   // Highlight the step you're reading
-  const map={petition:'sign',pick:'call',act:'call',call:'call',share:'share'};
+  const map={petition:'sign',call:'call',share:'share'};
   try{const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const k=map[en.target.id];
       document.querySelectorAll('.stepnav li').forEach(li=>li.classList.toggle('here',li.dataset.step===k));}})},{rootMargin:'-40% 0px -55% 0px'});
     Object.keys(map).forEach(id=>{const el=$(id); if(el) io.observe(el)});
