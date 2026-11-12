@@ -1194,14 +1194,20 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 .brad-copy h3.brad-h{position:relative;margin:0;padding-left:46px;font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,3.4vw,2.8rem)!important;line-height:1;color:#FBF3E6!important}
 .brad-spark{position:absolute;left:0;top:-10px;width:40px;height:40px;fill:none;stroke:#DF5416;stroke-width:4;stroke-linecap:round}
 #short .brad-d{margin:14px 0 26px;font-size:1.1rem;line-height:1.5;max-width:46ch;color:#E9E1D4}
-.brad-listen{display:inline-flex;align-items:center;gap:14px;padding:12px 26px 12px 12px;border:0;border-radius:999px;background:#DF5416;color:#FBF3E6;font-family:var(--serif);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.45rem);letter-spacing:.02em;cursor:pointer;box-shadow:4px 4px 0 #FBF3E6;transition:transform .12s ease,box-shadow .12s ease}
+.brad-listen{display:inline-flex;align-items:center;gap:14px;padding:12px 24px 12px 14px;border:0;border-radius:0;background:#DF5416;color:#FBF3E6;font-family:var(--serif);font-weight:600;font-size:clamp(1.15rem,1.8vw,1.45rem);letter-spacing:.02em;cursor:pointer;box-shadow:4px 4px 0 #FBF3E6;transition:transform .12s ease,box-shadow .12s ease}
 .brad-listen:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 #FBF3E6}
 .brad-listen small{font-family:var(--body);font-weight:400;font-size:.8em;opacity:.9}
-.bl-play{position:relative;flex:none;width:42px;height:42px;border-radius:50%;background:#FBF3E6}
-.bl-play::after{content:"";position:absolute;left:16px;top:12px;border-style:solid;border-width:9px 0 9px 14px;border-color:transparent transparent transparent #DF5416}
+.bl-play{position:relative;flex:none;width:36px;height:36px;border-radius:0;background:#FBF3E6}
+.bl-play::after{content:"";position:absolute;left:13px;top:10px;border-style:solid;border-width:8px 0 8px 12px;border-color:transparent transparent transparent #DF5416}
 .brad-player{margin-top:20px;max-width:520px}
 .brad-player iframe{display:block;width:100%;height:152px;border:0;border-radius:12px}
 @media(max-width:820px){#short .cost-top{grid-template-columns:1fr}.cost-stat{border-left:0;padding-left:0;border-top:2px solid #FBF3E6;padding-top:20px}#short .brad{grid-template-columns:1fr}}
+/* tighter spacing in the cost + Brad section */
+#short{padding-block:clamp(56px,7vw,88px)}
+#short .brad{margin-top:clamp(32px,4vw,48px);gap:clamp(24px,3vw,40px)}
+#short .brad-d{margin:10px 0 20px}
+.cost-lab{margin-top:10px}
+.brad-player{margin-top:14px}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1321,7 +1327,6 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
     <div class="brad">
       <figure class="brad-video">
         <img src="brad-video.jpg" alt="Brad White, fractional consultant, on The Portfolio Career Lab podcast" width="480" height="395" loading="lazy">
-        <figcaption class="brad-tag"><b>Brad White</b><span>Fractional consultant</span></figcaption>
       </figure>
       <div class="brad-copy">
         <h3 class="brad-h"><svg class="brad-spark" viewBox="0 0 40 40" aria-hidden="true"><path d="M30 4 L24 16 M14 10 L20 20 M4 26 L18 25"/></svg>Meet Brad White.</h3>
