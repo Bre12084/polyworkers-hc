@@ -962,6 +962,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero-light h1 .tw,.hero-light h1 .tw *{display:inline}
 .hero-light h1 .tw .num{display:inline-block}
 @media(prefers-reduced-motion:reduce){.hero-light h1 .line2{font-size:.72em}}
+.hero-voice{display:none}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -979,7 +980,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   .hero-tag{margin-top:14px;font-size:1.45rem}
   .hero-path-wrap{margin-top:22px;padding-top:0;border-top:0}
   .hero-path{display:none}
-  .hero-path-k{margin:0;color:#FEEE90}
+  .hero-path-k{display:none}
+  .hero-voice{display:block;margin:0;font-family:var(--body);font-weight:700;font-size:1.1rem;line-height:1.3;color:#FBF3E6}
   .hero-split .hero-btns{margin-top:12px;gap:10px}
   .hb{padding:14px 18px}
   .hb-primary{width:calc(100% - 4px);flex:none}
@@ -1026,6 +1028,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <h1><span class="line1"><b class="num n1">16M</b> Americans are self-employed.</span> <span class="line2"><b class="num n2">76M</b> Americans are polyworking.</span></h1>
     <p class="hero-tag">It's time our healthcare system reflected that.</p>
     <div class="hero-path-wrap">
+      <p class="hero-voice">It's time to make your voice heard.</p>
       <p class="hero-path-k">3 steps · about 5 minutes</p>
       <ol class="hero-path">
         <li><a href="#petition"><i aria-hidden="true">1</i>Sign the petition</a></li>
