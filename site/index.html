@@ -966,6 +966,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .hero-path-wrap{border-top:0;padding-top:0;margin-top:26px}
 .hero-path-k,.hero-path{display:none}
 .hero-voice{display:block;margin:0;font-family:var(--body);font-weight:700;font-size:clamp(1.1rem,1.8vw,1.3rem);line-height:1.3;color:#FBF3E6}
+/* hero tagline on one line on wider screens */
+@media(min-width:821px){.hero-split .hero-copy{max-width:none}.hero-tag{max-width:none;white-space:nowrap;font-size:clamp(1.35rem,2.15vw,2rem)}}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1041,7 +1043,6 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <div class="hero-btns">
       <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the Petition NOW! <span aria-hidden="true">→</span></a>
     </div>
-    <p class="hero-note">16M: U.S. Bureau of Labor Statistics.</p>
   </div>
     <div class="pwall" role="img" aria-label="Photos of real polyworkers">
       <div class="pcol"><figure class="pt"><img src="people/brie.jpg" alt="Brie Abramowicz" width="400" height="500"></figure><figure class="pt"><img src="people/adjoa.webp" alt="Adjoa Kittoe" width="400" height="500"></figure><figure class="pt"><img src="people/harry.jpg" alt="Harry Siggins" width="400" height="500"></figure><figure class="pt"><img src="people/brendon.webp" alt="Brendon Hamlin" width="400" height="500"></figure><figure class="pt"><img src="people/carisa.webp" alt="Carisa Deegan" width="400" height="500"></figure><figure class="pt"><img src="people/javaree.webp" alt="Javaree Walker" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brie.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/adjoa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/harry.jpg" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/brendon.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/carisa.webp" alt="" width="400" height="500"></figure><figure class="pt" aria-hidden="true"><img src="people/javaree.webp" alt="" width="400" height="500"></figure></div>
