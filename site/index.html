@@ -1075,6 +1075,13 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .pet-note{font-family:var(--body);font-size:.88rem;color:var(--on-night-muted,#bdb5a8)}
 #petition .nextaction{color:#CFC6B8}
 #petition .nextaction b{color:#FEEE90}
+/* Step 2: one message, one copy button */
+.copycard{margin-top:24px;max-width:720px;border:2px solid #141414;background:#fff;padding:18px}
+.copycard textarea{width:100%;box-sizing:border-box;border:0;resize:vertical;font-family:var(--body);font-size:1.02rem;line-height:1.55;color:#141414;background:#fff;padding:0;min-height:6.5em}
+.copy-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:14px}
+.copy-foot .hb{border:0;cursor:pointer}
+.copycard textarea{border:0!important;outline-offset:4px;box-shadow:none!important;padding:0!important}
+#share h2{font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1126,8 +1133,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <div class="actsteps">
     <ol class="stepnav" aria-label="Take action: your progress">
       <li data-step="sign"><a href="#petition"><i aria-hidden="true">1</i><span>Sign</span></a></li>
-      <li data-step="call"><a href="#pick"><i aria-hidden="true">2</i><span>Call</span></a></li>
-      <li data-step="share"><a href="#share"><i aria-hidden="true">3</i><span>Share</span></a></li>
+      <li data-step="share"><a href="#share"><i aria-hidden="true">2</i><span>Share</span></a></li>
+      <li data-step="call"><a href="#pick"><i aria-hidden="true">3</i><span>Call</span></a></li>
     </ol>
     <div class="stepbar" aria-hidden="true"><i id="stepfill"></i></div>
     </div>
@@ -1203,9 +1210,9 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <ol class="stepflow">
       <li class="sf sf1"><a href="#petition"><span class="sf-n">1</span><b>Sign the petition</b><span class="sf-time">30 seconds</span><span class="sf-d">Add your name to the Change.org petition.</span></a></li>
       <li class="sf-arrow" aria-hidden="true">→</li>
-      <li class="sf sf2"><a href="#pick"><span class="sf-n">2</span><b>Call Congress</b><span class="sf-time">About 5 minutes</span><span class="sf-d">You choose the issues that matter and we'll generate a script to call or email.</span></a></li>
+      <li class="sf sf2"><a href="#share"><span class="sf-n">2</span><b>Tell 5 friends</b><span class="sf-time">1 minute</span><span class="sf-d">Copy our message and send it to people who care about these issues too.</span></a></li>
       <li class="sf-arrow" aria-hidden="true">→</li>
-      <li class="sf sf3"><a href="#share"><span class="sf-n">3</span><b>Tell 5 friends</b><span class="sf-time">1 minute</span><span class="sf-d">Send this website and petition to people that care about these issues too.</span></a></li>
+      <li class="sf sf3"><a href="#pick"><span class="sf-n">3</span><b>Call Congress</b><span class="sf-time">About 5 minutes</span><span class="sf-d">You choose the issues that matter and we'll generate a script to call or email.</span></a></li>
     </ol>
   </div>
 </section>
@@ -1225,13 +1232,27 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
       <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener">Sign the Petition NOW! <span aria-hidden="true">→</span></a>
       <span class="pet-note">Opens on Change.org. Come back here for step 2.</span>
     </div>
-    <a class="nextaction" href="#pick"><span>Signed it? Next:</span> <b>Step 2 · Call Congress ↓</b></a>
+    <a class="nextaction" href="#share"><span>Signed it? Next:</span> <b>Step 2 · Tell 5 friends ↓</b></a>
+  </div>
+</section>
+
+<section id="share">
+  <div class="wrap">
+    <p class="actlabel"><b class="act-tile t2" aria-label="Step 2">2</b> Tell 5 friends · 1 minute</p>
+    <h2>Tell 5 friends.</h2>
+    <p class="takeaway">Send this to five people who work for themselves, or love someone who does. Copy the message, then paste it anywhere: a text, an email, your group chat or a social post.</p>
+    <div class="copycard">
+      <label class="visually-hidden" for="msg">Message to send</label>
+      <textarea id="msg" rows="7">I just signed a petition asking Congress to fix healthcare for people who work for themselves. 16 million Americans are self-employed and 76 million are polyworking, and the extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
+      <div class="copy-foot"><button type="button" class="hb hb-primary" id="sh-copy">Copy message</button><span class="sh-status" id="sh-status" role="status"></span></div>
+    </div>
+    <a class="nextaction" href="#pick"><span>Shared it? Last step:</span> <b>Step 3 · Call Congress ↓</b></a>
   </div>
 </section>
 
 <section id="pick">
   <div class="wrap">
-    <p class="actlabel"><b class="act-tile t2" aria-label="Step 2">2</b> Call Congress · about 5 minutes</p>
+    <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b> Call Congress · about 5 minutes</p>
     <p class="stepno">Part A</p>
     <h2>Choose your issues.</h2>
     <p class="takeaway">Select the issues that are important to you as a Polyworker. They'll go straight into your script.</p>
@@ -1302,42 +1323,13 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
       <li>You don't need to be an expert. Your own story is the most useful part.</li>
       <li>Calling all three offices takes about six minutes.</li>
     </ul>
-    <a class="nextaction light" href="#share"><span>Called? Last step:</span> <b>Step 3 · Tell 5 friends ↓</b></a>
+    <p class="nextaction light"><b>Called? That's all three steps. Thank you!</b></p>
   </div>
 </section>
 
 
 
-<section id="share">
-  <div class="wrap">
-    <p class="actlabel"><b class="act-tile t3" aria-label="Step 3">3</b> Tell 5 friends · 1 minute</p>
-    <h2>Tell 5 friends.</h2>
-    <p class="takeaway">Send this to five people who work for themselves, or love someone who does. Friends, partners, family, your freelance group chat.</p>
-    <div class="sharecards">
-      <div class="scard">
-        <div class="sc-head"><span class="sc-n">1</span><div><b>Send the message</b><span>Share it in one tap, or copy it into any text, DM or group chat.</span></div></div>
-        <label class="visually-hidden" for="msg">Message to send</label>
-        <textarea id="msg" rows="7">I just signed a petition asking Congress to fix healthcare for people who work for themselves. 16 million Americans are self-employed and 76 million are polyworking, and the extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
-        <div class="sharebtns" aria-label="Share the message">
-          <button type="button" class="shb shb-native" data-net="native" hidden>Share…</button>
-          <button type="button" class="shb" data-net="sms">Text</button>
-          <button type="button" class="shb" data-net="email">Email</button>
-          <button type="button" class="shb" data-net="whatsapp">WhatsApp</button>
-          <button type="button" class="shb" data-net="linkedin">LinkedIn</button>
-          <button type="button" class="shb" data-net="facebook">Facebook</button>
-          <button type="button" class="shb" data-net="x">X</button>
-        </div>
-        <div class="sc-foot"><button type="button" class="sbtn primary" id="sh-copy">Copy message</button><span class="sh-status" id="sh-status" role="status"></span></div>
-        <div class="friends" aria-live="polite"><div class="friend-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span id="friendcount">Shared with 0 of 5 friends</span></div>
-      </div>
-      <div class="scard">
-        <div class="sc-head"><span class="sc-n two">2</span><div><b>Post the graphic</b><span>Share it on Instagram, LinkedIn or your stories with the message.</span></div></div>
-        <img class="sc-img" src="polyworkers-share.png" width="1080" height="1080" alt="Square graphic: the Polyworkers for Healthcare Reform logo, with the line I signed the petition for healthcare reform.">
-        <div class="sc-foot"><a class="sbtn primary" id="dl-img" href="polyworkers-share.png" download="polyworkers-i-signed.png">Download image</a><span class="sh-status" id="dl-note"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
@@ -1449,13 +1441,6 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   $('copyemail').addEventListener('click',()=>{const r=$('rep').value.trim()||'Representative';
     const body='Subject: Healthcare for self-employed workers\n\nDear '+r+',\n\n'+$('script').textContent.replace(/^Hi, my name is/,'My name is');
     const b=$('copyemail');try{navigator.clipboard.writeText(body).then(()=>{b.textContent='Email copied';setTimeout(()=>b.textContent='Copy as an email',2000)},()=>{})}catch(e){}});
-  // Download image: inside Claude's viewer use the downloads capability; on a normal website the link downloads directly.
-  (function(){const a=$('dl-img'); if(!(window.claude&&window.claude.use)) return;
-    let dl=null; window.claude.use('downloads').then(d=>{dl=d; if(!d){a.hidden=true;$('dl-note').textContent='Press and hold (phone) or right-click (computer) the image to save it.'}}).catch(()=>{});
-    a.addEventListener('click',async e=>{e.preventDefault(); if(!dl) return;
-      try{const blob=await fetch('polyworkers-share.png').then(r=>r.blob()); await dl.save({filename:'polyworkers-i-signed.png',data:blob}); $('dl-note').textContent='Saved. Now post it!'}
-      catch(err){ if(err&&err.code==='declined') return; $('dl-note').textContent='Download unavailable here. Press and hold or right-click the image to save it.'}});
-  })();
   (function(){const f=$('gbfill'),c=$('gbcount');
     if(SIGNATURES===null){c.textContent='Be one of the first 100,000';f.style.width='0%';return}
     const pct=Math.min(100,SIGNATURES/GOAL*100);f.style.width=Math.max(pct,1)+'%';
@@ -1472,10 +1457,10 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 (function(){
   const $=id=>document.getElementById(id);
   const PET='https://c.org/JRF87Mq6cs';
-  const STEPS=['sign','call','share'];
+  const STEPS=['sign','share','call'];
   const NEXT={sign:['#petition','Next: Sign the petition'],call:['#pick','Next: Call Congress'],share:['#share','Next: Tell 5 friends']};
-  const NAME={sign:'Call Congress',call:'Tell 5 friends'};
-  const HREF={sign:'#pick',call:'#share'};
+  const NAME={sign:'Tell 5 friends',share:'Call Congress'};
+  const HREF={sign:'#share',share:'#pick'};
   let st={done:{},friends:0};
   try{const v=JSON.parse(localStorage.getItem('pw-progress')||'null'); if(v&&v.done) st=v;}catch(e){}
   const save=()=>{try{localStorage.setItem('pw-progress',JSON.stringify(st))}catch(e){}};
@@ -1498,8 +1483,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   function complete(k){
     if(st.done[k]){return}
     st.done[k]=true;save();render();
-    if(STEPS.every(x=>st.done[x])) showToast('<span><b>All 3 steps done.</b> Thank you for making your voice heard!</span><a href="#share">Share it again →</a>');
-    else if(k==='share') showToast('<span><b>Step 3 done ✓</b></span><a href="'+NEXT[STEPS.find(x=>!st.done[x])][0]+'">Finish the last step →</a>');
+    if(STEPS.every(x=>st.done[x])) showToast('<span><b>All 3 steps done.</b> Thank you for making your voice heard!</span><a href="#share">Share it again ↑</a>');
+    else if(k==='call') showToast('<span><b>Step 3 done ✓</b></span><a href="'+NEXT[STEPS.find(x=>!st.done[x])][0]+'">Finish the last step →</a>');
     else showToast('<span><b>Step '+(STEPS.indexOf(k)+1)+' done ✓</b></span><a href="'+HREF[k]+'">Next: '+NAME[k]+' ↓</a>');
   }
   // Step 1: any petition link
@@ -1509,20 +1494,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   document.querySelectorAll('a[href^="tel:"]').forEach(a=>a.addEventListener('click',()=>complete('call')));
   // Step 3: sharing
   function shared(){st.friends=(st.friends||0)+1;save();render();complete('share')}
-  ['sh-copy','dl-img'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',shared)});
-  const msg=$('msg'), nat=document.querySelector('.shb-native');
-  if(navigator.share) nat.hidden=false;
-  document.querySelectorAll('.shb').forEach(b=>b.addEventListener('click',async()=>{
-    const t=msg.value, e=encodeURIComponent, net=b.dataset.net;
-    const subj='Can you sign this? Healthcare for people who work for themselves';
-    const H='https:/'+'/'; // built in parts so the link checker doesn't test these half-finished addresses
-    const urls={sms:'sms:?&body='+e(t),email:'mailto:?subject='+e(subj)+'&body='+e(t),whatsapp:H+'wa.me/?text='+e(t),
-      linkedin:H+'www.linkedin.com/sharing/share-offsite/?url='+e(PET),facebook:H+'www.facebook.com/sharer/sharer.php?u='+e(PET),
-      x:H+'twitter.com/intent/tweet?text='+e(t)};
-    if(net==='native'){try{await navigator.share({title:'Polyworkers for Healthcare Reform',text:t});shared()}catch(err){} return}
-    if(net==='sms'||net==='email') location.href=urls[net]; else window.open(urls[net],'_blank','noopener');
-    shared();
-  }));
+  ['sh-copy'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',shared)});
   // Highlight the step you're reading
   const map={petition:'sign',pick:'call',act:'call',call:'call',share:'share'};
   try{const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const k=map[en.target.id];
