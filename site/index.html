@@ -904,6 +904,39 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .stepbar i{display:block;height:100%;width:0;background:#03B1AE;transition:width .4s ease}
 @media(prefers-reduced-motion:reduce){.stepbar i,.toplink-paper{transition:none}}
 @media(max-width:600px){.actnav .tl-k{display:none}}
+/* ===== Hero: photo wall of polyworkers + typing first line ===== */
+.hero-light .wrap.hero-split{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);align-items:center;column-gap:clamp(24px,4vw,56px)}
+.hero-light .wrap.hero-split{justify-items:stretch}
+.hero-split .hero-copy{display:grid;gap:22px;justify-items:start}
+.pwall{position:relative;height:clamp(440px,70svh,640px);display:grid;grid-template-columns:1fr 1fr;gap:14px;overflow:hidden;-webkit-mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(transparent,#000 12%,#000 88%,transparent)}
+.pcol{display:grid;gap:14px;animation:pw-up 38s linear infinite}
+.pcol.down{animation-name:pw-down;animation-duration:44s}
+.pwall:hover .pcol{animation-play-state:paused}
+@keyframes pw-up{from{transform:translateY(0)}to{transform:translateY(calc(-50% - 7px))}}
+@keyframes pw-down{from{transform:translateY(calc(-50% - 7px))}to{transform:translateY(0)}}
+.pt{margin:0;position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--c,#2a2a2a);border:2px solid #FBF3E6}
+.pt:nth-child(3n+1){--c:#E25F99}.pt:nth-child(3n+2){--c:#03B1AE}.pt:nth-child(3n){--c:#FEEE90}
+.pt img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05)}
+.pt figcaption{position:absolute;left:8px;right:8px;bottom:8px;background:#121212;color:#FBF3E6;font-family:var(--body);font-weight:600;font-size:.8rem;line-height:1.25;padding:6px 8px}
+.pt .ph{position:absolute;inset:0;display:grid;place-items:center;font-size:3.2rem;color:#121212;opacity:.35}
+@media(max-width:820px){
+  .hero-light .wrap.hero-split{grid-template-columns:minmax(0,1fr)}
+  .pwall{min-width:0;grid-template-columns:minmax(0,1fr)!important}
+  .hero-split>*{min-width:0}
+  .pwall{height:auto;grid-template-columns:1fr;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .pcol{grid-auto-flow:column;grid-auto-columns:130px;animation-name:pw-left}
+  .pcol.down{display:none}
+  .pt{aspect-ratio:4/5}
+  @keyframes pw-left{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 7px))}}
+}
+/* typing headline */
+.hero-light h1 .typed .ch{display:inline;opacity:0}
+.hero-light h1 .typed .ch.on{opacity:1}
+.hero-light h1 span.caret{display:inline-block;width:.07em;height:.9em;background:#03B1AE;margin-left:.04em;vertical-align:-.08em;animation:pw-blink 1s steps(1) infinite}
+@keyframes pw-blink{50%{opacity:0}}
+.hero-light h1 .line2{transition:opacity .6s ease,transform .6s ease}
+.hero-light h1.typing .line2{opacity:0;transform:translateY(8px)}
+@media(prefers-reduced-motion:reduce){.pcol{animation:none}.hero-light h1 .caret{display:none}}
 </style>
 
 </head>
@@ -924,8 +957,9 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   </div>
 </div></nav>
 <header class="hero hero-light" id="top">
-  <div class="wrap">
-    <h1><span><b class="num n1">16M</b> Americans are self-employed.</span> <span><b class="num n2">76M</b> are polyworking by choice or by force.</span></h1>
+  <div class="wrap hero-split">
+  <div class="hero-copy">
+    <h1><span class="line1"><b class="num n1">16M</b> Americans are self-employed.</span> <span class="line2"><b class="num n2">76M</b> are polyworking by choice or by force.</span></h1>
     <p class="hero-tag">It's time our healthcare system reflected that.</p>
     <p class="hero-steps"><a href="#petition">Sign the petition</a> · <a href="#pick">Call Congress</a> · <a href="#share">Tell 5 friends</a></p>
     <div class="hero-btns">
@@ -933,6 +967,11 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
       <a class="hb hb-ghost" href="#lose">Learn more <span aria-hidden="true">↓</span></a>
     </div>
     <p class="hero-note">16M: U.S. Bureau of Labor Statistics.</p>
+  </div>
+    <div class="pwall" aria-label="Polyworkers: people who hold more than one job">
+      <div class="pcol"><figure class="pt"><span class="ph" aria-hidden="true">🩺</span><figcaption>Nurse + Etsy shop</figcaption></figure><figure class="pt"><span class="ph" aria-hidden="true">🚗</span><figcaption>Rideshare driver + student</figcaption></figure><figure class="pt"><span class="ph" aria-hidden="true">🎨</span><figcaption>Designer + adjunct</figcaption></figure><figure class="pt"><span class="ph" aria-hidden="true">☕</span><figcaption>Barista + musician</figcaption></figure><figure class="pt"><span class="ph" aria-hidden="true">🔌</span><figcaption>Electrician + landlord</figcaption></figure><!-- copy for seamless loop --><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">🩺</span><figcaption>Nurse + Etsy shop</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">🚗</span><figcaption>Rideshare driver + student</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">🎨</span><figcaption>Designer + adjunct</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">☕</span><figcaption>Barista + musician</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">🔌</span><figcaption>Electrician + landlord</figcaption></figure></div>
+      <div class="pcol down"><figure class="pt"><span class="ph" aria-hidden="true">✂️</span><figcaption>Hair stylist + content creator</figcaption></figure><figure class="pt"><span class="ph" aria-hidden="true">🧾</span><figcaption>Caregiver + bookkeeper</figcaption></figure><figure class="pt"><span class="ph" aria-hidden="true">🍳</span><figcaption>Chef + food truck owner</figcaption></figure><figure class="pt"><span class="ph" aria-hidden="true">📚</span><figcaption>Tutor + translator</figcaption></figure><figure class="pt"><span class="ph" aria-hidden="true">📷</span><figcaption>Photographer + marketer</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">✂️</span><figcaption>Hair stylist + content creator</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">🧾</span><figcaption>Caregiver + bookkeeper</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">🍳</span><figcaption>Chef + food truck owner</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">📚</span><figcaption>Tutor + translator</figcaption></figure><figure class="pt" aria-hidden="true"><span class="ph" aria-hidden="true">📷</span><figcaption>Photographer + marketer</figcaption></figure></div>
+    </div>
   </div>
 </header>
 
@@ -1336,6 +1375,31 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     ['top','lose','short','steps','goal'].forEach(id=>{const el=$(id); if(el) clear.observe(el)});
   }catch(e){}
   render();
+})();
+
+/* Hero: type out the first headline line, then show the second */
+(function(){
+  const h=document.querySelector('.hero-light h1'), line=h&&h.querySelector('.line1');
+  if(!line||matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  h.setAttribute('aria-label',h.textContent.replace(/\s+/g,' ').trim());
+  const chars=[];
+  (function wrap(node){
+    [...node.childNodes].forEach(n=>{
+      if(n.nodeType===3){
+        const f=document.createDocumentFragment();
+        [...n.textContent].forEach(c=>{const sp=document.createElement('span');sp.className='ch';sp.textContent=c;f.appendChild(sp);chars.push(sp)});
+        n.replaceWith(f);
+      } else wrap(n);
+    });
+  })(line);
+  line.classList.add('typed'); h.classList.add('typing');
+  const caret=document.createElement('span'); caret.className='caret'; caret.setAttribute('aria-hidden','true');
+  let i=0;
+  function step(){
+    if(i<chars.length){chars[i].classList.add('on');chars[i].after(caret);i++;setTimeout(step,chars[i-1].textContent===' '?40:65);}
+    else{setTimeout(()=>h.classList.remove('typing'),250);}
+  }
+  setTimeout(step,350);
 })();
 </script>
 
