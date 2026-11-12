@@ -1003,6 +1003,8 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   .vs-row{display:grid;grid-template-columns:1fr 1fr;margin-bottom:14px;border:2px solid #121212}
   .vs-k{grid-column:1 / -1;padding:12px 14px;border-bottom:0;background:#FBF8F1}
   .vs-e,.vs-s{flex-direction:column;gap:6px;padding:12px 14px;font-size:.9rem;border-bottom:0}
+  .vs-s .vs-lab{color:#DF5416;opacity:1}
+  .vs-s{border-left:0;border-top:4px solid #DF5416}
   .vs-lab{display:block;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;opacity:.75}
   .vs-ic{display:none}
 }
@@ -1014,6 +1016,19 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .learn-q{margin:28px 0 0;font-family:var(--serif);font-weight:600;font-size:1.25rem;text-transform:uppercase;letter-spacing:.06em;color:var(--teal,#03B1AE)}
 .learn-q+.btn-learn{margin-top:10px}
 .learn-q+.btn-learn span:first-child{color:inherit}
+/* comparison: make the two sides unmistakable */
+.vs-head span{display:grid;gap:4px;padding:16px 20px 14px;font-size:1.15rem;letter-spacing:.06em}
+.vs-head span em{font-style:normal;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;justify-self:start;padding:3px 7px}
+.vs-he em{background:#03B1AE;color:#121212}
+.vs-hs{background:#DF5416!important;color:#fff!important}
+.vs-hs em{background:#121212;color:#FEEE90}
+@media(min-width:761px){.vs-s{border-left:4px solid #DF5416}.vs-e,.vs-s{align-items:center}}
+.vs-e,.vs-s{white-space:nowrap}
+@media(max-width:1000px){.vs-e,.vs-s{white-space:normal}}
+/* still confused: question + the same button style as the top menu */
+.learn-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:30px}
+.learn-row .learn-q{margin:0;font-size:1.15rem}
+.toplink-paper.learn-btn{display:inline-flex!important;margin:0;font-size:.95rem}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1101,16 +1116,15 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   <div class="wrap">
     <h2>You Lose a Lot of Your Benefits When You Work for Yourself.</h2>
     <div class="vs" role="table" aria-label="Benefits with an employer compared with working for yourself">
-      <div class="vs-head" role="row"><span role="columnheader"></span><span class="vs-he" role="columnheader">With an employer</span><span class="vs-hs" role="columnheader">Working for yourself</span></div>
-      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#0B0B0B;color:#FEEE90">01</span><b>Health insurance</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Employers contribute <strong>~$8K</strong> toward your plan.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You pay the whole premium.</span></div></div>
+      <div class="vs-head" role="row"><span role="columnheader"></span><span class="vs-he" role="columnheader"><em>W-2 job</em>With an employer</span><span class="vs-hs" role="columnheader"><em>Self-employed</em>Working for yourself</span></div>
+      <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#0B0B0B;color:#FEEE90">01</span><b>Health insurance</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Employers contribute <strong>~$8K</strong>.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You pay the whole premium.</span></div></div>
       <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#004CA6;color:#FFEFD6">02</span><b>Social Security/Medicare</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer pays <strong>7.65%</strong>.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You pay the full <strong>15.3%</strong>.</span></div></div>
       <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#E25F99;color:#0B0B0B">03</span><b>401(k)</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer adds a match.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">No one contributes but you.</span></div></div>
       <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#FD6E1A;color:#0B0B0B">04</span><b>Unemployment</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">A 6mo subsidy if you are out of work.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You bridge lumpy cash flows.</span></div></div>
       <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#03B1AE;color:#FFEFD6">05</span><b>Paid leave &amp; disability</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Often provided as an add on.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You have to buy a private policy.</span></div></div>
     </div>
     <p class="note">Sources: KFF Employer Health Benefits Survey, 2026; IRS self-employment tax.</p>
-    <p class="learn-q">Still confused?</p>
-    <a class="btn-learn" href="demystified.html">Read Healthcare, Demystified <span aria-hidden="true">→</span></a>
+    <div class="learn-row"><p class="learn-q">Still confused?</p><a class="toplink-paper learn-btn" href="demystified.html"><span class="tl-k">Read</span> Healthcare, demystified <span aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
