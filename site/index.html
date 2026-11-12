@@ -1034,6 +1034,21 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .vs{margin-top:clamp(32px,4vw,48px)}
 #lose .note{margin-top:14px}
 .learn-row{margin-top:clamp(40px,5vw,60px)}
+/* ===== "Why it matters": headline + Brad's story ===== */
+#short h2{max-width:22ch}
+.short-src{margin:12px 0 0;font-family:var(--body);font-size:.82rem;color:#bdb5a8}
+.brad{margin-top:clamp(32px,4vw,48px);display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center;max-width:1000px}
+.brad-video{position:relative;display:block;border:3px solid #FBF3E6;box-shadow:6px 6px 0 #DF5416;overflow:hidden}
+.brad-video img{display:block;width:100%;height:auto;transition:transform .4s ease}
+.brad-video:hover img{transform:scale(1.03)}
+.brad-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:#DF5416;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.brad-play::after{content:"";position:absolute;left:30px;top:22px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent #fff}
+.brad-tag{position:absolute;left:12px;bottom:12px;padding:5px 10px;background:#121212;color:#FBF3E6;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem}
+.brad-k{margin:0;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.12em;font-size:.82rem;color:#03B1AE}
+.brad-copy h3{margin:8px 0 0;font-family:var(--serif);font-weight:600;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.05;color:#FEEE90}
+.brad-d{margin:12px 0 18px;font-family:var(--body);font-size:1.02rem;line-height:1.5;color:#E9E1D4;max-width:46ch}
+.brad-spotify{display:block;border:0;border-radius:12px;max-width:520px}
+@media(max-width:760px){.brad{grid-template-columns:1fr}.brad-video{max-width:420px}}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1135,31 +1150,19 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 
 <section id="short" class="band-dark">
   <div class="wrap">
-    <p class="eyebrow">Why it matters</p>
-    <h2>So it doesn't help that the cost of your healthcare insurance just skyrocketed.</h2>
-    <div class="fcard hot result">
-      <span class="big-num">+42%</span>
-      <p class="result-lead">That's how much the price of a typical Marketplace plan has risen from 2025 to 2027.</p>
-      <span class="src">KFF, 2026</span>
-    </div>
-    <p class="cliff-body">This is because the ACA federal tax credit expired. Now if you earn over $62,600 as a single person, or $84,600 as a married couple filing jointly, you get no tax credit.</p>
-    <figure class="cliffbar" role="img" aria-label="Income scale for a single person in 2026. Below $62,600 you can get a tax credit. Above $62,600 you get no tax credit.">
-      <div class="cb-track"><span class="cb-yes">Tax credit lowers your premium</span><span class="cb-no">No tax credit</span></div>
-      <div class="cb-mark" style="left:62%"><span>$62,600</span></div>
-      <div class="cb-scale"><span>$0</span><span>Yearly income, single person</span><span>$100K</span></div>
-    </figure>
-    <p class="note" style="color:var(--on-night-muted)">2026 coverage, 48 contiguous states and DC. About $63,840 for 2027 coverage, and higher for families. For freelancers, one big December invoice can push you over.</p>
-
-    <div class="statcards">
-      <div class="fcard hot result sc-pink">
-        <span class="big-num">38%</span>
-        <p class="result-lead">of the Americans losing their ACA subsidy are self-employed. Only 7% of working-age adults are.</p>
-        <span class="src">KFF, 2025</span>
-      </div>
-      <div class="fcard hot result sc-teal">
-        <span class="big-num">48%</span>
-        <p class="result-lead">Nearly half of the 2026 drop in Marketplace sign-ups came from people above the cliff.</p>
-        <span class="src">KFF, 2026</span>
+    <h2>So it doesn't help that the cost of healthcare has increased by 42% since 2025.</h2>
+    <p class="short-src">Typical Marketplace plan, 2025 to 2027. Source: KFF, 2026.</p>
+    <div class="brad">
+      <a class="brad-video" href="https://www.linkedin.com/posts/babramowicz_2000-a-month-thats-what-it-will-now-cost-ugcPost-7520233510675333120-irR0/" target="_blank" rel="noopener">
+        <img src="brad-video.jpg" alt="Brad White on The Portfolio Career Lab podcast" width="720" height="720" loading="lazy">
+        <span class="brad-play" aria-hidden="true"></span>
+        <span class="brad-tag">Watch on LinkedIn</span>
+      </a>
+      <div class="brad-copy">
+        <p class="brad-k">The Portfolio Career Lab · Season 4</p>
+        <h3>“You choose your suck.”</h3>
+        <p class="brad-d">Brad White runs a fractional consulting company. His premiums go up 25% or more every year, and he can't pass the cost on to his clients.</p>
+        <iframe class="brad-spotify" src="https://open.spotify.com/embed/episode/3Qtzvuc4XiB1DQiQyzuosP?theme=0" title="Listen to the episode with Brad White on Spotify" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
     <div class="nextrow">
