@@ -692,14 +692,14 @@ header h1,.hero h1{font-size:clamp(2rem,4.6vw,3.5rem)!important;line-height:1.04
 .fs-btn{display:inline-block;padding:8px 14px;border:2px solid #FBF3E6;color:#FBF3E6;text-decoration:none;font-family:var(--serif);font-weight:600;font-size:.95rem;letter-spacing:.04em}
 .fs-btn:hover{background:#FBF3E6;color:#141414}
 /* ===== Footer: three calm columns, icon links ===== */
-.fnew{display:grid!important;grid-template-columns:1.1fr 1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
-.fnew .foot-h{margin:0;font-size:clamp(1.4rem,2.2vw,1.8rem)!important;line-height:1.1;color:#FEEE90}
+.fnew{display:grid!important;grid-template-columns:minmax(0,1.2fr) auto minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.fnew .foot-h{margin:0;max-width:none!important;font-size:clamp(1.15rem,1.75vw,1.55rem)!important;line-height:1.1;color:#FEEE90}
 .fn-k{margin:8px 0 0;font-family:var(--serif);font-weight:600;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:#DF5416}
 .fn-b .fn-k,.fn-c .fn-k{margin-top:0}
-.fn-links{margin:8px 0 0;font-family:var(--body);font-size:1rem;color:#FBF3E6}
+.fn-links{white-space:nowrap;margin:8px 0 0;font-family:var(--body);font-size:1rem;color:#FBF3E6}
 .fn-links a{color:#FBF3E6;text-decoration:none;border-bottom:1px solid rgba(251,243,230,.35)}
 .fn-links a:hover{color:#FEEE90;border-color:#FEEE90}
-.fn-icons{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.fn-icons{display:flex;flex-wrap:nowrap;gap:8px;margin-top:14px}
 .fi{display:grid;place-items:center;width:38px;height:38px;border:2px solid #FBF3E6;color:#FBF3E6;transition:background .15s,color .15s}
 .fi svg{width:18px;height:18px;fill:currentColor}
 .fi:hover{background:#FEEE90;border-color:#FEEE90;color:#141414}
@@ -965,7 +965,7 @@ header h1,.hero h1{font-size:clamp(2rem,4.6vw,3.5rem)!important;line-height:1.04
 <footer>
   <div class="wrap foot-grid fnew">
     <div class="fn-a">
-      <p class="foot-h">The future of work deserves a better safety net.</p>
+      <p class="foot-h">Polyworkers deserve a social safety net, including healthcare.</p>
       <p class="fn-k">Polyworkers for Healthcare Reform</p>
     </div>
     <div class="fn-b">
