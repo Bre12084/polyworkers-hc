@@ -1055,6 +1055,11 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .brad-video .brad-tag{left:0;right:auto;bottom:0;display:grid;gap:2px;padding:10px 16px 11px;background:#121212}
 .brad-tag b{font-family:var(--serif);font-weight:600;font-size:1.5rem;line-height:1;letter-spacing:.04em;color:#FEEE90}
 .brad-tag span{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:600;color:#FBF3E6}
+/* "You lose" heading: same size as the other section headings, Healthcare Demystified button beside it */
+.lose-head{display:flex;align-items:center;justify-content:space-between;gap:20px 40px;flex-wrap:wrap;max-width:1040px}
+.lose-head h2{margin:0;flex:1 1 520px;max-width:none;font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
+.lose-head .learn-btn{flex:none}
+.vs-head .vs-hk{align-self:end;padding-left:0;color:#141414;border-bottom:2px solid #141414}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1140,9 +1145,12 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 <main>
 <section id="lose">
   <div class="wrap">
-    <h2>You Lose a Lot of Your Benefits When You Work for Yourself.</h2>
+    <div class="lose-head">
+      <h2>You Lose a Lot of Your Benefits When You Work for Yourself.</h2>
+      <a class="toplink-paper learn-btn" href="demystified.html"><span class="tl-k">Read</span> Healthcare, demystified <span aria-hidden="true">→</span></a>
+    </div>
     <div class="vs" role="table" aria-label="Benefits with an employer compared with working for yourself">
-      <div class="vs-head" role="row"><span role="columnheader"></span><span class="vs-he" role="columnheader"><em>W-2 job</em>With an employer</span><span class="vs-hs" role="columnheader"><em>Self-employed</em>Working for yourself</span></div>
+      <div class="vs-head" role="row"><span class="vs-hk" role="columnheader">Benefits</span><span class="vs-he" role="columnheader"><em>W-2 job</em>With an employer</span><span class="vs-hs" role="columnheader"><em>Self-employed</em>Working for yourself</span></div>
       <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#0B0B0B;color:#FEEE90">01</span><b>Health insurance</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Employers contribute <strong>~$8K</strong>.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You pay the whole premium.</span></div></div>
       <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#004CA6;color:#FFEFD6">02</span><b>Social Security/Medicare</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer pays <strong>7.65%</strong>.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You pay the full <strong>15.3%</strong>.</span></div></div>
       <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#E25F99;color:#0B0B0B">03</span><b>401(k)</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Your employer adds a match.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">No one contributes but you.</span></div></div>
@@ -1150,7 +1158,6 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
       <div class="vs-row" role="row"><div class="vs-k" role="rowheader"><span class="ln" style="background:#03B1AE;color:#FFEFD6">05</span><b>Paid leave &amp; disability</b></div><div class="vs-e" role="cell"><span class="vs-ic" aria-hidden="true">✓</span><span class="vs-lab">With an employer</span><span class="vs-t">Often provided as an add on.</span></div><div class="vs-s" role="cell"><span class="vs-ic" aria-hidden="true">✕</span><span class="vs-lab">Working for yourself</span><span class="vs-t">You have to buy a private policy.</span></div></div>
     </div>
     <p class="note">Sources: KFF Employer Health Benefits Survey, 2026; IRS self-employment tax.</p>
-    <div class="learn-row"><p class="learn-q">Still confused?</p><a class="toplink-paper learn-btn" href="demystified.html"><span class="tl-k">Read</span> Healthcare, demystified <span aria-hidden="true">→</span></a></div>
   </div>
 </section>
 
