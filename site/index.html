@@ -1029,6 +1029,11 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 .learn-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin-top:30px}
 .learn-row .learn-q{margin:0;font-size:1.15rem}
 .toplink-paper.learn-btn{display:inline-flex!important;margin:0;font-size:.95rem}
+/* breathing room: hero text vs photos, and the comparison section */
+@media(min-width:821px){.hero-light .wrap.hero-split{column-gap:clamp(48px,7vw,112px);grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}.pwall{justify-self:end;width:100%;max-width:400px}}
+.vs{margin-top:clamp(32px,4vw,48px)}
+#lose .note{margin-top:14px}
+.learn-row{margin-top:clamp(40px,5vw,60px)}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
