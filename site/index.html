@@ -1386,6 +1386,15 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 @media(min-width:901px){#steps .voice-copy .takeaway{max-width:62ch!important}}
 .vs-head .vs-he{background:#03B1AE!important;color:#121212!important}
 #petition .pet-take{font-size:clamp(1rem,1.45vw,1.2rem)!important;max-width:62ch!important}
+/* Share step: message + graphic side by side */
+.sharegrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(20px,3vw,40px);align-items:start;margin-top:28px;max-width:1040px}
+#share .sharegrid .copycard{margin-top:0;max-width:none}
+.gfxcard{border:2px solid #141414;background:#fff;padding:16px;display:grid;gap:10px}
+.gfxcard img{display:block;width:100%;max-height:340px;object-fit:contain;background:#EDEDED}
+.gfx-l{font-family:var(--body);font-weight:600;font-size:.9rem}
+#gfx-fmt{font:inherit;font-size:1rem;padding:10px;border:2px solid #141414;background:#FBF3E6}
+.gfxcard .hb{justify-self:start}
+@media(max-width:760px){.sharegrid{grid-template-columns:1fr}}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
@@ -1454,7 +1463,7 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
       <ol class="hero-path">
         <li><a href="#petition"><i aria-hidden="true">1</i>Sign the petition</a></li>
         <li><a href="#call"><i aria-hidden="true">2</i>Call Congress</a></li>
-        <li><a href="#share"><i aria-hidden="true">3</i>Tell 5 friends</a></li>
+        <li><a href="#share"><i aria-hidden="true">2</i>Share on social</a></li>
       </ol>
     </div>
     <div class="hero-btns">
@@ -1532,7 +1541,7 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
       <li class="ar ar1"><h3 class="ar-t"><a href="#petition"><span class="ar-tn" aria-hidden="true">1</span><span class="ar-tt">Sign the petition</span></a></h3><a class="ar-card" href="#petition" aria-label="Step 1: Sign the petition"><svg class="ar-ic" viewBox="-14 -14 148 148" aria-hidden="true"><ellipse class="v-orbit" cx="60" cy="60" rx="64" ry="20" transform="rotate(-24 60 60)"/><circle class="v-moon" cx="117" cy="36" r="5"/><path class="v-star" d="M4 9 Q4 18 13 18 Q4 18 4 27 Q4 18 -5 18 Q4 18 4 9 Z"/><path class="v-star" d="M112 97 Q112 104 119 104 Q112 104 112 111 Q112 104 105 104 Q112 104 112 97 Z"/><path class="v-star" d="M18 99 Q18 104 23 104 Q18 104 18 109 Q18 104 13 104 Q18 104 18 99 Z"/><circle cx="63" cy="63" r="40" fill="#141414" filter="url(#rough)"/><circle class="v-sun" cx="60" cy="60" r="40" filter="url(#rough)"/><circle cx="60" cy="60" r="40" fill="url(#halftone)"/><g filter="url(#rough)" transform="rotate(-7 58 62)"><rect x="33" y="22" width="48" height="66" fill="#FBF3E6" stroke="#141414" stroke-width="4"/><rect x="33" y="22" width="48" height="66" fill="url(#halftone-lt)"/><path d="M40 34 h32 M40 43 h32 M40 52 h24 M40 61 h28" stroke="#141414" stroke-width="3.2" stroke-linecap="round"/><path d="M40 78 c4 -12 9 -10 8 -1 c-1 6 6 -9 10 -3 c2 3 5 1 9 -2" fill="none" stroke="#141414" stroke-width="3.2" stroke-linecap="round"/></g>
 <g filter="url(#rough)" transform="rotate(35 86 58)"><rect x="80" y="22" width="13" height="46" fill="#141414"/><rect x="80" y="22" width="13" height="10" fill="#BDB6AA" stroke="#141414" stroke-width="3"/><path d="M80 68 L86.5 84 L93 68 Z" fill="#FBF3E6" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><line x1="84" y1="30" x2="84" y2="62" stroke="#FBF3E6" stroke-width="2"/></g></svg></a></li>
       <li class="ar-arrow" aria-hidden="true">→</li>
-      <li class="ar ar2"><h3 class="ar-t"><a href="#share"><span class="ar-tn" aria-hidden="true">2</span><span class="ar-tt">Tell 5 friends</span></a></h3><a class="ar-card" href="#share" aria-label="Step 2: Tell 5 friends"><svg class="ar-ic" viewBox="-14 -14 148 148" aria-hidden="true"><ellipse class="v-orbit" cx="60" cy="60" rx="64" ry="20" transform="rotate(-24 60 60)"/><circle class="v-moon" cx="117" cy="36" r="5"/><path class="v-star" d="M4 9 Q4 18 13 18 Q4 18 4 27 Q4 18 -5 18 Q4 18 4 9 Z"/><path class="v-star" d="M112 97 Q112 104 119 104 Q112 104 112 111 Q112 104 105 104 Q112 104 112 97 Z"/><path class="v-star" d="M18 99 Q18 104 23 104 Q18 104 18 109 Q18 104 13 104 Q18 104 18 99 Z"/><circle cx="63" cy="63" r="40" fill="#141414" filter="url(#rough)"/><circle class="v-sun" cx="60" cy="60" r="40" filter="url(#rough)"/><circle cx="60" cy="60" r="40" fill="url(#halftone)"/><g filter="url(#rough)" stroke="#141414" stroke-width="4" stroke-linejoin="round"><circle cx="36" cy="50" r="11" fill="#141414"/><path d="M18 90 q0 -26 18 -26 q18 0 18 26 Z" fill="#141414"/><circle cx="84" cy="50" r="11" fill="#141414"/><path d="M66 90 q0 -26 18 -26 q18 0 18 26 Z" fill="#141414"/><circle cx="60" cy="42" r="13" fill="#FBF3E6"/><path d="M38 96 q0 -30 22 -30 q22 0 22 30 Z" fill="#FBF3E6"/></g><g><circle cx="60" cy="42" r="13" fill="url(#halftone-lt)"/><path d="M38 96 q0 -30 22 -30 q22 0 22 30 Z" fill="url(#halftone-lt)"/><path d="M31 46 a5 5 0 0 1 6 -3 M79 46 a5 5 0 0 1 6 -3" stroke="#FBF3E6" stroke-width="2" fill="none" stroke-linecap="round"/></g></svg></a></li>
+      <li class="ar ar2"><h3 class="ar-t"><a href="#share"><span class="ar-tn" aria-hidden="true">2</span><span class="ar-tt">Share on social</span></a></h3><a class="ar-card" href="#share" aria-label="Step 2: Share on social"><svg class="ar-ic" viewBox="-14 -14 148 148" aria-hidden="true"><ellipse class="v-orbit" cx="60" cy="60" rx="64" ry="20" transform="rotate(-24 60 60)"/><circle class="v-moon" cx="117" cy="36" r="5"/><path class="v-star" d="M4 9 Q4 18 13 18 Q4 18 4 27 Q4 18 -5 18 Q4 18 4 9 Z"/><path class="v-star" d="M112 97 Q112 104 119 104 Q112 104 112 111 Q112 104 105 104 Q112 104 112 97 Z"/><path class="v-star" d="M18 99 Q18 104 23 104 Q18 104 18 109 Q18 104 13 104 Q18 104 18 99 Z"/><circle cx="63" cy="63" r="40" fill="#141414" filter="url(#rough)"/><circle class="v-sun" cx="60" cy="60" r="40" filter="url(#rough)"/><circle cx="60" cy="60" r="40" fill="url(#halftone)"/><g filter="url(#rough)" stroke="#141414" stroke-width="4" stroke-linejoin="round"><circle cx="36" cy="50" r="11" fill="#141414"/><path d="M18 90 q0 -26 18 -26 q18 0 18 26 Z" fill="#141414"/><circle cx="84" cy="50" r="11" fill="#141414"/><path d="M66 90 q0 -26 18 -26 q18 0 18 26 Z" fill="#141414"/><circle cx="60" cy="42" r="13" fill="#FBF3E6"/><path d="M38 96 q0 -30 22 -30 q22 0 22 30 Z" fill="#FBF3E6"/></g><g><circle cx="60" cy="42" r="13" fill="url(#halftone-lt)"/><path d="M38 96 q0 -30 22 -30 q22 0 22 30 Z" fill="url(#halftone-lt)"/><path d="M31 46 a5 5 0 0 1 6 -3 M79 46 a5 5 0 0 1 6 -3" stroke="#FBF3E6" stroke-width="2" fill="none" stroke-linecap="round"/></g></svg></a></li>
       <li class="ar-arrow" aria-hidden="true">→</li>
       <li class="ar ar3"><h3 class="ar-t"><a href="#call"><span class="ar-tn" aria-hidden="true">3</span><span class="ar-tt">Call Congress</span></a></h3><a class="ar-card" href="#call" aria-label="Step 3: Call Congress"><svg class="ar-ic" viewBox="-14 -14 148 148" aria-hidden="true"><ellipse class="v-orbit" cx="60" cy="60" rx="64" ry="20" transform="rotate(-24 60 60)"/><circle class="v-moon" cx="117" cy="36" r="5"/><path class="v-star" d="M4 9 Q4 18 13 18 Q4 18 4 27 Q4 18 -5 18 Q4 18 4 9 Z"/><path class="v-star" d="M112 97 Q112 104 119 104 Q112 104 112 111 Q112 104 105 104 Q112 104 112 97 Z"/><path class="v-star" d="M18 99 Q18 104 23 104 Q18 104 18 109 Q18 104 13 104 Q18 104 18 99 Z"/><circle cx="63" cy="63" r="40" fill="#141414" filter="url(#rough)"/><circle class="v-sun" cx="60" cy="60" r="40" filter="url(#rough)"/><circle cx="60" cy="60" r="40" fill="url(#halftone)"/><g filter="url(#rough)" stroke="#141414" stroke-width="4" stroke-linejoin="round"><path d="M28 50 C30 26 90 26 92 50 L80 54 C78 40 42 40 40 54 Z" fill="#141414"/><rect x="18" y="46" width="26" height="14" rx="6" fill="#141414" transform="rotate(-10 31 53)"/><rect x="76" y="46" width="26" height="14" rx="6" fill="#141414" transform="rotate(10 89 53)"/><path d="M42 58 h36 l14 34 h-64 Z" fill="#FBF3E6"/><circle cx="60" cy="74" r="16" fill="#BDB6AA"/></g><path d="M42 58 h36 l14 34 h-64 Z" fill="url(#halftone-lt)"/><circle cx="53.5" cy="65.1" r="2.3" fill="#141414"/><circle cx="60.0" cy="63.0" r="2.3" fill="#141414"/><circle cx="66.5" cy="65.1" r="2.3" fill="#141414"/><circle cx="70.5" cy="70.6" r="2.3" fill="#141414"/><circle cx="70.5" cy="77.4" r="2.3" fill="#141414"/><circle cx="66.5" cy="82.9" r="2.3" fill="#141414"/><circle cx="60.0" cy="85.0" r="2.3" fill="#141414"/><circle cx="53.6" cy="82.9" r="2.3" fill="#141414"/><circle cx="49.6" cy="77.4" r="2.3" fill="#141414"/><circle cx="60" cy="74" r="5" fill="#141414"/><path d="M34 40 q10 -10 24 -12" stroke="#FBF3E6" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg></a></li>
     </ol>
@@ -1556,19 +1565,32 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
       <a class="hb hb-primary" href="https://c.org/JRF87Mq6cs" target="_blank" rel="noopener"><b class="bv">Sign</b> the petition now! <span aria-hidden="true">→</span></a>
       <span class="pet-note">30 seconds on Change.org.</span>
     </div>
-    <a class="nextaction" href="#share"><span>Signed it? Next:</span> <b>Step 2 · Tell 5 friends ↓</b></a>
+    <a class="nextaction" href="#share"><span>Signed it? Next:</span> <b>Step 2 · Share on social ↓</b></a>
   </div>
 </section>
 
 <section id="share">
   <div class="wrap">
     <p class="actlabel"><b class="act-tile t2" aria-label="Step 2">2</b></p>
-    <h2>Tell 5 friends.</h2>
-    <p class="takeaway">Copy this and send it to five people who work for themselves.</p>
+    <h2>Share on social.</h2>
+    <p class="takeaway">Copy the message, download the graphic, and post it wherever your people are.</p>
+    <div class="sharegrid">
     <div class="copycard">
       <label class="visually-hidden" for="msg">Message to send</label>
       <textarea id="msg" rows="4">I just signed a petition asking Congress to fix healthcare for people who work for themselves. The extra help that kept our insurance affordable just expired. If you work for yourself, or love someone who does, please add your name: https://c.org/JRF87Mq6cs</textarea>
       <div class="copy-foot"><button type="button" class="hb hb-primary" id="sh-copy"><b class="bv">Copy</b> message <span aria-hidden="true">→</span></button><span class="sh-status" id="sh-status" role="status"></span></div>
+    </div>
+    <div class="gfxcard">
+      <img src="share/polyworkers-post.jpg" id="gfx-img" alt="Polyworkers for Healthcare Reform graphic with a QR code to sign the petition" width="1080" height="1350" loading="lazy">
+      <label for="gfx-fmt" class="gfx-l">Where are you sharing it?</label>
+      <select id="gfx-fmt">
+        <option value="post" data-file="polyworkers-post.jpg">Instagram post</option>
+        <option value="story" data-file="polyworkers-story.jpg">Instagram or TikTok story</option>
+        <option value="square" data-file="polyworkers-square.jpg">LinkedIn, Facebook or X</option>
+        <option value="email" data-file="polyworkers-post.jpg">Email attachment</option>
+      </select>
+      <a class="hb hb-primary" id="dl-img" href="share/polyworkers-post.jpg" download="polyworkers-healthcare-reform.jpg"><b class="bv">Download</b> graphic <span aria-hidden="true">→</span></a>
+    </div>
     </div>
     <a class="nextaction" href="#call"><span>Shared it? Last step:</span> <b>Step 3 · Call Congress ↓</b></a>
   </div>
@@ -1695,8 +1717,8 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
   const $=id=>document.getElementById(id);
   const PET='https://c.org/JRF87Mq6cs';
   const STEPS=['sign','share','call'];
-  const NEXT={sign:['#petition','Next: Sign the petition'],call:['#call','Next: Call Congress'],share:['#share','Next: Tell 5 friends']};
-  const NAME={sign:'Tell 5 friends',share:'Call Congress'};
+  const NEXT={sign:['#petition','Next: Sign the petition'],call:['#call','Next: Call Congress'],share:['#share','Next: Share on social']};
+  const NAME={sign:'Share on social',share:'Call Congress'};
   const HREF={sign:'#share',share:'#call'};
   let st={done:{},friends:0};
   try{const v=JSON.parse(localStorage.getItem('pw-progress')||'null'); if(v&&v.done) st=v;}catch(e){}
@@ -1731,7 +1753,7 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
   document.querySelectorAll('a[href^="tel:"]').forEach(a=>a.addEventListener('click',()=>complete('call')));
   // Step 3: sharing
   function shared(){st.friends=(st.friends||0)+1;save();render();complete('share')}
-  ['sh-copy'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',shared)});
+  ['sh-copy','dl-img'].forEach(id=>{const el=$(id); if(el) el.addEventListener('click',shared)});
   // Highlight the step you're reading
   const map={petition:'sign',call:'call',share:'share'};
   try{const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const k=map[en.target.id];
@@ -1792,6 +1814,12 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 })();
 
 
+
+/* Share graphic: pick a size, download it */
+(function(){
+  const sel=document.getElementById('gfx-fmt'), a=document.getElementById('dl-img'), img=document.getElementById('gfx-img'); if(!sel||!a) return;
+  sel.addEventListener('change',()=>{const f=sel.selectedOptions[0].dataset.file;a.href='share/'+f;img.src='share/'+f;a.setAttribute('download','polyworkers-healthcare-reform-'+sel.value+'.jpg')});
+})();
 </script>
 
 </body>
