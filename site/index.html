@@ -1287,6 +1287,22 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 .toplink-paper .tl-k{font-family:var(--serif)!important;font-weight:600!important;font-size:1em!important;letter-spacing:.08em!important;text-transform:uppercase!important;color:inherit!important}
 .toplink-paper.learn-btn{font-size:1.15rem!important}
 #short .cb-grid .cost-num{margin-top:clamp(28px,3.4vw,44px)!important}
+/* hero photo tiles: tilted and a little off-kilter, like the logo's letter blocks */
+.pwall{overflow:hidden;padding-inline:10px}
+.pt{transform:rotate(var(--r,0deg)) translateX(var(--x,0px));box-shadow:4px 4px 0 rgba(0,0,0,.35)}
+.pt:nth-child(6n+1){--r:-4deg;--x:-4px}
+.pt:nth-child(6n+2){--r:3deg;--x:6px}
+.pt:nth-child(6n+3){--r:-1.5deg;--x:2px}
+.pt:nth-child(6n+4){--r:5deg;--x:-6px}
+.pt:nth-child(6n+5){--r:-3deg;--x:5px}
+.pt:nth-child(6n){--r:2deg;--x:-3px}
+.pcol.down .pt:nth-child(6n+1){--r:3.5deg;--x:5px}
+.pcol.down .pt:nth-child(6n+2){--r:-4.5deg;--x:-5px}
+.pcol.down .pt:nth-child(6n+3){--r:2deg;--x:-2px}
+.pcol.down .pt:nth-child(6n+4){--r:-2.5deg;--x:6px}
+.pcol.down .pt:nth-child(6n+5){--r:4deg;--x:-4px}
+.pcol.down .pt:nth-child(6n){--r:-1deg;--x:3px}
+.pcol{padding-top:8px}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
