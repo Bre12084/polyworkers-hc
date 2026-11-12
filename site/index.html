@@ -1035,12 +1035,15 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
 #lose .note{margin-top:14px}
 .learn-row{margin-top:clamp(40px,5vw,60px)}
 /* ===== "Why it matters": headline + Brad's story ===== */
-#short h2{max-width:22ch}
+#short h2{max-width:none;font-size:clamp(1.7rem,3.3vw,2.9rem);line-height:1.05}
 .short-src{margin:12px 0 0;font-family:var(--body);font-size:.82rem;color:#bdb5a8}
 .brad{margin-top:clamp(32px,4vw,48px);display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:clamp(24px,4vw,48px);align-items:center;max-width:1000px}
 .brad-video{position:relative;display:block;border:3px solid #FBF3E6;box-shadow:6px 6px 0 #DF5416;overflow:hidden}
-.brad-video img{display:block;width:100%;height:auto;transition:transform .4s ease}
-.brad-video:hover img{transform:scale(1.03)}
+.brad-video video{display:block;width:100%;height:auto;aspect-ratio:1/1;background:#000}
+.brad-playbtn{position:absolute;inset:0;border:0;padding:0;background:transparent;cursor:pointer}
+.brad-video.playing .brad-playbtn{display:none}
+.brad-playbtn:hover .brad-play{transform:scale(1.08)}
+.brad-play{transition:transform .2s ease}
 .brad-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:#DF5416;box-shadow:0 6px 20px rgba(0,0,0,.35)}
 .brad-play::after{content:"";position:absolute;left:30px;top:22px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent #fff}
 .brad-tag{position:absolute;left:12px;bottom:12px;padding:5px 10px;background:#121212;color:#FBF3E6;font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.8rem}
@@ -1153,14 +1156,13 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
     <h2>So it doesn't help that the cost of healthcare has increased by 42% since 2025.</h2>
     <p class="short-src">Typical Marketplace plan, 2025 to 2027. Source: KFF, 2026.</p>
     <div class="brad">
-      <a class="brad-video" href="https://www.linkedin.com/posts/babramowicz_2000-a-month-thats-what-it-will-now-cost-ugcPost-7520233510675333120-irR0/" target="_blank" rel="noopener">
-        <img src="brad-video.jpg" alt="Brad White on The Portfolio Career Lab podcast" width="720" height="720" loading="lazy">
-        <span class="brad-play" aria-hidden="true"></span>
-        <span class="brad-tag">Watch on LinkedIn</span>
-      </a>
+      <div class="brad-video">
+        <video id="bradvid" src="brad-video.mp4" poster="brad-video.jpg" preload="none" playsinline width="720" height="720" aria-label="Brad White on The Portfolio Career Lab podcast"></video>
+        <button type="button" class="brad-playbtn" aria-label="Play the video with Brad White"><span class="brad-play" aria-hidden="true"></span><span class="brad-tag">Watch Brad's story</span></button>
+      </div>
       <div class="brad-copy">
         <p class="brad-k">The Portfolio Career Lab · Season 4</p>
-        <h3>“You choose your suck.”</h3>
+        <h3>“This is a completely solvable problem.”</h3>
         <p class="brad-d">Brad White runs a fractional consulting company. His premiums go up 25% or more every year, and he can't pass the cost on to his clients.</p>
         <iframe class="brad-spotify" src="https://open.spotify.com/embed/episode/3Qtzvuc4XiB1DQiQyzuosP?theme=0" title="Listen to the episode with Brad White on Spotify" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
@@ -1567,6 +1569,13 @@ footer::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;back
   document.documentElement.classList.add('js-drop');
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.parentElement.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -18% 0px',threshold:.2});
   [...list.querySelectorAll('.vs-row')].forEach(r=>io.observe(r.firstElementChild));
+})();
+
+/* Brad's video: play right on the page */
+(function(){
+  const v=document.getElementById('bradvid'); if(!v) return;
+  const box=v.parentElement, btn=box.querySelector('.brad-playbtn');
+  btn.addEventListener('click',()=>{box.classList.add('playing');v.controls=true;v.play().catch(()=>{})});
 })();
 </script>
 
