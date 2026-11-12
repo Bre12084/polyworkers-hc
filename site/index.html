@@ -26,7 +26,7 @@
 <title>Polyworkers for Healthcare Reform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:ital,wght@0,400;0,600;0,700;1,700&family=Permanent+Marker&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Permanent+Marker&display=swap">
 <style>
 /* Layout: matches buildwithbrie.com. Dark navy-to-plum hero with an orange condensed serif headline, warm off-white page, square monospace buttons, dark tiles for coverage types. */
 :root{
@@ -1379,6 +1379,11 @@ main h2,section h2{font-size:clamp(1.7rem,3.3vw,2.9rem)!important;line-height:1.
 .whycall li b{color:#FBF3E6;font-weight:700}
 .wc-src{margin:12px 0 0;font-size:.78rem;color:#C7D3EA}
 .wc-src a{color:#FEEE90}
+#steps .takeaway em{font-weight:400!important}
+@media(min-width:901px){#steps .voice-stage .voice-art{margin-bottom:calc(-1 * clamp(72px,9vw,120px))!important}#steps .voice-art img{filter:drop-shadow(3px 0 0 #FBF3E6) drop-shadow(-3px 0 0 #FBF3E6) drop-shadow(0 -3px 0 #FBF3E6)}#steps .voice-sun{bottom:10%!important}}
+#steps .voice-copy .takeaway em,#steps .voice-copy .takeaway{font-weight:400!important}
+@media(min-width:901px){#steps .voice-copy{max-width:none!important}}
+@media(min-width:901px){#steps .voice-copy .takeaway{max-width:62ch!important}}
 /* ===== Phone polish ===== */
 @media(max-width:600px){
   /* top bar: logo and the 1-2-3 steps fit cleanly, no stray grey bar */
